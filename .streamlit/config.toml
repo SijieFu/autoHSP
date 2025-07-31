@@ -1,0 +1,76 @@
+[server]
+
+# The port where the server will listen for browser connections.
+# Default: 8501
+port = 8503
+
+# The base path for the URL where Streamlit should be served from.
+# Default: ""
+baseUrlPath = "HSP"
+
+# If false, will attempt to open a browser window on start.
+# Default: false unless (1) we are on a Linux box where DISPLAY is unset, or
+# (2) we are running in the Streamlit Atom plugin.
+headless = true
+
+# Automatically rerun script when the file is modified on disk.
+# Default: false
+runOnSave = true
+
+# Max size, in megabytes, for files uploaded with the file_uploader.
+# Default: 200
+maxUploadSize = 20
+
+[browser] # This ip and port will show in command prompt
+
+# Port where users should point their browsers in order to connect to the
+# app.
+# This is used to:
+# - Set the correct URL for XSRF protection purposes.
+# - Show the URL on the terminal (part of `streamlit run`).
+# - Open the browser automatically (part of `streamlit run`).
+# This option is for advanced use cases. To change the port of your app, use
+# `server.Port` instead.
+# Default: whatever value is set in server.port.
+serverPort = 8503
+
+# Whether to send usage statistics to Streamlit.
+# Default: true
+gatherUsageStats = false
+
+[client]
+
+# Controls whether uncaught app exceptions and deprecation warnings
+# are displayed in the browser. This can be one of the following:
+# - "full"       : In the browser, Streamlit displays app deprecation
+#                  warnings and exceptions, including exception types,
+#                  exception messages, and associated tracebacks.
+# - "stacktrace" : In the browser, Streamlit displays exceptions,
+#                  including exception types, generic exception messages,
+#                  and associated tracebacks. Deprecation warnings and
+#                  full exception messages will only print to the
+#                  console.
+# - "type"       : In the browser, Streamlit displays exception types and
+#                  generic exception messages. Deprecation warnings, full
+#                  exception messages, and associated tracebacks only
+#                  print to the console.
+# - "none"       : In the browser, Streamlit displays generic exception
+#                  messages. Deprecation warnings, full exception
+#                  messages, associated tracebacks, and exception types
+#                  will only print to the console.
+# - True         : This is deprecated. Streamlit displays "full"
+#                  error details.
+# - False        : This is deprecated. Streamlit displays "stacktrace"
+#                  error details.
+# Default: "full"
+showErrorDetails = "full"
+
+[runner]
+
+# Handle script rerun requests immediately, rather than waiting for
+# script execution to reach a yield point.
+# This makes Streamlit much more responsive to user interaction, but it
+# can lead to race conditions in apps that mutate session_state data
+# outside of explicit session_state assignment statements.
+# Default: true
+fastReruns = true

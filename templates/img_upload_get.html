@@ -1,0 +1,220 @@
+{% if parameters is not defined %}
+    {% set parameters = {} %}
+{% endif %}
+{% if use_default is not defined %}
+    {% set use_default = False %}
+{% endif %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <style>
+            span.default {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <title>Upload Experiment Result (autoHSP)</title>
+            <h4 style="color: red;">WARNING: this webpage is a temporary showcase UI and might be deprecated without notice.</h4>
+            {% if use_default %}
+                <h4 style="color: red;">NOTE: the default parameters are being used for analysis. You might need to adjust the parameters for your specific use case.</h4>
+                <h1>Image Upload Portal - Interface Detection</h1>
+            {% else %}
+                <h4 style="color: red;">NOTE: the parameters for interface detection is optimized ONLY for images from the <i>autoHSP</i> project.
+                    If you wish to try other images, you will need to adjust the parameters accordingly or add <code>?usedefault=true</code> to the URL.</h4>
+                <h1><i>autoHSP</i> Image Upload Portal - Interface Detection</h1>
+            {% endif %}
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <input type="submit" value="Upload">
+                <br>
+
+                <h3>Optional POST request parameters:</h3>
+                <!-- Text input field for custom filename -->
+                <label for="filename">Custom Filename (Optional):</label>
+                <input type="text" id="filename" name="filename">
+                <br>
+                <!-- checkbox for saveflag, by default, GET request should not save -->
+                <span style="display: none;">
+                <input type="checkbox" id="nosaveflag" name="nosaveflag" value="no" checked>
+                <label for="nosaveflag">If checked, the results will NOT be cached.</label>
+                <br></span>
+                <!-- checkbox for return image -->
+                <input type="checkbox" id="returnimage" name="returnimage" value="yes" checked>
+                <label for="returnimage">Check to show image analysis result after uploading</label>
+                <br>
+                <!-- checkbox for image zoomin -->
+                <input type="checkbox" id="zoomin" name="zoomin" value="yes" checked>
+                <label for="zoomin">Check to show the zoomed-in image analysi result</label>
+                <br>
+                <!-- checkbox for return image; remove this display for webpage users -->
+                <span style="display: none;">
+                <input type="checkbox" id="donot_returnjson" name="donot_returnjson" value="no" checked>
+                <label for="donot_returnjson">If checked, the POST response will not be a JSON object</label>
+                <br></span>
+                <!-- checkbox for force reanalysis -->
+                <input type="checkbox" id="force" name="force" value="yes">
+                <label for="force">Check to force re-analysis, if wish to overwrite previously cached analysis</label>
+
+                <h3>Optional parameters for vial detection:</h3>
+                <!-- dropdown menu -->
+                <label for="weights">Select a fine-tuned YOLO model
+                    (default <span class="default">YOLOv8n</span>):</label>
+                <select id="weights" name="weights">
+                    <option value="yolov8n.pt" >YOLOv8n</option>
+                    <option value="yolov8s.pt">YOLOv8s</option>
+                    <option value="yolov9t.pt">YOLOv9t</option>
+                    <option value="yolov9s.pt">YOLOv9s</option>
+                    <option value="yolov10n.pt" >YOLOv10n</option>
+                    <option value="yolov10s.pt">YOLOv10s</option>
+                    <option value="yolo11n.pt" >YOLO11n</option>
+                    <option value="yolo11s.pt">YOLO11s</option>
+                </select>
+                <br>
+                <!-- Text input field for confidence threshold -->
+                <label for="conf">Confidence Threshold
+                    (0-1, default  <span class="default">{{ parameters.conf | default(0.7) }}</span>):</label>
+                <input type="text" id="conf" name="conf" value="{{ parameters.conf | default(0.7) }}">
+                <br>
+                <!-- Text input field for IoU threshold -->
+                <label for="iou">IoU Threshold
+                    (0-1, default <span class="default">{{ parameters.iou | default(0.5) }}</span>):</label>
+                <input type="text" id="iou" name="iou" value="{{ parameters.iou | default(0.5) }}">
+                <br>
+                <!-- Text input field for max_det -->
+                <label for="max_det">Maximum Detections
+                    (default <span class="default">{{ parameters.max_det | default(100) }}</span>):</label>
+                <input type="text" id="max_det" name="max_det" value="{{ parameters.max_det | default(100) }}">
+                <br>
+                <!-- Text input field for width_expansion -->
+                <label for="width_expansion">Width Expansion
+                    (0-0.2, default <span class="default">{{ parameters.width_expansion | default(0.025) }}</span>):</label>
+                <input type="text" id="width_expansion" name="width_expansion" value="{{ parameters.width_expansion | default(0.025) }}">
+                <br>
+                <!-- Text input field for alignment_cutoff -->
+                <label for="alignment_cutoff">Alignment Cutoff
+                    (0-1, default <span class="default">{{ parameters.alignment_cutoff | default(0.5) }}</span>):</label>
+                <input type="text" id="alignment_cutoff" name="alignment_cutoff" value="{{ parameters.alignment_cutoff | default(0.5) }}">
+                <!-- <br> -->
+                <!-- Text input field for device -->
+                <!-- <label for="device">Device (default 'cpu'):</label> -->
+                <!-- <input type="text" id="device" name="device" value="cpu"> -->
+                <br>
+                <!-- Text input field for config -->
+                <label for="config">How many vials per row? (comma-separated string of integers, optional):</label>
+                <input type="text" id="config" name="config">
+
+                <h3>Optional parameters for interface detection:</h3>
+                <!-- Text input field for over_exposure_threshold -->
+                <label for="over_exposure_threshold">Images over this threshold will be considered overexposed
+                    (>=0, default <span class="default">{{ parameters.over_exposure_threshold | default(200) }}</span>):</label>
+                <input type="text" id="over_exposure_threshold" name="over_exposure_threshold" value="{{ parameters.over_exposure_threshold | default(200) }}">
+                <br><br>
+
+                <!-- checkbox for force background correction -->
+                <input type="checkbox" id="no_bg_correction" name="no_bg_correction" value="yes">
+                <label for="no_bg_correction">Check to DISABLE background correction (NOT recommended)</label>
+                <br>
+                <!-- Text input for background color tolerance -->
+                <label for="bg_tolerance">Background Color Tolerance
+                    (0-255 or three comma-separated integers in the HSV space, default
+                    <span class="default">{{ parameters.bg_tolerance | default(40) }}</span>):</label>
+                <input type="text" id="bg_tolerance" name="bg_tolerance" value="{{ parameters.bg_tolerance | default(40) }}">
+                <br>
+                <!-- Text input for background resolution -->
+                <label for="bg_resolution">Resolution for background correction
+                    (0-0.1, the larger the more aggressive, default
+                    <span class="default">{{ parameters.bg_resolution | default(0.02) }}</span>):</label>
+                <input type="text" id="bg_resolution" name="bg_resolution" value="{{ parameters.bg_resolution | default(0.02) }}">
+                <br>
+                <!-- Text input for background sobel ratio -->
+                <label for="bg_sobel_ratio">Sobel Ratio for Background Correction
+                    (0.5-1.0, the larger the more aggressive, default
+                    <span class="default">{{ parameters.bg_sobel_ratio | default(0.55) }}</span>):</label>
+                <input type="text" id="bg_sobel_ratio" name="bg_sobel_ratio" value="{{ parameters.bg_sobel_ratio | default(0.55) }}">
+                <br><br>
+
+
+                <!-- Text input for cap ratio to vessel height -->
+                <label for="cap_ratio">Cap ratio to vessel height, max or min-max
+                    (0-0.6, one or two comma-sep floats, default
+                    <span class="default">{{ parameters.cap_ratio | default("0.1,0.25") }}</span>):</label>
+                <input type="text" id="cap_ratio" name="cap_ratio" value="{{ parameters.cap_ratio | default("0.1,0.25") }}">
+                <br>
+                <!-- Text input for cap color target -->
+                <label for="cap_target">Cap Color Target
+                    (-1-255 or three comma-separated integers in BGR; default
+                    <span class="default">{{ parameters.cap_target | default(-1) }}</span>, color by inference):</label>
+                <input type="text" id="cap_target" name="cap_target" value="{{ parameters.cap_target | default(-1) }}">
+                <br>
+                <!-- Text input for cap color tolerance -->
+                <label for="cap_tolerance">Cap Color Tolerance
+                    (0-255 or three comma-separated integers in BGR,
+                    default <span class="default">{{ parameters.cap_tolerance | default(30) }}</span>):</label>
+                <input type="text" id="cap_tolerance" name="cap_tolerance" value="{{ parameters.cap_tolerance | default(30) }}">
+                <br><br>
+
+                <!-- Text input for Sobel threshold (vessel) -->
+                <label for="vessel_sobel_threshold">Sobel Gradient Threshold (vessel detection)
+                    (0-255, default <span class="default">{{ parameters.vessel_sobel_threshold | default(31) }}</span>):</label>
+                <input type="text" id="vessel_sobel_threshold" name="vessel_sobel_threshold" value="{{ parameters.vessel_sobel_threshold | default(31) }}">
+                <br>
+                <!-- Text input for Sobel threshold (interface) -->
+                <label for="sobel_threshold">Sobel Gradient Threshold (interface detection)
+                    (0-255, default <span class="default">{{ parameters.sobel_threshold | default(24) }}</span>):</label>
+                <input type="text" id="sobel_threshold" name="sobel_threshold" value="{{ parameters.sobel_threshold | default(24) }}">
+                <br>
+                <!-- Text input for Sobel xy ratio cutoff -->
+                <label for="sobel_xy_ratio">Sobel xy ratio cutoff
+                    (0-1.0, default <span class="default">{{ parameters.sobel_xy_ratio | default(1.0) }}</span>):</label>
+                <input type="text" id="sobel_xy_ratio" name="sobel_xy_ratio" value="{{ parameters.sobel_xy_ratio | default(1.0) }}">
+                <br>
+                <!-- Checkbox for whether or not to dilate the mask -->
+                <input type="checkbox" id="dilation" name="dilation" value="yes" checked>
+                <label for="dilation">Check to DILATE (enhance) the Sobel edges (recommended)</label>
+                <br><br>
+
+                <!-- Text input for phase resolution -->
+                <label for="phase_resolution">Phase Resolution
+                    (0-0.5, default <span class="default">{{ parameters.phase_resolution | default(0.08) }}</span>):</label>
+                <input type="text" id="phase_resolution" name="phase_resolution" value="{{ parameters.phase_resolution | default(0.08) }}">
+                <br>
+                <!-- Text input for boundary resolution -->
+                <label for="boundary_resolution">Boundary Resolution
+                    (0-1.0 or two comma-sep floats for top/bottom,
+                    default <span class="default">{{ parameters.boundary_resolution | default("0.4,0.1") }}</span>):</label>
+                <input type="text" id="boundary_resolution" name="boundary_resolution" value="{{ parameters.boundary_resolution | default("0.4,0.1") }}">
+                <br><br>
+
+                <!-- Checkbox for whether or not to use label correction -->
+                <input type="checkbox" id="no_label_correction" name="no_label_correction" value="yes">
+                <label for="no_label_correction">Check to DISABLE label correction (NOT recommended)</label>
+                <br>
+                <!-- Text input for label color lower bound -->
+                <label for="label_low">Label Color Lower Bound
+                    (0-255 or three comma-separated integers in BGR,
+                    default <span class="default">{{ parameters.label_low | default(150) }}</span>):</label>
+                <input type="text" id="label_low" name="label_low" value="{{ parameters.label_low | default(150) }}">
+                <br>
+                <!-- Text input for label color higher bound -->
+                <label for="label_high">Label Color Higher Bound
+                    (0-255 or three comma-separated integers in BGR,
+                    default <span class="default">{{ parameters.label_high | default(220) }}</span>):</label>
+                <input type="text" id="label_high" name="label_high" value="{{ parameters.label_high | default(220) }}">
+                <br>
+                <!-- Checkbox for whether or not check color in grayscale -->
+                <input type="checkbox" id="label_check_gray" name="label_check_gray" value="yes">
+                <label for="label_check_gray">Check to force checking label color in grayscale (NOT recommended)</label>
+                <br><br>
+
+                <!-- Text input for interface signal threshold -->
+                <label for="interface_signal">Interface Ratio Cutoff
+                    (0.5-0.9, larger means more strict detection,
+                    default <span class="default">{{ parameters.interface_signal | default(0.55) }}</span>)</label>
+                <input type="text" id="interface_signal" name="interface_signal" value="{{ parameters.interface_signal | default(0.55) }}">
+                <br>
+            </form>
+        </div>
+    </body>
+</html>

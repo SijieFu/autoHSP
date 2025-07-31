@@ -1,0 +1,3414 @@
+{
+    "taskid:EOE": {
+        "task": "EOE",
+        "taskId": "taskid:EOE"
+    },
+    "taskid:pause": {
+        "task": "pause",
+        "taskId": "taskid:pause"
+    },
+    "prep:15f7fb1e4d9169d6296e301a33bfe661": {
+        "task": "prep",
+        "taskId": "prep:15f7fb1e4d9169d6296e301a33bfe661",
+        "thread": "thread1",
+        "time": "2024-06-02T18:11:48.758176-04:00",
+        "samples": [
+            {
+                "label": "R11:S14-r5.00:s5.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S14"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R11:S17-r5.00:s5.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S17"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R11:S19-r5.00:s5.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S19"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R11:S22-r5.00:s5.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S22"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R11:S13-r5.00:s5.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R11:S11-r5.00:s5.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "exception:thread1": [
+        "image:639182c30dcf643de574cde67b6f1358"
+    ],
+    "history:thread1": [
+        "prep:15f7fb1e4d9169d6296e301a33bfe661",
+        "image:92ff4088e04624a29f85e0870446d615",
+        "prep:dac54570cdc25355c0e5b423f901df52",
+        "image:822e0947da2b883e8ba9b12b411a9b03",
+        "prep:2f21b22d933b7a6a7ea7fd51920c16b6",
+        "image:a148144a26395e01f4c4514b229065d2",
+        "prep:471da826cebadd52ad4af274332f96dc",
+        "image:9781d2540e9ae75a422e55b584f8a219",
+        "image:059d5a3acd8e52bdc7dd2608720961d6",
+        "prep:0d957f1c550162d19ebd039190714785",
+        "image:fc75bb1a93178d7bf01d86dbc8203e9a",
+        "prep:891d0fc107c9d3779623ec08ec39a828",
+        "image:f912a038a99ab440c5ac927a5e0d8ed3",
+        "prep:345b17812f6c35b693f72c5d7d342b92",
+        "image:85ec8e879141c3811cf441a5fa0499e3",
+        "prep:1e362ff02d0bcd100612a5aaa8d37b15",
+        "prep:6076003204971517f6d0a0224c3b28d4",
+        "prep:adfa26f27a05adb1304f61bd18031c6b",
+        "image:a2486b8f67ead24e52d95d2c1a50ccdd",
+        "prep:58c148d7f74fe2b4eb5eb7d0f8612532",
+        "image:d4c7f863d428ed7293d15773e79d8408",
+        "image:bbe35d6926cef75e00238c374ff0d0c5",
+        "prep:5f7265a6cee9566f5ffdbc67102b21e8",
+        "image:639182c30dcf643de574cde67b6f1358",
+        "prep:5d2ce0a428d7fc479e2cf92019d99021",
+        "image:9cc032b21bbcfead9cab9ea4855e0b48",
+        "prep:ec6438e847ecdff2aac207c85d4e8183",
+        "image:4783bdb278f9d33fa0f5b35c5d5a3259",
+        "image:86c011bd1fe90fb0048e0e3d1642a418",
+        "prep:e855584e32a59c2e2f84cc78460a1abf",
+        "image:15bc1bdaa9a63eea78c2ebadecace8b4"
+    ],
+    "THREADS": [
+        "thread1",
+        "thread2",
+        "test",
+        "thread3"
+    ],
+    "prep:345cb16ccd736c4f97984c84787275e5": {
+        "task": "prep",
+        "taskId": "prep:345cb16ccd736c4f97984c84787275e5",
+        "thread": "thread2",
+        "time": "2024-06-03T23:57:28.231798-04:00",
+        "samples": [
+            {
+                "label": "R12:S17-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S17"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S22-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S22"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S19-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S19"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S14-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S14"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S13-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S11-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "exception:thread2": [],
+    "history:thread2": [
+        "prep:345cb16ccd736c4f97984c84787275e5"
+    ],
+    "thread2": "prep:345cb16ccd736c4f97984c84787275e5",
+    "image:92ff4088e04624a29f85e0870446d615": {
+        "task": "image",
+        "taskId": "image:92ff4088e04624a29f85e0870446d615",
+        "samples": [
+            "R11:S22-r5.00:s5.00",
+            "R11:S19-r5.00:s5.00",
+            "R11:S11-r5.00:s5.00",
+            "R11:S13-r5.00:s5.00",
+            "R11:S14-r5.00:s5.00",
+            "R11:S17-r5.00:s5.00"
+        ],
+        "thread": "thread1",
+        "time": "2024-06-04T23:14:09.552283-04:00"
+    },
+    "prep:dac54570cdc25355c0e5b423f901df52": {
+        "task": "prep",
+        "taskId": "prep:dac54570cdc25355c0e5b423f901df52",
+        "thread": "thread1",
+        "time": "2024-08-27T18:36:42.531844-04:00",
+        "samples": [
+            {
+                "label": "R11:S10:S5-r5.00:s1.50:s3.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5",
+                    "S10"
+                ],
+                "samount": [
+                    3.5,
+                    1.5
+                ]
+            },
+            {
+                "label": "R11:S10:S3-r5.00:s3.00:s2.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S3",
+                    "S10"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R11:S17:S22-r5.00:s1.50:s3.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S17",
+                    "S22"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            },
+            {
+                "label": "R11:S4:S5-r5.00:s3.50:s1.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4",
+                    "S5"
+                ],
+                "samount": [
+                    3.5,
+                    1.5
+                ]
+            },
+            {
+                "label": "R11:S12:S14-r5.00:s3.00:s2.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S12",
+                    "S14"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R11:S13:S14-r5.00:s1.50:s3.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13",
+                    "S14"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            }
+        ]
+    },
+    "image:822e0947da2b883e8ba9b12b411a9b03": {
+        "task": "image",
+        "taskId": "image:822e0947da2b883e8ba9b12b411a9b03",
+        "samples": [
+            "R11:S10:S5-r5.00:s1.50:s3.50",
+            "R11:S10:S3-r5.00:s3.00:s2.00",
+            "R11:S4:S5-r5.00:s3.50:s1.50",
+            "R11:S17:S22-r5.00:s1.50:s3.50",
+            "R11:S12:S14-r5.00:s3.00:s2.00",
+            "R11:S13:S14-r5.00:s1.50:s3.50"
+        ],
+        "thread": "thread1",
+        "time": "2024-09-01T02:10:24.992511-04:00"
+    },
+    "prep:2f21b22d933b7a6a7ea7fd51920c16b6": {
+        "task": "prep",
+        "taskId": "prep:2f21b22d933b7a6a7ea7fd51920c16b6",
+        "thread": "thread1",
+        "time": "2024-09-01T22:53:47.240512-04:00",
+        "samples": [
+            {
+                "label": "R11:S10:S12-r5.00:s2.00:s3.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S10",
+                    "S12"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R11:S10:S22-r5.00:s3.00:s2.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S10",
+                    "S22"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R11:S10:S12-r5.00:s4.00:s1.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S10",
+                    "S12"
+                ],
+                "samount": [
+                    4.0,
+                    1.0
+                ]
+            },
+            {
+                "label": "R11:S1:S22-r5.00:s3.50:s1.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S1",
+                    "S22"
+                ],
+                "samount": [
+                    3.5,
+                    1.5
+                ]
+            },
+            {
+                "label": "R11:S22:S5-r5.00:s1.00:s4.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5",
+                    "S22"
+                ],
+                "samount": [
+                    4.0,
+                    1.0
+                ]
+            },
+            {
+                "label": "R11:S13:S21-r5.00:s3.00:s2.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13",
+                    "S21"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            }
+        ]
+    },
+    "image:a148144a26395e01f4c4514b229065d2": {
+        "task": "image",
+        "taskId": "image:a148144a26395e01f4c4514b229065d2",
+        "samples": [
+            "R11:S10:S12-r5.00:s4.00:s1.00",
+            "R11:S10:S22-r5.00:s3.00:s2.00",
+            "R11:S13:S21-r5.00:s3.00:s2.00",
+            "R11:S10:S12-r5.00:s2.00:s3.00",
+            "R11:S1:S22-r5.00:s3.50:s1.50",
+            "R11:S22:S5-r5.00:s1.00:s4.00"
+        ],
+        "thread": "thread1",
+        "time": "2024-09-04T18:04:37.548111-04:00"
+    },
+    "prep:471da826cebadd52ad4af274332f96dc": {
+        "task": "prep",
+        "taskId": "prep:471da826cebadd52ad4af274332f96dc",
+        "thread": "thread1",
+        "time": "2024-09-07T15:56:01.024763-04:00",
+        "samples": [
+            {
+                "label": "R11:S22:S5-r5.00:s1.00:s4.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5",
+                    "S22"
+                ],
+                "samount": [
+                    4.0,
+                    1.0
+                ]
+            },
+            {
+                "label": "R11:S10:S22-r5.00:s3.00:s2.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S10",
+                    "S22"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R11:S1:S22-r5.00:s3.50:s1.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S1",
+                    "S22"
+                ],
+                "samount": [
+                    3.5,
+                    1.5
+                ]
+            },
+            {
+                "label": "R11:S10:S12-r5.00:s4.00:s1.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S10",
+                    "S12"
+                ],
+                "samount": [
+                    4.0,
+                    1.0
+                ]
+            },
+            {
+                "label": "R11:S10:S12-r5.00:s2.00:s3.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S10",
+                    "S12"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R11:S13:S21-r5.00:s3.00:s2.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13",
+                    "S21"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            }
+        ]
+    },
+    "image:9781d2540e9ae75a422e55b584f8a219": {
+        "task": "image",
+        "taskId": "image:9781d2540e9ae75a422e55b584f8a219",
+        "samples": [
+            "R11:S22:S5-r5.00:s1.00:s4.00",
+            "R11:S10:S22-r5.00:s3.00:s2.00",
+            "R11:S1:S22-r5.00:s3.50:s1.50",
+            "R11:S10:S12-r5.00:s4.00:s1.00",
+            "R11:S10:S12-r5.00:s2.00:s3.00",
+            "R11:S13:S21-r5.00:s3.00:s2.00"
+        ],
+        "thread": "thread1",
+        "time": "2024-09-09T18:27:59.884071-04:00"
+    },
+    "prep:3b856e2ab30ebc0a113ddb80c1f086ab": {
+        "task": "prep",
+        "taskId": "prep:3b856e2ab30ebc0a113ddb80c1f086ab",
+        "thread": "thread3",
+        "time": "2024-09-11T04:10:58.783592-04:00",
+        "samples": [
+            {
+                "label": "R10:S11-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S17-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S17"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S13-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S19-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S19"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S4-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S15-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S15"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "exception:thread3": [
+        "image:92c7194f503756efdcb48a5cda904472",
+        "prep:10e038a424e9c5598b4b456dc677bc5b",
+        "image:5361b853483a713b8036eb3b32bd8925"
+    ],
+    "history:thread3": [
+        "prep:3b856e2ab30ebc0a113ddb80c1f086ab",
+        "prep:098158782e8b68d13b5bd1b01f1b928c",
+        "image:8ae968770b4f7adaedfe5c1991435d88",
+        "prep:2dbe9cdab94bb4bbaa6b2e7d716fe957",
+        "image:b3dd60881eae37e7fb48a3851a0ec2c3",
+        "prep:0e8b18aa99fca6620a1c65963995be30",
+        "image:0fa1c2ce1f503dbaa631c07aa79e3334",
+        "prep:f19409b2695cfe91fd75b1f73409246f",
+        "image:b693d743730eebfa4eeae05e072b4fe7",
+        "prep:2a1a376b9ecff23ff657fba29fb6904a",
+        "image:955455a161e2ebbf311a22d874aeddea",
+        "prep:f2ddc63d1d350983ae0dbf4a933c37de",
+        "image:92c7194f503756efdcb48a5cda904472",
+        "prep:848cfbe27f07c355d77fcd55d26a1c67",
+        "image:0cb2815ec0eab84d50bb1c9f66e0db9b",
+        "prep:10e038a424e9c5598b4b456dc677bc5b",
+        "prep:ac4678737f9b5d4d289fd17231ae0b40",
+        "image:a01bf4e79507a7913982d557be03f0b1",
+        "image:9a504fc90b4520a95155b063de723295",
+        "prep:ad52638b885cfaa01c043bfb2bbe5bf0",
+        "prep:2881afc18f155b88224ee8cbf807c1ae",
+        "image:d0e913fc66bd0f900ae905ef357bdfca",
+        "image:88778e6a467ff38abecc58e1e6462443",
+        "prep:c63c5d4ac1ac02209339d5886c50a858",
+        "image:2766eac61ad8f4b4e34a14b17f72381e",
+        "prep:aaa4919561e558ed65983dfe7cac640a",
+        "image:4c606e95215b20025f506e17aa73ddd7",
+        "prep:5e064c36a28b4ce1f7dc897518390dfb",
+        "image:a83a5d728469029b01221186ea4be33f",
+        "prep:ef7c5b43bd8761d67a4a54cde51adad0",
+        "image:8c6ec50f86e0a4c1d61db0793f390420",
+        "prep:148ba40ef3f7d7e968ee353b9a5f4f07",
+        "prep:4cc3a434e7078ebb446431f039f610cf",
+        "image:5361b853483a713b8036eb3b32bd8925",
+        "prep:7055d0453c1b619b1614f474132a9de9",
+        "prep:30db8e8d2c2270d3da5f10ab9bc904a8",
+        "image:80dc8adcdcd30b98f658ed23f4762884",
+        "image:ae3faea7ad814537e814b0222dd12515"
+    ],
+    "prep:098158782e8b68d13b5bd1b01f1b928c": {
+        "task": "prep",
+        "taskId": "prep:098158782e8b68d13b5bd1b01f1b928c",
+        "thread": "thread3",
+        "time": "2024-09-13T16:08:14.911865-04:00",
+        "samples": [
+            {
+                "label": "R8:S4-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S13-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S10-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S10"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S21-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S21"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S17-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S17"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S11-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "image:8ae968770b4f7adaedfe5c1991435d88": {
+        "task": "image",
+        "taskId": "image:8ae968770b4f7adaedfe5c1991435d88",
+        "samples": [
+            "R10:S19-r5.00:s5.00",
+            "R10:S11-r5.00:s5.00",
+            "R10:S13-r5.00:s5.00",
+            "R10:S17-r5.00:s5.00",
+            "R10:S15-r5.00:s5.00",
+            "R10:S4-r5.00:s5.00"
+        ],
+        "thread": "thread3",
+        "time": "2024-09-15T18:31:58.243272-04:00"
+    },
+    "image:059d5a3acd8e52bdc7dd2608720961d6": {
+        "task": "image",
+        "taskId": "image:059d5a3acd8e52bdc7dd2608720961d6",
+        "samples": [
+            "R11:S10:S22-r5.00:s3.00:s2.00",
+            "R11:S10:S12-r5.00:s4.00:s1.00",
+            "R11:S10:S12-r5.00:s2.00:s3.00",
+            "R11:S22:S5-r5.00:s1.00:s4.00",
+            "R11:S1:S22-r5.00:s3.50:s1.50",
+            "R11:S13:S21-r5.00:s3.00:s2.00"
+        ],
+        "thread": "thread1",
+        "time": "2024-09-15T19:33:20.343963-04:00"
+    },
+    "prep:2dbe9cdab94bb4bbaa6b2e7d716fe957": {
+        "task": "prep",
+        "taskId": "prep:2dbe9cdab94bb4bbaa6b2e7d716fe957",
+        "thread": "thread3",
+        "time": "2024-09-15T23:54:51.737717-04:00",
+        "samples": [
+            {
+                "label": "R10:S9-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S9"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S8-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S8"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S2-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S2"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S5-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S14-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S14"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S6-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S6"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "prep:0d957f1c550162d19ebd039190714785": {
+        "task": "prep",
+        "taskId": "prep:0d957f1c550162d19ebd039190714785",
+        "thread": "thread1",
+        "time": "2024-09-16T00:44:47.758119-04:00",
+        "samples": [
+            {
+                "label": "R12:S11-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S17-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S17"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S14-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S14"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S13-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S22-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S22"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S19-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S19"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "image:b3dd60881eae37e7fb48a3851a0ec2c3": {
+        "task": "image",
+        "taskId": "image:b3dd60881eae37e7fb48a3851a0ec2c3",
+        "samples": [
+            "R8:S4-r5.00:s5.00",
+            "R8:S17-r5.00:s5.00",
+            "R8:S10-r5.00:s5.00",
+            "R8:S11-r5.00:s5.00",
+            "R8:S13-r5.00:s5.00",
+            "R8:S21-r5.00:s5.00"
+        ],
+        "thread": "thread3",
+        "time": "2024-09-17T06:36:09.275012-04:00"
+    },
+    "prep:0e8b18aa99fca6620a1c65963995be30": {
+        "task": "prep",
+        "taskId": "prep:0e8b18aa99fca6620a1c65963995be30",
+        "thread": "thread3",
+        "time": "2024-09-17T07:17:56.952144-04:00",
+        "samples": [
+            {
+                "label": "R8:S6-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S6"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S15-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S15"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S8-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S8"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S22-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S22"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S5-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S9-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S9"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "image:fc75bb1a93178d7bf01d86dbc8203e9a": {
+        "task": "image",
+        "taskId": "image:fc75bb1a93178d7bf01d86dbc8203e9a",
+        "samples": [
+            "R12:S11-r5.00:s5.00",
+            "R12:S17-r5.00:s5.00",
+            "R12:S14-r5.00:s5.00",
+            "R12:S13-r5.00:s5.00",
+            "R12:S22-r5.00:s5.00",
+            "R12:S19-r5.00:s5.00"
+        ],
+        "thread": "thread1",
+        "time": "2024-09-18T02:51:41.747934-04:00"
+    },
+    "prep:891d0fc107c9d3779623ec08ec39a828": {
+        "task": "prep",
+        "taskId": "prep:891d0fc107c9d3779623ec08ec39a828",
+        "thread": "thread1",
+        "time": "2024-09-18T03:29:51.953058-04:00",
+        "samples": [
+            {
+                "label": "R12:S13:S14-r5.00:s1.50:s3.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13",
+                    "S14"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            },
+            {
+                "label": "R12:S12:S14-r5.00:s3.00:s2.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S12",
+                    "S14"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R12:S17:S22-r5.00:s1.50:s3.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S17",
+                    "S22"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            },
+            {
+                "label": "R12:S5:S10-r5.00:s3.50:s1.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5",
+                    "S10"
+                ],
+                "samount": [
+                    3.5,
+                    1.5
+                ]
+            },
+            {
+                "label": "R12:S4:S5-r5.00:s3.50:s1.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4",
+                    "S5"
+                ],
+                "samount": [
+                    3.5,
+                    1.5
+                ]
+            },
+            {
+                "label": "R12:S3:S10-r5.00:s2.00:s3.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S3",
+                    "S10"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            }
+        ]
+    },
+    "image:0fa1c2ce1f503dbaa631c07aa79e3334": {
+        "task": "image",
+        "taskId": "image:0fa1c2ce1f503dbaa631c07aa79e3334",
+        "samples": [
+            "R10:S9-r5.00:s5.00",
+            "R10:S2-r5.00:s5.00",
+            "R10:S14-r5.00:s5.00",
+            "R10:S5-r5.00:s5.00",
+            "R10:S6-r5.00:s5.00",
+            "R10:S8-r5.00:s5.00"
+        ],
+        "thread": "thread3",
+        "time": "2024-09-19T12:08:24.186860-04:00"
+    },
+    "prep:f19409b2695cfe91fd75b1f73409246f": {
+        "task": "prep",
+        "taskId": "prep:f19409b2695cfe91fd75b1f73409246f",
+        "thread": "thread3",
+        "time": "2024-09-19T18:12:14.307761-04:00",
+        "samples": [
+            {
+                "label": "R10:S5:S16-r5.00:s1.00:s4.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5",
+                    "S16"
+                ],
+                "samount": [
+                    1.0,
+                    4.0
+                ]
+            },
+            {
+                "label": "R10:S7:S8-r5.00:s3.00:s2.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S7",
+                    "S8"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R10:S13:S15-r5.00:s3.00:s2.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13",
+                    "S15"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R10:S5:S17-r5.00:s2.00:s3.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5",
+                    "S17"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R10:S1:S11-r5.00:s1.00:s4.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S1",
+                    "S11"
+                ],
+                "samount": [
+                    1.0,
+                    4.0
+                ]
+            },
+            {
+                "label": "R10:S1:S10-r5.00:s0.50:s4.50",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S1",
+                    "S10"
+                ],
+                "samount": [
+                    0.5,
+                    4.5
+                ]
+            }
+        ]
+    },
+    "image:b693d743730eebfa4eeae05e072b4fe7": {
+        "task": "image",
+        "taskId": "image:b693d743730eebfa4eeae05e072b4fe7",
+        "samples": [
+            "R8:S22-r5.00:s5.00",
+            "R8:S9-r5.00:s5.00",
+            "R8:S5-r5.00:s5.00",
+            "R8:S15-r5.00:s5.00",
+            "R8:S6-r5.00:s5.00",
+            "R8:S8-r5.00:s5.00"
+        ],
+        "thread": "thread3",
+        "time": "2024-09-20T11:29:12.167004-04:00"
+    },
+    "prep:2a1a376b9ecff23ff657fba29fb6904a": {
+        "task": "prep",
+        "taskId": "prep:2a1a376b9ecff23ff657fba29fb6904a",
+        "thread": "thread3",
+        "time": "2024-09-20T12:14:28.349929-04:00",
+        "samples": [
+            {
+                "label": "R8:S11:S16-r5.00:s1.50:s3.50",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11",
+                    "S16"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            },
+            {
+                "label": "R8:S5:S17-r5.00:s1.50:s3.50",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5",
+                    "S17"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            },
+            {
+                "label": "R8:S1:S11-r5.00:s1.00:s4.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S1",
+                    "S11"
+                ],
+                "samount": [
+                    1.0,
+                    4.0
+                ]
+            },
+            {
+                "label": "R8:S17:S22-r5.00:s3.00:s2.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S17",
+                    "S22"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R8:S19:S21-r5.00:s3.00:s2.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S19",
+                    "S21"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R8:S3:S22-r5.00:s3.00:s2.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S3",
+                    "S22"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            }
+        ]
+    },
+    "image:f912a038a99ab440c5ac927a5e0d8ed3": {
+        "task": "image",
+        "taskId": "image:f912a038a99ab440c5ac927a5e0d8ed3",
+        "samples": [
+            "R12:S13:S14-r5.00:s1.50:s3.50",
+            "R12:S17:S22-r5.00:s1.50:s3.50",
+            "R12:S4:S5-r5.00:s3.50:s1.50",
+            "R12:S5:S10-r5.00:s3.50:s1.50",
+            "R12:S12:S14-r5.00:s3.00:s2.00",
+            "R12:S3:S10-r5.00:s2.00:s3.00"
+        ],
+        "thread": "thread1",
+        "time": "2024-09-20T21:11:34.021107-04:00"
+    },
+    "image:955455a161e2ebbf311a22d874aeddea": {
+        "task": "image",
+        "taskId": "image:955455a161e2ebbf311a22d874aeddea",
+        "samples": [
+            "R10:S5:S16-r5.00:s1.00:s4.00",
+            "R10:S13:S15-r5.00:s3.00:s2.00",
+            "R10:S1:S10-r5.00:s0.50:s4.50",
+            "R10:S1:S11-r5.00:s1.00:s4.00",
+            "R10:S5:S17-r5.00:s2.00:s3.00",
+            "R10:S7:S8-r5.00:s3.00:s2.00"
+        ],
+        "thread": "thread3",
+        "time": "2024-09-21T13:41:56.090534-04:00"
+    },
+    "prep:345b17812f6c35b693f72c5d7d342b92": {
+        "task": "prep",
+        "taskId": "prep:345b17812f6c35b693f72c5d7d342b92",
+        "thread": "thread1",
+        "time": "2024-09-21T13:55:46.395600-04:00",
+        "samples": [
+            {
+                "label": "R12:S4:S5-r5.00:s3.50:s1.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4",
+                    "S5"
+                ],
+                "samount": [
+                    3.5,
+                    1.5
+                ]
+            },
+            {
+                "label": "R12:S13:S14-r5.00:s1.50:s3.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13",
+                    "S14"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            },
+            {
+                "label": "R12:S12:S14-r5.00:s3.00:s2.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S12",
+                    "S14"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R12:S17:S22-r5.00:s1.50:s3.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S17",
+                    "S22"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            },
+            {
+                "label": "R12:S5:S10-r5.00:s3.50:s1.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5",
+                    "S10"
+                ],
+                "samount": [
+                    3.5,
+                    1.5
+                ]
+            },
+            {
+                "label": "R12:S3:S10-r5.00:s2.00:s3.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S3",
+                    "S10"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            }
+        ]
+    },
+    "prep:f2ddc63d1d350983ae0dbf4a933c37de": {
+        "task": "prep",
+        "taskId": "prep:f2ddc63d1d350983ae0dbf4a933c37de",
+        "thread": "thread3",
+        "time": "2024-09-21T15:23:38.511765-04:00",
+        "samples": [
+            {
+                "label": "R10:S5:S16-r5.00:s1.00:s4.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5",
+                    "S16"
+                ],
+                "samount": [
+                    1.0,
+                    4.0
+                ]
+            },
+            {
+                "label": "R10:S13:S15-r5.00:s3.00:s2.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13",
+                    "S15"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R10:S1:S10-r5.00:s0.50:s4.50",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S1",
+                    "S10"
+                ],
+                "samount": [
+                    0.5,
+                    4.5
+                ]
+            },
+            {
+                "label": "R10:S1:S11-r5.00:s1.00:s4.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S1",
+                    "S11"
+                ],
+                "samount": [
+                    1.0,
+                    4.0
+                ]
+            },
+            {
+                "label": "R10:S5:S17-r5.00:s2.00:s3.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5",
+                    "S17"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R10:S7:S8-r5.00:s3.00:s2.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S7",
+                    "S8"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            }
+        ]
+    },
+    "image:92c7194f503756efdcb48a5cda904472": {
+        "task": "image",
+        "taskId": "image:92c7194f503756efdcb48a5cda904472",
+        "samples": [
+            "R8:S17:S22-r5.00:s3.00:s2.00",
+            "R8:S19:S21-r5.00:s3.00:s2.00",
+            "R8:S11:S16-r5.00:s1.50:s3.50",
+            "R8:S1:S11-r5.00:s1.00:s4.00",
+            "R8:S5:S17-r5.00:s1.50:s3.50",
+            "R8:S3:S22-r5.00:s3.00:s2.00"
+        ],
+        "thread": "thread3",
+        "time": "2024-09-22T18:24:05.758407-04:00"
+    },
+    "prep:848cfbe27f07c355d77fcd55d26a1c67": {
+        "task": "prep",
+        "taskId": "prep:848cfbe27f07c355d77fcd55d26a1c67",
+        "thread": "thread3",
+        "time": "2024-09-22T20:38:08.106049-04:00",
+        "samples": [
+            {
+                "label": "R8:S6:S16-r5.00:s3.00:s2.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S6",
+                    "S16"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R8:S10:S17-r5.00:s3.50:s1.50",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S10",
+                    "S17"
+                ],
+                "samount": [
+                    3.5,
+                    1.5
+                ]
+            },
+            {
+                "label": "R8:S3:S22-r5.00:s2.00:s3.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S3",
+                    "S22"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R8:S4:S17-r5.00:s2.50:s2.50",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4",
+                    "S17"
+                ],
+                "samount": [
+                    2.5,
+                    2.5
+                ]
+            },
+            {
+                "label": "R8:S1:S9-r5.00:s2.00:s3.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S1",
+                    "S9"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R8:S12:S15-r5.00:s2.00:s3.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S12",
+                    "S15"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            }
+        ]
+    },
+    "image:85ec8e879141c3811cf441a5fa0499e3": {
+        "task": "image",
+        "taskId": "image:85ec8e879141c3811cf441a5fa0499e3",
+        "samples": [
+            "R12:S3:S10-r5.00:s2.00:s3.00",
+            "R12:S4:S5-r5.00:s3.50:s1.50",
+            "R12:S5:S10-r5.00:s3.50:s1.50",
+            "R12:S17:S22-r5.00:s1.50:s3.50",
+            "R12:S12:S14-r5.00:s3.00:s2.00",
+            "R12:S13:S14-r5.00:s1.50:s3.50"
+        ],
+        "thread": "thread1",
+        "time": "2024-09-24T19:25:46.656317-04:00"
+    },
+    "image:0cb2815ec0eab84d50bb1c9f66e0db9b": {
+        "task": "image",
+        "taskId": "image:0cb2815ec0eab84d50bb1c9f66e0db9b",
+        "samples": [
+            "R10:S5:S16-r5.00:s1.00:s4.00",
+            "R10:S5:S17-r5.00:s2.00:s3.00",
+            "R10:S7:S8-r5.00:s3.00:s2.00",
+            "R10:S1:S11-r5.00:s1.00:s4.00",
+            "R10:S13:S15-r5.00:s3.00:s2.00",
+            "R10:S1:S10-r5.00:s0.50:s4.50"
+        ],
+        "thread": "thread3",
+        "time": "2024-09-25T14:31:16.931633-04:00"
+    },
+    "prep:10e038a424e9c5598b4b456dc677bc5b": {
+        "task": "prep",
+        "taskId": "prep:10e038a424e9c5598b4b456dc677bc5b",
+        "thread": "thread3",
+        "time": "2024-09-25T15:38:52.366163-04:00",
+        "samples": [
+            {
+                "label": "R9:S19-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S19"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S11-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S13-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S17-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S17"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S15-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S15"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S4-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "prep:ac4678737f9b5d4d289fd17231ae0b40": {
+        "task": "prep",
+        "taskId": "prep:ac4678737f9b5d4d289fd17231ae0b40",
+        "thread": "thread3",
+        "time": "2024-09-25T20:29:59.625997-04:00",
+        "samples": [
+            {
+                "label": "R10:S5:S16-r5.00:s1.00:s4.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5",
+                    "S16"
+                ],
+                "samount": [
+                    1.0,
+                    4.0
+                ]
+            },
+            {
+                "label": "R10:S5:S17-r5.00:s2.00:s3.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5",
+                    "S17"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R10:S7:S8-r5.00:s3.00:s2.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S7",
+                    "S8"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R10:S1:S11-r5.00:s1.00:s4.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S1",
+                    "S11"
+                ],
+                "samount": [
+                    1.0,
+                    4.0
+                ]
+            },
+            {
+                "label": "R10:S13:S15-r5.00:s3.00:s2.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13",
+                    "S15"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R10:S1:S10-r5.00:s0.50:s4.50",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S1",
+                    "S10"
+                ],
+                "samount": [
+                    0.5,
+                    4.5
+                ]
+            }
+        ]
+    },
+    "image:a01bf4e79507a7913982d557be03f0b1": {
+        "task": "image",
+        "taskId": "image:a01bf4e79507a7913982d557be03f0b1",
+        "samples": [
+            "R8:S1:S9-r5.00:s2.00:s3.00",
+            "R8:S6:S16-r5.00:s3.00:s2.00",
+            "R8:S12:S15-r5.00:s2.00:s3.00",
+            "R8:S4:S17-r5.00:s2.50:s2.50",
+            "R8:S3:S22-r5.00:s2.00:s3.00",
+            "R8:S10:S17-r5.00:s3.50:s1.50"
+        ],
+        "thread": "thread3",
+        "time": "2024-09-29T20:58:48.894609-04:00"
+    },
+    "image:9a504fc90b4520a95155b063de723295": {
+        "task": "image",
+        "taskId": "image:9a504fc90b4520a95155b063de723295",
+        "samples": [
+            "R10:S1:S11-r5.00:s1.00:s4.00",
+            "R10:S5:S16-r5.00:s1.00:s4.00",
+            "R10:S1:S10-r5.00:s0.50:s4.50",
+            "R10:S5:S17-r5.00:s2.00:s3.00",
+            "R10:S7:S8-r5.00:s3.00:s2.00",
+            "R10:S13:S15-r5.00:s3.00:s2.00"
+        ],
+        "thread": "thread3",
+        "time": "2024-09-30T22:16:14.834633-04:00"
+    },
+    "prep:ad52638b885cfaa01c043bfb2bbe5bf0": {
+        "task": "prep",
+        "taskId": "prep:ad52638b885cfaa01c043bfb2bbe5bf0",
+        "thread": "thread3",
+        "time": "2024-10-01T01:59:32.338968-04:00",
+        "samples": [
+            {
+                "label": "R10:S6:S16-r5.00:s3.00:s2.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S6",
+                    "S16"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R10:S5:S8-r5.00:s3.00:s2.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5",
+                    "S8"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R10:S7:S19-r5.00:s3.00:s2.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S7",
+                    "S19"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R10:S10:S13-r5.00:s3.50:s1.50",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S10",
+                    "S13"
+                ],
+                "samount": [
+                    3.5,
+                    1.5
+                ]
+            },
+            {
+                "label": "R10:S1:S16-r5.00:s2.00:s3.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S1",
+                    "S16"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R10:S4:S17-r5.00:s2.50:s2.50",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4",
+                    "S17"
+                ],
+                "samount": [
+                    2.5,
+                    2.5
+                ]
+            }
+        ]
+    },
+    "prep:2881afc18f155b88224ee8cbf807c1ae": {
+        "task": "prep",
+        "taskId": "prep:2881afc18f155b88224ee8cbf807c1ae",
+        "thread": "thread3",
+        "time": "2024-10-04T02:20:36.698374-04:00",
+        "samples": [
+            {
+                "label": "R9:S15-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S15"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S13-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S17-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S17"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S4-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S11-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S19-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S19"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "image:d0e913fc66bd0f900ae905ef357bdfca": {
+        "task": "image",
+        "taskId": "image:d0e913fc66bd0f900ae905ef357bdfca",
+        "samples": [
+            "R10:S6:S16-r5.00:s3.00:s2.00",
+            "R10:S5:S8-r5.00:s3.00:s2.00",
+            "R10:S7:S19-r5.00:s3.00:s2.00",
+            "R10:S10:S13-r5.00:s3.50:s1.50",
+            "R10:S1:S16-r5.00:s2.00:s3.00",
+            "R10:S4:S17-r5.00:s2.50:s2.50"
+        ],
+        "thread": "thread3",
+        "time": "2024-10-05T00:43:35.285490-04:00"
+    },
+    "image:88778e6a467ff38abecc58e1e6462443": {
+        "task": "image",
+        "taskId": "image:88778e6a467ff38abecc58e1e6462443",
+        "samples": [
+            "R9:S15-r5.00:s5.00",
+            "R9:S13-r5.00:s5.00",
+            "R9:S17-r5.00:s5.00",
+            "R9:S4-r5.00:s5.00",
+            "R9:S11-r5.00:s5.00",
+            "R9:S19-r5.00:s5.00"
+        ],
+        "thread": "thread3",
+        "time": "2024-10-06T00:47:04.754214-04:00"
+    },
+    "prep:c63c5d4ac1ac02209339d5886c50a858": {
+        "task": "prep",
+        "taskId": "prep:c63c5d4ac1ac02209339d5886c50a858",
+        "thread": "thread3",
+        "time": "2024-10-06T02:00:31.732630-04:00",
+        "samples": [
+            {
+                "label": "R9:S7-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S7"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S22-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S22"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S3-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S3"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S9-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S9"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S6-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S6"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S8-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S8"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "image:2766eac61ad8f4b4e34a14b17f72381e": {
+        "task": "image",
+        "taskId": "image:2766eac61ad8f4b4e34a14b17f72381e",
+        "samples": [
+            "R9:S3-r5.00:s5.00",
+            "R9:S7-r5.00:s5.00",
+            "R9:S8-r5.00:s5.00",
+            "R9:S9-r5.00:s5.00",
+            "R9:S22-r5.00:s5.00",
+            "R9:S6-r5.00:s5.00"
+        ],
+        "thread": "thread3",
+        "time": "2024-10-07T18:55:47.740938-04:00"
+    },
+    "prep:aaa4919561e558ed65983dfe7cac640a": {
+        "task": "prep",
+        "taskId": "prep:aaa4919561e558ed65983dfe7cac640a",
+        "thread": "thread3",
+        "time": "2024-10-08T18:10:38.927153-04:00",
+        "samples": [
+            {
+                "label": "R9:S2-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S2"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S10-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S10"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S5-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S12-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S12"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S16-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S16"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S14-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S14"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "image:4c606e95215b20025f506e17aa73ddd7": {
+        "task": "image",
+        "taskId": "image:4c606e95215b20025f506e17aa73ddd7",
+        "samples": [
+            "R9:S2-r5.00:s5.00",
+            "R9:S10-r5.00:s5.00",
+            "R9:S5-r5.00:s5.00",
+            "R9:S12-r5.00:s5.00",
+            "R9:S16-r5.00:s5.00",
+            "R9:S14-r5.00:s5.00"
+        ],
+        "thread": "thread3",
+        "time": "2024-10-10T18:34:41.107012-04:00"
+    },
+    "prep:5e064c36a28b4ce1f7dc897518390dfb": {
+        "task": "prep",
+        "taskId": "prep:5e064c36a28b4ce1f7dc897518390dfb",
+        "thread": "thread3",
+        "time": "2024-10-12T10:36:55.871347-04:00",
+        "samples": [
+            {
+                "label": "R9:S2-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S2"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S10-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S10"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S5-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S12-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S12"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S14-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S14"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S1-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S1"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "image:a83a5d728469029b01221186ea4be33f": {
+        "task": "image",
+        "taskId": "image:a83a5d728469029b01221186ea4be33f",
+        "samples": [
+            "R9:S12-r5.00:s5.00",
+            "R9:S2-r5.00:s5.00",
+            "R9:S10-r5.00:s5.00",
+            "R9:S5-r5.00:s5.00",
+            "R9:S14-r5.00:s5.00",
+            "R9:S1-r5.00:s5.00"
+        ],
+        "thread": "thread3",
+        "time": "2024-10-14T20:01:07.746817-04:00"
+    },
+    "prep:ef7c5b43bd8761d67a4a54cde51adad0": {
+        "task": "prep",
+        "taskId": "prep:ef7c5b43bd8761d67a4a54cde51adad0",
+        "thread": "thread3",
+        "time": "2024-10-15T18:25:55.603786-04:00",
+        "samples": [
+            {
+                "label": "R9:S1:S11-r5.00:s1.00:s4.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S1",
+                    "S11"
+                ],
+                "samount": [
+                    1.0,
+                    4.0
+                ]
+            },
+            {
+                "label": "R9:S21-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S21"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S8:S21-r5.00:s1.00:s4.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S8",
+                    "S21"
+                ],
+                "samount": [
+                    1.0,
+                    4.0
+                ]
+            },
+            {
+                "label": "R9:S13:S14-r5.00:s3.00:s2.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13",
+                    "S14"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R9:S5:S17-r5.00:s2.00:s3.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S5",
+                    "S17"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R9:S4:S14-r5.00:s1.50:s3.50",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4",
+                    "S14"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            }
+        ]
+    },
+    "image:8c6ec50f86e0a4c1d61db0793f390420": {
+        "task": "image",
+        "taskId": "image:8c6ec50f86e0a4c1d61db0793f390420",
+        "samples": [
+            "R9:S1:S11-r5.00:s1.00:s4.00",
+            "R9:S21-r5.00:s5.00",
+            "R9:S8:S21-r5.00:s1.00:s4.00",
+            "R9:S13:S14-r5.00:s3.00:s2.00",
+            "R9:S5:S17-r5.00:s2.00:s3.00",
+            "R9:S4:S14-r5.00:s1.50:s3.50"
+        ],
+        "thread": "thread3",
+        "time": "2024-10-20T00:09:44.124242-04:00"
+    },
+    "prep:148ba40ef3f7d7e968ee353b9a5f4f07": {
+        "task": "prep",
+        "taskId": "prep:148ba40ef3f7d7e968ee353b9a5f4f07",
+        "thread": "thread3",
+        "time": "2024-11-02T00:39:10.828909-04:00",
+        "samples": [
+            {
+                "label": "R10:S12-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S12"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S22-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S22"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S23-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S23"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S18-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S18"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S16-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S16"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S25-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S25"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "prep:1e362ff02d0bcd100612a5aaa8d37b15": {
+        "task": "prep",
+        "taskId": "prep:1e362ff02d0bcd100612a5aaa8d37b15",
+        "thread": "thread1",
+        "time": "2024-11-02T01:38:10.756893-04:00",
+        "samples": [
+            {
+                "label": "R11:S11:S17-r5.00:s4.00:s1.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11",
+                    "S17"
+                ],
+                "samount": [
+                    4.0,
+                    1.0
+                ]
+            },
+            {
+                "label": "R11:S23-r5.00:s5.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S23"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R11:S18:S21-r5.00:s3.00:s2.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S18",
+                    "S21"
+                ],
+                "samount": [
+                    3.0,
+                    2.0
+                ]
+            },
+            {
+                "label": "R11:S25-r5.00:s5.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S25"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R11:S3:S7-r5.00:s2.00:s3.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S3",
+                    "S7"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R11:S23:S25-r5.00:s4.00:s1.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S23",
+                    "S25"
+                ],
+                "samount": [
+                    4.0,
+                    1.0
+                ]
+            }
+        ]
+    },
+    "prep:4cc3a434e7078ebb446431f039f610cf": {
+        "task": "prep",
+        "taskId": "prep:4cc3a434e7078ebb446431f039f610cf",
+        "thread": "thread3",
+        "time": "2024-11-02T23:39:01.087630-04:00",
+        "samples": [
+            {
+                "label": "R8:S3-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S3"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S23-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S23"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S12-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S12"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S25-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S25"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S18-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S18"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R8:S16-r5.00:s5.00",
+                "resin": "R8",
+                "ramount": 5.0,
+                "solvent": [
+                    "S16"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "image:5361b853483a713b8036eb3b32bd8925": {
+        "task": "image",
+        "taskId": "image:5361b853483a713b8036eb3b32bd8925",
+        "samples": [
+            "R8:S3-r5.00:s5.00",
+            "R8:S23-r5.00:s5.00",
+            "R8:S12-r5.00:s5.00",
+            "R8:S25-r5.00:s5.00",
+            "R8:S18-r5.00:s5.00",
+            "R8:S16-r5.00:s5.00"
+        ],
+        "thread": "thread3",
+        "time": "2024-11-06T01:12:29.891114-05:00"
+    },
+    "prep:7055d0453c1b619b1614f474132a9de9": {
+        "task": "prep",
+        "taskId": "prep:7055d0453c1b619b1614f474132a9de9",
+        "thread": "thread3",
+        "time": "2024-11-06T02:52:32.612520-05:00",
+        "samples": [
+            {
+                "label": "R9:S25-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S25"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S11:S25-r5.00:s1.50:s3.50",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11",
+                    "S25"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            },
+            {
+                "label": "R9:S4:S8-r5.00:s2.50:s2.50",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4",
+                    "S8"
+                ],
+                "samount": [
+                    2.5,
+                    2.5
+                ]
+            },
+            {
+                "label": "R9:S7:S23-r5.00:s2.00:s3.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S7",
+                    "S23"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R9:S23-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S23"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R9:S18-r5.00:s5.00",
+                "resin": "R9",
+                "ramount": 5.0,
+                "solvent": [
+                    "S18"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "prep:6076003204971517f6d0a0224c3b28d4": {
+        "task": "prep",
+        "taskId": "prep:6076003204971517f6d0a0224c3b28d4",
+        "thread": "thread1",
+        "time": "2024-11-06T14:35:32.319124-05:00",
+        "samples": [
+            {
+                "label": "R11:S9:S11-r5.00:s1.50:s3.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S9",
+                    "S11"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            },
+            {
+                "label": "R11:S1:S15-r5.00:s0.50:s4.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S1",
+                    "S15"
+                ],
+                "samount": [
+                    0.5,
+                    4.5
+                ]
+            },
+            {
+                "label": "R11:S23-r5.00:s5.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S23"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R11:S18:S21-r5.00:s3.50:s1.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S18",
+                    "S21"
+                ],
+                "samount": [
+                    3.5,
+                    1.5
+                ]
+            },
+            {
+                "label": "R11:S11:S25-r5.00:s2.50:s2.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11",
+                    "S25"
+                ],
+                "samount": [
+                    2.5,
+                    2.5
+                ]
+            },
+            {
+                "label": "R11:S25-r5.00:s5.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S25"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "prep:30db8e8d2c2270d3da5f10ab9bc904a8": {
+        "task": "prep",
+        "taskId": "prep:30db8e8d2c2270d3da5f10ab9bc904a8",
+        "thread": "thread3",
+        "time": "2024-11-07T18:36:16.964969-05:00",
+        "samples": [
+            {
+                "label": "R10:S22-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S22"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S12-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S12"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S16-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S16"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S25-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S25"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S18-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S18"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R10:S23-r5.00:s5.00",
+                "resin": "R10",
+                "ramount": 5.0,
+                "solvent": [
+                    "S23"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "prep:adfa26f27a05adb1304f61bd18031c6b": {
+        "task": "prep",
+        "taskId": "prep:adfa26f27a05adb1304f61bd18031c6b",
+        "thread": "thread1",
+        "time": "2024-11-09T01:32:50.885379-05:00",
+        "samples": [
+            {
+                "label": "R12:S6:S25-r5.00:s1.50:s3.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S6",
+                    "S25"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            },
+            {
+                "label": "R12:S11:S23-r5.00:s2.50:s2.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11",
+                    "S23"
+                ],
+                "samount": [
+                    2.5,
+                    2.5
+                ]
+            },
+            {
+                "label": "R12:S15:S22-r5.00:s2.00:s3.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S15",
+                    "S22"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R12:S25-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S25"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S23-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S23"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S12:S16-r5.00:s4.50:s0.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S12",
+                    "S16"
+                ],
+                "samount": [
+                    4.5,
+                    0.5
+                ]
+            }
+        ]
+    },
+    "image:80dc8adcdcd30b98f658ed23f4762884": {
+        "task": "image",
+        "taskId": "image:80dc8adcdcd30b98f658ed23f4762884",
+        "samples": [
+            "R9:S7:S23-r5.00:s2.00:s3.00",
+            "R9:S4:S8-r5.00:s2.50:s2.50",
+            "R9:S25-r5.00:s5.00",
+            "R9:S11:S25-r5.00:s1.50:s3.50",
+            "R9:S23-r5.00:s5.00",
+            "R9:S18-r5.00:s5.00"
+        ],
+        "thread": "thread3",
+        "time": "2024-11-09T21:27:15.773156-05:00"
+    },
+    "image:a2486b8f67ead24e52d95d2c1a50ccdd": {
+        "task": "image",
+        "taskId": "image:a2486b8f67ead24e52d95d2c1a50ccdd",
+        "samples": [
+            "R11:S23-r5.00:s5.00",
+            "R11:S11:S25-r5.00:s2.50:s2.50",
+            "R11:S18:S21-r5.00:s3.50:s1.50",
+            "R11:S1:S15-r5.00:s0.50:s4.50",
+            "R11:S9:S11-r5.00:s1.50:s3.50",
+            "R11:S25-r5.00:s5.00"
+        ],
+        "thread": "thread1",
+        "time": "2024-11-10T04:14:31.905190-05:00"
+    },
+    "image:ae3faea7ad814537e814b0222dd12515": {
+        "task": "image",
+        "taskId": "image:ae3faea7ad814537e814b0222dd12515",
+        "samples": [
+            "R10:S25-r5.00:s5.00",
+            "R10:S18-r5.00:s5.00",
+            "R10:S12-r5.00:s5.00",
+            "R10:S16-r5.00:s5.00",
+            "R10:S22-r5.00:s5.00",
+            "R10:S23-r5.00:s5.00"
+        ],
+        "thread": "thread3",
+        "time": "2024-11-10T17:29:34.157592-05:00"
+    },
+    "prep:58c148d7f74fe2b4eb5eb7d0f8612532": {
+        "task": "prep",
+        "taskId": "prep:58c148d7f74fe2b4eb5eb7d0f8612532",
+        "thread": "thread1",
+        "time": "2024-11-10T19:59:16.690481-05:00",
+        "samples": [
+            {
+                "label": "R11:S2:S16-r5.00:s2.00:s3.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S2",
+                    "S16"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R11:S4:S6-r5.00:s2.50:s2.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4",
+                    "S6"
+                ],
+                "samount": [
+                    2.5,
+                    2.5
+                ]
+            },
+            {
+                "label": "R11:S12:S16-r5.00:s0.50:s4.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S12",
+                    "S16"
+                ],
+                "samount": [
+                    0.5,
+                    4.5
+                ]
+            },
+            {
+                "label": "R11:S11:S23-r5.00:s2.50:s2.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11",
+                    "S23"
+                ],
+                "samount": [
+                    2.5,
+                    2.5
+                ]
+            },
+            {
+                "label": "R11:S8:S12-r5.00:s1.00:s4.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S8",
+                    "S12"
+                ],
+                "samount": [
+                    1.0,
+                    4.0
+                ]
+            },
+            {
+                "label": "R11:S6:S25-r5.00:s1.50:s3.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S6",
+                    "S25"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            }
+        ]
+    },
+    "image:d4c7f863d428ed7293d15773e79d8408": {
+        "task": "image",
+        "taskId": "image:d4c7f863d428ed7293d15773e79d8408",
+        "samples": [
+            "R12:S6:S25-r5.00:s1.50:s3.50",
+            "R12:S11:S23-r5.00:s2.50:s2.50",
+            "R12:S15:S22-r5.00:s2.00:s3.00",
+            "R12:S25-r5.00:s5.00",
+            "R12:S23-r5.00:s5.00",
+            "R12:S12:S16-r5.00:s4.50:s0.50"
+        ],
+        "thread": "thread1",
+        "time": "2024-11-12T01:25:48.456028-05:00"
+    },
+    "image:bbe35d6926cef75e00238c374ff0d0c5": {
+        "task": "image",
+        "taskId": "image:bbe35d6926cef75e00238c374ff0d0c5",
+        "samples": [
+            "R12:S6:S25-r5.00:s1.50:s3.50",
+            "R12:S11:S23-r5.00:s2.50:s2.50",
+            "R12:S15:S22-r5.00:s2.00:s3.00",
+            "R12:S25-r5.00:s5.00",
+            "R12:S23-r5.00:s5.00",
+            "R12:S12:S16-r5.00:s4.50:s0.50"
+        ],
+        "thread": "thread1",
+        "time": "2024-11-12T12:54:49.750736-05:00"
+    },
+    "prep:5f7265a6cee9566f5ffdbc67102b21e8": {
+        "task": "prep",
+        "taskId": "prep:5f7265a6cee9566f5ffdbc67102b21e8",
+        "thread": "thread1",
+        "time": "2024-11-12T20:02:25.787065-05:00",
+        "samples": [
+            {
+                "label": "R12:S11:S23-r5.00:s2.50:s2.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11",
+                    "S23"
+                ],
+                "samount": [
+                    2.5,
+                    2.5
+                ]
+            },
+            {
+                "label": "R12:S23-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S23"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "image:639182c30dcf643de574cde67b6f1358": {
+        "task": "image",
+        "taskId": "image:639182c30dcf643de574cde67b6f1358",
+        "samples": [
+            "R11:S8:S12-r5.00:s1.00:s4.00",
+            "R11:S2:S16-r5.00:s2.00:s3.00",
+            "R11:S4:S6-r5.00:s2.50:s2.50",
+            "R11:S11:S23-r5.00:s2.50:s2.50",
+            "R11:S6:S25-r5.00:s1.50:s3.50",
+            "R11:S12:S16-r5.00:s0.50:s4.50"
+        ],
+        "thread": "thread1",
+        "time": "2024-11-13T17:47:08.314308-05:00"
+    },
+    "prep:5d2ce0a428d7fc479e2cf92019d99021": {
+        "task": "prep",
+        "taskId": "prep:5d2ce0a428d7fc479e2cf92019d99021",
+        "thread": "thread1",
+        "time": "2024-11-14T02:18:40.487893-05:00",
+        "samples": [
+            {
+                "label": "R11:S8:S12-r5.00:s1.00:s4.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S8",
+                    "S12"
+                ],
+                "samount": [
+                    1.0,
+                    4.0
+                ]
+            },
+            {
+                "label": "R11:S2:S16-r5.00:s2.00:s3.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S2",
+                    "S16"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R11:S4:S6-r5.00:s2.50:s2.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4",
+                    "S6"
+                ],
+                "samount": [
+                    2.5,
+                    2.5
+                ]
+            },
+            {
+                "label": "R11:S11:S23-r5.00:s2.50:s2.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11",
+                    "S23"
+                ],
+                "samount": [
+                    2.5,
+                    2.5
+                ]
+            },
+            {
+                "label": "R11:S6:S25-r5.00:s1.50:s3.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S6",
+                    "S25"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            },
+            {
+                "label": "R11:S12:S16-r5.00:s0.50:s4.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S12",
+                    "S16"
+                ],
+                "samount": [
+                    0.5,
+                    4.5
+                ]
+            }
+        ]
+    },
+    "image:9cc032b21bbcfead9cab9ea4855e0b48": {
+        "task": "image",
+        "taskId": "image:9cc032b21bbcfead9cab9ea4855e0b48",
+        "samples": [
+            "R12:S11:S23-r5.00:s2.50:s2.50",
+            "R12:S23-r5.00:s5.00"
+        ],
+        "thread": "thread1",
+        "time": "2024-11-15T15:04:26.035628-05:00"
+    },
+    "prep:ec6438e847ecdff2aac207c85d4e8183": {
+        "task": "prep",
+        "taskId": "prep:ec6438e847ecdff2aac207c85d4e8183",
+        "thread": "thread1",
+        "time": "2024-11-15T20:53:30.537165-05:00",
+        "samples": [
+            {
+                "label": "R12:S4:S8-r5.00:s0.50:s4.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4",
+                    "S8"
+                ],
+                "samount": [
+                    0.5,
+                    4.5
+                ]
+            },
+            {
+                "label": "R12:S11:S25-r5.00:s1.00:s4.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11",
+                    "S25"
+                ],
+                "samount": [
+                    1.0,
+                    4.0
+                ]
+            },
+            {
+                "label": "R12:S11:S23-r5.00:s2.50:s2.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11",
+                    "S23"
+                ],
+                "samount": [
+                    2.5,
+                    2.5
+                ]
+            },
+            {
+                "label": "R12:S17:S23-r5.00:s1.00:s4.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S17",
+                    "S23"
+                ],
+                "samount": [
+                    1.0,
+                    4.0
+                ]
+            },
+            {
+                "label": "R12:S10:S13-r5.00:s4.50:s0.50",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S10",
+                    "S13"
+                ],
+                "samount": [
+                    4.5,
+                    0.5
+                ]
+            },
+            {
+                "label": "R12:S23-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S23"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "image:4783bdb278f9d33fa0f5b35c5d5a3259": {
+        "task": "image",
+        "taskId": "image:4783bdb278f9d33fa0f5b35c5d5a3259",
+        "samples": [
+            "R11:S2:S16-r5.00:s2.00:s3.00",
+            "R11:S12:S16-r5.00:s0.50:s4.50",
+            "R11:S11:S23-r5.00:s2.50:s2.50",
+            "R11:S8:S12-r5.00:s1.00:s4.00",
+            "R11:S4:S6-r5.00:s2.50:s2.50",
+            "R11:S6:S25-r5.00:s1.50:s3.50"
+        ],
+        "thread": "thread1",
+        "time": "2024-11-17T19:16:15.157238-05:00"
+    },
+    "image:86c011bd1fe90fb0048e0e3d1642a418": {
+        "task": "image",
+        "taskId": "image:86c011bd1fe90fb0048e0e3d1642a418",
+        "samples": [
+            "R12:S17:S23-r5.00:s1.00:s4.00",
+            "R12:S10:S13-r5.00:s4.50:s0.50",
+            "R12:S11:S25-r5.00:s1.00:s4.00",
+            "R12:S23-r5.00:s5.00",
+            "R12:S11:S23-r5.00:s2.50:s2.50",
+            "R12:S4:S8-r5.00:s0.50:s4.50"
+        ],
+        "thread": "thread1",
+        "time": "2024-11-18T18:10:14.743457-05:00"
+    },
+    "prep:e855584e32a59c2e2f84cc78460a1abf": {
+        "task": "prep",
+        "taskId": "prep:e855584e32a59c2e2f84cc78460a1abf",
+        "thread": "thread1",
+        "time": "2024-11-19T11:57:32.236090-05:00",
+        "samples": [
+            {
+                "label": "R11:S6:S25-r5.00:s1.50:s3.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S6",
+                    "S25"
+                ],
+                "samount": [
+                    1.5,
+                    3.5
+                ]
+            },
+            {
+                "label": "R11:S12:S16-r5.00:s0.50:s4.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S12",
+                    "S16"
+                ],
+                "samount": [
+                    0.5,
+                    4.5
+                ]
+            },
+            {
+                "label": "R11:S8:S12-r5.00:s1.00:s4.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S8",
+                    "S12"
+                ],
+                "samount": [
+                    1.0,
+                    4.0
+                ]
+            },
+            {
+                "label": "R11:S11:S23-r5.00:s2.50:s2.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11",
+                    "S23"
+                ],
+                "samount": [
+                    2.5,
+                    2.5
+                ]
+            },
+            {
+                "label": "R11:S2:S16-r5.00:s2.00:s3.00",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S2",
+                    "S16"
+                ],
+                "samount": [
+                    2.0,
+                    3.0
+                ]
+            },
+            {
+                "label": "R11:S4:S6-r5.00:s2.50:s2.50",
+                "resin": "R11",
+                "ramount": 5.0,
+                "solvent": [
+                    "S4",
+                    "S6"
+                ],
+                "samount": [
+                    2.5,
+                    2.5
+                ]
+            }
+        ]
+    },
+    "image:15bc1bdaa9a63eea78c2ebadecace8b4": {
+        "task": "image",
+        "taskId": "image:15bc1bdaa9a63eea78c2ebadecace8b4",
+        "samples": [
+            "R11:S12:S16-r5.00:s0.50:s4.50",
+            "R11:S4:S6-r5.00:s2.50:s2.50",
+            "R11:S2:S16-r5.00:s2.00:s3.00",
+            "R11:S6:S25-r5.00:s1.50:s3.50",
+            "R11:S8:S12-r5.00:s1.00:s4.00",
+            "R11:S11:S23-r5.00:s2.50:s2.50"
+        ],
+        "thread": "thread1",
+        "time": "2024-11-22T02:40:46.502124-05:00"
+    }
+}

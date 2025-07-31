@@ -1,0 +1,1096 @@
+Notebook[{Cell[
+CellGroupData[{Cell[
+"\<autoHSP - lab script\>","Title",CellChangeTimes -> {3.958511392731575`*^9,{3.9585114500489845`*^9,3.958511457752188`*^9}},
+ExpressionUUID -> "8abbe62b-6779-4b6f-90b7-15174bbc413a"],Cell[
+CellGroupData[{Cell[
+
+"\<Utility functions for logging\>","Section",CellChangeTimes -> {3.958511498055708`*^9},
+ExpressionUUID -> "679c69f6-142f-4a53-8f33-fc51dc8dab07"],Cell[
+BoxData[{RowBox[{RowBox[
+{RowBox[{RowBox[{"initVarGlobalLogMgr","[",RowBox[{"reinit_",":","False"}],"]"}]," ",":="," ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{","}"}],","," ",RowBox[{RowBox[{"If","["," ",RowBox[
+{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalLogMgr","]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{"globalLogMgr"," ","="," ",RowBox[{"{",RowBox[{"{",RowBox[{RowBox[{"{",RowBox[
+{"\"Output\"",","," ","\"perm\""}],"}"}],","," ",RowBox[{"{","\"Welcome to the HSP script developed by sijie.\"","}"}]}],"}"}],"}"}]}],";"}]}]," ","]"}],";"}]}]," ","]"}]}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"initVarGlobalLogMgr","[","False","]"}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{RowBox[{"getLogWithStyle","[",RowBox[{RowBox[{"include_",":","Nothing"}],","," ",RowBox[
+{"exclude_",":","Nothing"}],","," ",RowBox[{"slice_",":","All"}],","," ",RowBox[{"returnPositionList_",":","False"}],","," ",RowBox[
+{"includeHow_",":","SubsetQ"}],","," ",RowBox[{"excludeHow_",":","DisjointQ"}]}],"]"}]," ",":="," ","\n","   ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{",RowBox[{"shouldHave",","," ","shouldNotHave",","," ","labels",","," ","logs",","," ","positions"}],"}"}],","," ",RowBox[
+{RowBox[{"shouldHave"," ","="," ",RowBox[{"If","[",RowBox[{RowBox[{"ListQ","[","include","]"}],","," ","include",","," ",RowBox[
+{"{","include","}"}]}],"]"}]}],";"," ",RowBox[{"shouldNotHave"," ","="," ",RowBox[
+{"If","[",RowBox[{RowBox[{"ListQ","[","exclude","]"}],","," ","exclude",","," ",RowBox[
+{"{","exclude","}"}]}],"]"}]}],";"," ",RowBox[{"positions"," ","="," ",RowBox[{"Range","[",RowBox[
+{"Length","[","globalLogMgr","]"}],"]"}]}],";"," ","\n","     ",RowBox[{"labels"," ","="," ",RowBox[
+{"Quiet","[",RowBox[{"Check","[",RowBox[{RowBox[{RowBox[{"(",RowBox[{RowBox[{"If","[",RowBox[
+{RowBox[{"ListQ","[","#1","]"}],","," ","#1",","," ",RowBox[{"{","#1","}"}]}],"]"}]," ","&"}]," ",")"}]," ","/@"," ",RowBox[
+{"globalLogMgr","[",RowBox[{"[",RowBox[{"All",",","1"}],"]"}],"]"}]}],","," ",RowBox[
+{"{","}"}]}],"]"}],"]"}]}],";"," ",RowBox[{"positions"," ","="," ",RowBox[{"Quiet","[",RowBox[
+{"Check","[",RowBox[{RowBox[{"Select","[",RowBox[{"positions",","," ",RowBox[{RowBox[
+{"includeHow","[",RowBox[{RowBox[{"labels","[",RowBox[{"[","#1","]"}],"]"}],","," ","shouldHave"}],"]"}]," ","&"}]}]," ","]"}],","," ",RowBox[
+{"{","}"}]}],"]"}],"]"}]}],";"," ","\n","     ",RowBox[{"positions"," ","="," ",RowBox[
+{"Quiet","[",RowBox[{"Check","[",RowBox[{RowBox[{"Select","[",RowBox[{"positions",","," ",RowBox[
+{RowBox[{"excludeHow","[",RowBox[{RowBox[{"labels","[",RowBox[{"[","#1","]"}],"]"}],","," ","shouldNotHave"}],"]"}]," ","&"}]}]," ","]"}],","," ",RowBox[
+{"{","}"}]}],"]"}],"]"}]}],";"," ",RowBox[{"positions"," ","="," ",RowBox[{"Quiet","[",RowBox[
+{"Check","[",RowBox[{RowBox[{"positions","[",RowBox[{"[","slice","]"}],"]"}],","," ",RowBox[
+{"{","}"}]}],"]"}],"]"}]}],";"," ",RowBox[{"logs"," ","="," ",RowBox[{"Quiet","[",RowBox[
+{"Check","[",RowBox[{RowBox[{RowBox[{"globalLogMgr","[",RowBox[{"[","positions","]"}],"]"}],"[",RowBox[
+{"[",RowBox[{"All",",","2"}],"]"}],"]"}],","," ",RowBox[{"{","}"}]}],"]"}],"]"}]}],";"," ","\n","     ",RowBox[
+{"logs"," ","="," ",RowBox[{RowBox[{"(",RowBox[{RowBox[{"Quiet","[",RowBox[{"Check","[",RowBox[
+{RowBox[{"If","[",RowBox[{RowBox[{"ListQ","[","#1","]"}],","," ",RowBox[{"StringJoin","[",RowBox[
+{"ToString"," ","/@"," ","#1"}],"]"}],","," ",RowBox[{"If","[",RowBox[{RowBox[{"StringQ","[","#1","]"}],","," ","#1",","," ",RowBox[
+{"ToString","[","#1","]"}]}],"]"}]}],"]"}],","," ","\" --- Invalid input log --- \""}],"]"}],"]"}]," ","&"}]," ",")"}]," ","/@"," ","logs"}]}],";"," ","\n","     ",RowBox[
+{"If","[",RowBox[{RowBox[{"returnPositionList"," ","=!="," ","True"}],","," ",RowBox[
+{RowBox[{"Return","[","logs","]"}],";"}]," ",","," ",RowBox[{RowBox[{"Return","[","positions","]"}],";"}]}]," ","]"}],";"}]}]," ","]"}]}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{RowBox[{"printLogWithStyle","[",RowBox[{RowBox[{"include_",":","Nothing"}],","," ",RowBox[
+{"exclude_",":","Nothing"}],","," ",RowBox[{"slice_",":","All"}]}],"]"}]," ",":="," ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{","}"}],","," ",RowBox[{RowBox[{"Return","[",RowBox[
+{"StringRiffle","[",RowBox[{RowBox[{"getLogWithStyle","[",RowBox[{"include",","," ","exclude",","," ","slice",","," ","False"}],"]"}],","," ","\"\\n\""}],"]"}],"]"}],";"}]}]," ","]"}]}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{RowBox[{"delLogWithStyle","[",RowBox[{RowBox[{"include_",":","Nothing"}],","," ",RowBox[
+{"exclude_",":","Nothing"}],","," ",RowBox[{"slice_",":","All"}]}],"]"}]," ",":="," ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{","positions","}"}],","," ",RowBox[{RowBox[{"positions"," ","="," ",RowBox[
+{"getLogWithStyle","[",RowBox[{"include",","," ","exclude",","," ","slice",","," ","True"}],"]"}]}],";"," ",RowBox[
+{"globalLogMgr"," ","="," ",RowBox[{"Quiet","[",RowBox[{"Delete","[",RowBox[{"globalLogMgr",","," ",RowBox[
+{"List"," ","/@"," ","positions"}]}],"]"}],"]"}]}],";"}]}]," ","]"}]}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{RowBox[{"InNotebookEnvQ","[",RowBox[{"check_",":","Cells"}],"]"}]," ",":="," ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{","}"}],","," ",RowBox[{RowBox[{"Return","[",RowBox[
+{"Quiet","[",RowBox[{"Check","[",RowBox[{RowBox[{"ListQ","[",RowBox[{"check","[","]"}],"]"}],","," ","False"}],"]"}],"]"}],"]"}],";"}]}]," ","]"}]}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{RowBox[{"InScriptEnvQ","[",RowBox[{"check_",":","Cells"}],"]"}]," ",":="," ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{","}"}],","," ",RowBox[{RowBox[{"Return","[",RowBox[
+{RowBox[{RowBox[{"NotebookPage","[","Type","]"}]," ","==="," ",RowBox[{"Object","[",RowBox[
+{"Notebook",","," ","Script"}],"]"}]}]," ","&&","  ",RowBox[{"!",RowBox[{"InNotebookEnvQ","[","check","]"}]}]}],"]"}],";"}]}]," ","]"}]}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{RowBox[{"smartCellPrint","[",RowBox[{"objs_",","," ",RowBox[{"labels_",":","\"tmp\""}],","," ",RowBox[
+{"styles_",":","\"Output\""}],","," ",RowBox[{"updateLog_",":","True"}]}],"]"}]," ",":="," ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{",RowBox[{"content",","," ","cellTypes"}],"}"}],","," ",RowBox[
+{RowBox[{"content"," ","="," ",RowBox[{"StringJoin","[",RowBox[{"ToString"," ","/@"," ",RowBox[
+{"If","[",RowBox[{RowBox[{"ListQ","[","objs","]"}],","," ","objs",","," ",RowBox[
+{"{","objs","}"}]}],"]"}]}],"]"}]}],";"," ","\n","     ",RowBox[{"cellTypes"," ","="," ",RowBox[
+{"Join","[",RowBox[{RowBox[{RowBox[{"(",RowBox[{RowBox[{"ToString","[","#1","]"}]," ","&"}]," ",")"}]," ","/@"," ",RowBox[
+{"If","[",RowBox[{RowBox[{"ListQ","[","styles","]"}],","," ","styles",","," ",RowBox[
+{"{","styles","}"}]}],"]"}]}],","," ",RowBox[{RowBox[{"(",RowBox[{RowBox[{"ToString","[","#1","]"}]," ","&"}]," ",")"}]," ","/@"," ",RowBox[
+{"If","[",RowBox[{RowBox[{"ListQ","[","labels","]"}],","," ","labels",","," ",RowBox[
+{"{","labels","}"}]}],"]"}]}]}],"]"}]}],";"," ",RowBox[{"If","[",RowBox[{RowBox[{"updateLog"," ","==="," ","True"}],","," ",RowBox[
+{RowBox[{"AppendTo","[",RowBox[{"globalLogMgr",","," ",RowBox[{"{",RowBox[{"cellTypes",","," ","content"}],"}"}]}],"]"}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[
+{"If","[",RowBox[{RowBox[{"InNotebookEnvQ","[","]"}],","," ",RowBox[{RowBox[{"CellPrint","[",RowBox[
+{"Cell","[",RowBox[{RowBox[{"BoxData","[","content","]"}],","," ",RowBox[{"Sequence"," ","@@"," ","cellTypes"}]}],"]"}],"]"}],";"}]," ",","," ",RowBox[
+{RowBox[{"Return","[","content","]"}],";"}]}]," ","]"}],";"}]}]," ","]"}]}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{RowBox[{"getCellWithStyle","[",RowBox[{RowBox[{"include_",":","Nothing"}],","," ",RowBox[
+{"exclude_",":","Nothing"}],","," ",RowBox[{"slice_",":","All"}]}],"]"}]," ",":="," ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{",RowBox[{"shouldHave",","," ","shouldNotHave",","," ","cells"}],"}"}],","," ",RowBox[
+{RowBox[{"shouldHave"," ","="," ",RowBox[{"If","[",RowBox[{RowBox[{"ListQ","[","include","]"}],","," ","include",","," ",RowBox[
+{"{","include","}"}]}],"]"}]}],";"," ","\n","     ",RowBox[{"shouldNotHave"," ","="," ",RowBox[
+{"If","[",RowBox[{RowBox[{"ListQ","[","exclude","]"}],","," ","exclude",","," ",RowBox[
+{"{","exclude","}"}]}],"]"}]}],";"," ",RowBox[{"cells"," ","="," ",RowBox[{"Cells","[",RowBox[
+{"FrontEnd`EvaluationNotebook","[","]"}],"]"}]}],";"," ",RowBox[{"cells"," ","="," ",RowBox[
+{"Quiet","[",RowBox[{"Check","[",RowBox[{RowBox[{"Select","[",RowBox[{"cells",","," ",RowBox[
+{RowBox[{"SubsetQ","[",RowBox[{RowBox[{"CurrentValue","[",RowBox[{"#1",","," ","CellStyle"}],"]"}],","," ","shouldHave"}],"]"}]," ","&"}]}]," ","]"}],","," ",RowBox[
+{"{","}"}]}],"]"}],"]"}]}],";"," ","\n","     ",RowBox[{"cells"," ","="," ",RowBox[
+{"Quiet","[",RowBox[{"Check","[",RowBox[{RowBox[{"Select","[",RowBox[{"cells",","," ",RowBox[
+{RowBox[{"DisjointQ","[",RowBox[{RowBox[{"CurrentValue","[",RowBox[{"#1",","," ","CellStyle"}],"]"}],","," ","shouldNotHave"}],"]"}]," ","&"}]}]," ","]"}],","," ",RowBox[
+{"{","}"}]}],"]"}],"]"}]}],";"," ",RowBox[{"Return","[",RowBox[{"Quiet","[",RowBox[
+{"Check","[",RowBox[{RowBox[{"cells","[",RowBox[{"[","slice","]"}],"]"}],","," ",RowBox[
+{"{","}"}]}],"]"}],"]"}],"]"}],";"}]}]," ","]"}]}],";"}]," "}],"\n",RowBox[{RowBox[
+{RowBox[{RowBox[{"delCellWithStyle","[",RowBox[{RowBox[{"include_",":","Nothing"}],","," ",RowBox[
+{"exclude_",":","Nothing"}],","," ",RowBox[{"slice_",":","All"}]}],"]"}]," ",":="," ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{","}"}],","," ",RowBox[{RowBox[{"If","[",RowBox[{RowBox[
+{"InNotebookEnvQ","[","]"}],","," ",RowBox[{RowBox[{"NotebookDelete","[",RowBox[{"getCellWithStyle","[",RowBox[
+{"include",","," ","exclude",","," ","slice"}],"]"}],"]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"delLogWithStyle","[",RowBox[{"include",","," ","exclude",","," ","slice"}],"]"}],";"}]}]," ","]"}]}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"smartCellPrint","[",RowBox[{"\"Welcome to the autoHSP script developed by sijie.\"",","," ","\"perm\"",","," ","\"Output\"",","," ","False"}],"]"}],";"}]," "}]}],
+"Code",CellChangeTimes -> {{3.958511512225489`*^9,3.9585115482148056`*^9},{3.958513672309378`*^9,3.9585137347605515`*^9},3.9585139388055687`*^9,3.9585148541837063`*^9,3.958515066841419`*^9,{3.960042237923679`*^9,3.960042238405588`*^9}},
+ExpressionUUID -> "5a249ce0-809e-4040-9ea8-b4a3cb824550"]},Open],ExpressionUUID -> "bc57c5bd-061f-48a3-be1c-111908842467"],Cell[
+CellGroupData[
+{Cell[
+"\<Functions to initialize variables\>","Section",CellChangeTimes -> {3.9585118962895303`*^9},
+ExpressionUUID -> "a11f1465-c188-4e5f-a475-0f6c9fdb712b"],Cell[
+CellGroupData[{Cell[
+
+"\<`globalSolvents`\>","Subsection",CellChangeTimes -> {{3.958511908558159`*^9,3.9585119233883586`*^9}},
+ExpressionUUID -> "aae0b83b-4418-4920-8c56-c1a21b9b19b1"],Cell[
+"\<`globalSolvents` stores all the solvents used for this experiment with a mapping\>",
+"Text",CellChangeTimes -> {3.958511929701481`*^9},ExpressionUUID -> "ed23f509-590a-6448-90b4-1a084d3ff76b"],Cell[
+BoxData[
+RowBox[{RowBox[{RowBox[{RowBox[{"initVarGlobalSolvents","[",RowBox[{"reinit_",":","False"}],"]"}]," ",":="," ","\n","   ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{","}"}],","," ",RowBox[{RowBox[{"If","[",RowBox[{RowBox[
+{"reinit"," ","==="," ","True"}],","," ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{","\"Warning: You are force-reloading `initVarGlobalSolvents`. This could cause unexpected behaviors. Make sure you know what you are doing.\"","}"}],","," ","Nothing",","," ","\n","        ",RowBox[
+{"{",RowBox[{"\"Message\"",","," ","\"MSG\"",","," ","\"reinit-warning\""}],"}"}]}],"]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalSolvents","]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{"globalSolvents"," ","="," ",RowBox[{"Association","[",RowBox[{RowBox[{"\"S1\""," ","->"," ",RowBox[
+{"Model","[",RowBox[{"Sample",","," ","\"Methyl Ethyl Ketone\""}],"]"}]}],","," ",RowBox[
+{"\"S2\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Hexanes\""}],"]"}]}],","," ","\n","         ",RowBox[
+{"\"S3\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Toluene, Reagent Grade\""}],"]"}]}],","," ",RowBox[
+{"\"S4\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Propylene Carbonate\""}],"]"}]}],","," ",RowBox[
+{"\"S5\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Acetonitrile, HPLC Grade\""}],"]"}]}],","," ",RowBox[
+{"\"S6\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Methanol\""}],"]"}]}],","," ","\n","         ",RowBox[
+{"\"S7\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Diacetone Alcohol, 98%\""}],"]"}]}],","," ",RowBox[
+{"\"S8\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Cyclohexanol, 99%\""}],"]"}]}],","," ",RowBox[
+{"\"S9\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Dimethylformamide, Reagent Grade\""}],"]"}]}],","," ",RowBox[
+{"\"S10\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"n-Butyl Acetate, ACS Grade\""}],"]"}]}],","," ","\n","         ",RowBox[
+{"\"S11\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Ethanol, Reagent Grade\""}],"]"}]}],","," ",RowBox[
+{"\"S12\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"1-Propanol\""}],"]"}]}],","," ",RowBox[
+{"\"S13\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Cyclohexane\""}],"]"}]}],","," ","\n","         ",RowBox[
+{"\"S14\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Propylene Glycol 1-Monomethyl Ether 2-Acetate (PGMEA)\""}],"]"}]}],","," ",RowBox[
+{"\"S15\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Tetrahydrofuran, Anhydrous\""}],"]"}]}],","," ",RowBox[
+{"\"S16\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Dichloromethane, Reagent Grade\""}],"]"}]}],","," ","\n","         ",RowBox[
+{"\"S17\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"N-Methyl-2-pyrrolidone, Reagent Grade\""}],"]"}]}],","," ",RowBox[
+{"\"S18\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"gamma Butyrolactone\""}],"]"}]}],","," ",RowBox[
+{"\"S19\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"1,4-Dioxane, anhydrous\""}],"]"}]}],","," ","\n","         ",RowBox[
+{"\"S20\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Ethylene Glycol Monomethyl Ether Acetate\""}],"]"}]}],","," ",RowBox[
+{"\"S21\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Diethylene Glycol Monoethyl Ether Acetate\""}],"]"}]}],","," ",RowBox[
+{"\"S22\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Diethyl ether\""}],"]"}]}],","," ","\n","         ",RowBox[
+{"\"S23\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Glycerol\""}],"]"}]}],","," ",RowBox[
+{"\"S24\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Formamide\""}],"]"}]}],","," ",RowBox[
+{"\"S25\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Milli-Q water\""}],"]"}]}]}],"]"}]}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalSolventsUnits","]"}]}]," ","||"," ","reinit"}],","," ","\n","      ",RowBox[
+{RowBox[{"globalSolventsUnits"," ","="," ",RowBox[{"Association","[",RowBox[{"\"\""," ","->"," ",RowBox[
+{"1","*","Milliliter"}]}],"]"}]}],";"}]}]," ","]"}],";"," ",RowBox[{"If","["," ",RowBox[
+{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[",RowBox[{"getSolventUnit","[","]"}],"]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{RowBox[{"getSolventUnit","[",RowBox[{"code_",":","\"\""}],"]"}]," ",":="," ",RowBox[
+{"Lookup","[",RowBox[{"globalSolventsUnits",","," ","code",","," ",RowBox[{"globalSolventsUnits","[","\"\"","]"}]}],"]"}]}],";"}]}]," ","]"}],";"}]}]," ","]"}]}],";"}]," "}]],
+"Code",CellChangeTimes -> {{3.958511942965963`*^9,3.9585119530384808`*^9},3.95851375235344`*^9,{3.9585138031880207`*^9,3.958513807387621`*^9}},
+ExpressionUUID -> "44a11a68-33a4-8b40-b8ed-e9ae077da489"]},Open],ExpressionUUID -> "531e2a16-ee25-4512-b49b-ba3583e91ef6"],Cell[
+CellGroupData[
+{Cell[
+"\<`globalResins`\>","Subsection",CellChangeTimes -> {3.9585119711310806`*^9},
+ExpressionUUID -> "2a2405d7-15de-4cee-980e-493aee1aed31"],Cell[
+"\<`globalResins` stores all the resins used for this experiment with a mapping\>",
+"Text",CellChangeTimes -> {3.958511982427899`*^9},ExpressionUUID -> "c9d58914-7648-b544-aa22-7120d867eef0"],Cell[
+BoxData[
+RowBox[{RowBox[{RowBox[{RowBox[{"initVarGlobalResins","[",RowBox[{"reinit_",":","False"}],"]"}]," ",":="," ","\n","   ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{","}"}],","," ",RowBox[{RowBox[{"If","[",RowBox[{RowBox[
+{"reinit"," ","==="," ","True"}],","," ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{","\"Warning: You are force-reloading `initVarGlobalResins`. This could cause unexpected behaviors. Make sure you know what you are doing.\"","}"}],","," ","Nothing",","," ","\n","        ",RowBox[
+{"{",RowBox[{"\"Message\"",","," ","\"MSG\"",","," ","\"reinit-warning\""}],"}"}]}],"]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalResins","]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{"globalResins"," ","="," ",RowBox[{"Association","[",RowBox[{RowBox[{"\"R1\""," ","->"," ",RowBox[
+{"Model","[",RowBox[{"Sample",","," ","\"Desmodur N 3300\""}],"]"}]}],","," ",RowBox[
+{"\"R2\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Desmodur N 3500\""}],"]"}]}],","," ","\n","         ",RowBox[
+{"\"R3\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Desmodur N 31100\""}],"]"}]}],","," ",RowBox[
+{"\"R4\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Desmodur N 3400\""}],"]"}]}],","," ",RowBox[
+{"\"R5\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Desmodur N 100\""}],"]"}]}],","," ",RowBox[
+{"\"R6\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Desmodur N 3900\""}],"]"}]}],","," ","\n","         ",RowBox[
+{"\"R7\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Desmodur Z 2589\""}],"]"}]}],","," ",RowBox[
+{"\"R8\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Desmophen NH 1220\""}],"]"}]}],","," ",RowBox[
+{"\"R9\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Desmophen NH 1420\""}],"]"}]}],","," ",RowBox[
+{"\"R10\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Desmophen NH 1520\""}],"]"}]}],","," ","\n","         ",RowBox[
+{"\"R11\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Desmophen 1100\""}],"]"}]}],","," ",RowBox[
+{"\"R12\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Desmophen 1200\""}],"]"}]}],","," ",RowBox[
+{"\"R-2\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Poly(Ethylene Glycol) - 8000 MW\""}],"]"}]}],","," ",RowBox[
+{"\"R-1\""," ","->"," ",RowBox[{"Model","[",RowBox[{"Sample",","," ","\"Polysorbate 20\""}],"]"}]}]}],"]"}]}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalResinsUnits","]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{"globalResinsUnits"," ","="," ",RowBox[{"Association","[",RowBox[{RowBox[
+{"\"\""," ","->"," ",RowBox[{"1","*","Milliliter"}]}],","," ",RowBox[{"\"R7\""," ","->"," ",RowBox[
+{"1","*","Gram"}]}],","," ",RowBox[{"\"R-2\""," ","->"," ",RowBox[{"1","*","Gram"}]}]}],"]"}]}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[",RowBox[{"getResinUnit","[","]"}],"]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{RowBox[{"getResinUnit","[",RowBox[{"code_",":","\"\""}],"]"}]," ",":="," ",RowBox[
+{"Lookup","[",RowBox[{"globalResinsUnits",","," ","code",","," ",RowBox[{"globalResinsUnits","[","\"\"","]"}]}],"]"}]}],";"}]}]," ","]"}],";"}]}]," ","]"}]}],";"}]," "}]],
+"Code",CellChangeTimes -> {{3.9585120028767133`*^9,3.9585120468728933`*^9},{3.9585138136171474`*^9,3.9585138200052066`*^9}},
+ExpressionUUID -> "7a587645-5c67-0f48-897e-c64c82a14e02"]},Open],ExpressionUUID -> "0149d157-6ece-4bae-96b7-2dead68cb917"],Cell[
+CellGroupData[
+{Cell[
+"\<`globalVessel`\>","Subsection",CellChangeTimes -> {3.958512064601808`*^9},
+ExpressionUUID -> "580b1cd6-a94f-4ed0-8fcf-cc5faf9a9d1a"],Cell[
+"\<`globalVessel` stores information about the container that will be used. The following criteria should be met:
+- A total of ~10 mL of liquid will be added to the vessel.
+- The vessel should hold at least 15 mL of liquid. Preferably larger than 20 mL.
+- The vessel should be compatible with the following shaker/mixer of choice.
+- Clear glass walls (no texts, no marks, etc) and pure color caps (no horizontal textures).\>",
+"Text",CellChangeTimes -> {{3.9585120744129343`*^9,3.9585120904822865`*^9},{3.958513957550408`*^9,3.9585139581060834`*^9}},
+ExpressionUUID -> "7f18be4c-4cf2-fc4a-bc9e-7d25c8bc1504"],Cell[
+BoxData[RowBox[{RowBox[
+{RowBox[{RowBox[{"initVarGlobalVessel","[",RowBox[{RowBox[{"reinit_",":","False"}],","," ",RowBox[
+{"checkShaker_",":","True"}]}],"]"}]," ",":="," ","\n","   ",RowBox[{"Block","[",RowBox[
+{RowBox[{"{","}"}],","," ",RowBox[{RowBox[{"If","[",RowBox[{RowBox[{"reinit"," ","==="," ","True"}],","," ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{","\"Warning: You are force-reloading `initVarGlobalVessel`. This could cause unexpected behaviors. Make sure you know what you are doing.\"","}"}],","," ","Nothing",","," ","\n","        ",RowBox[
+{"{",RowBox[{"\"Message\"",","," ","\"MSG\"",","," ","\"reinit-warning\""}],"}"}]}],"]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalVessel","]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{"globalVessel"," ","="," ",RowBox[{"Model","[",RowBox[{"Container",","," ","Vessel",","," ","\"20mL Glass Scintillation Vial, With Cone-Shaped Cap Liner\""}],"]"}]}],";"," ","\n","       ",RowBox[
+{"If","[",RowBox[{RowBox[{"reinit"," ","&&"," ","checkShaker"," ","&&"," ",RowBox[
+{"ValueQ","[",RowBox[{"initVarGlobalShaker","[","]"}],"]"}]," ","&&"," ",RowBox[{"ValueQ","[","globalShaker","]"}]}],","," ",RowBox[
+{RowBox[{"initVarGlobalShaker","[",RowBox[{"reinit",","," ","globalVessel"}],"]"}],";"}]}]," ","]"}],";"}]}]," ","]"}],";"}]}]," ","]"}]}],";"}]," "}]],
+"Code",CellChangeTimes -> {3.9585120978323483`*^9,{3.958513826349624`*^9,3.9585138316495457`*^9}},
+ExpressionUUID -> "66cde345-407e-3c4c-bb54-65fc1734eaf7"]},Open],ExpressionUUID -> "dee5ed5e-18f9-4e97-8f46-856ac5e99067"],Cell[
+CellGroupData[
+{Cell[
+"\<`globalShaker`, `globalShakeTime`, etc.\>","Subsection",CellChangeTimes -> {3.9585121399356856`*^9},
+ExpressionUUID -> "5fa9e9a3-a668-494c-b2fb-4fded4dbc02f"],Cell[
+"\<You need to make sure that the shaker chosen here is compatible with the previous `globalVessel`.
+A quick way to check this is by using `AnyTrue[MixDevices[globalVessel, 10 Milliliter], # == globalShaker&]`.
+If you need to suppress the vessel-shaker check, pass `False` to `checkVessel`. Otherwise by default, `checkVessel` will try to find `globalVessel` and use it.\>",
+"Text",CellChangeTimes -> {3.958512153351351`*^9,{3.9585139638640685`*^9,3.9585139733449783`*^9}},
+ExpressionUUID -> "737663e5-6a35-4543-9725-22284f86aff9"],Cell[
+BoxData[RowBox[{RowBox[
+{RowBox[{RowBox[{"initVarGlobalShaker","[",RowBox[{RowBox[{"reinit_",":","False"}],","," ",RowBox[
+{"checkVessel_",":","True"}]}],"]"}]," ",":="," ","\n","   ",RowBox[{"Block","[",RowBox[
+{RowBox[{"{","vessel","}"}],","," ",RowBox[{RowBox[{"If","[",RowBox[{RowBox[{"reinit"," ","==="," ","True"}],","," ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{","\"Warning: You are force-reloading `initVarGlobalShaker`. This could cause unexpected behaviors. Make sure you know what you are doing.\"","}"}],","," ","Nothing",","," ","\n","        ",RowBox[
+{"{",RowBox[{"\"Message\"",","," ","\"MSG\"",","," ","\"reinit-warning\""}],"}"}]}],"]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalShaker","]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{"globalShaker"," ","="," ",RowBox[{"Model","[",RowBox[{"Instrument",","," ","Roller",","," ","\"Enviro-Genie\""}],"]"}]}],";"," ",RowBox[
+{"vessel"," ","="," ","False"}],";"," ","\n","       ",RowBox[{"If","[",RowBox[{RowBox[
+{"checkVessel"," ","==="," ","True"}],","," ",RowBox[{RowBox[{"If","[",RowBox[{RowBox[
+{"AllTrue","[",RowBox[{RowBox[{"{","globalVessel","}"}],","," ","ValueQ"}],"]"}],","," ",RowBox[
+{RowBox[{"vessel"," ","="," ","globalVessel"}],";"}]," ",","," ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{"\"`checkVessel` is set to True but `globalVessel` has not been set.\"",","," ","\"initVarGlobalShaker\""}],"]"}],";"}]}]," ","]"}],";"}]}]," ","]"}],";"," ","\n","       ",RowBox[
+{"If","[",RowBox[{RowBox[{"Quiet","[",RowBox[{"Check","[",RowBox[{RowBox[{RowBox[
+{"checkVessel","[","Type","]"}]," ","==="," ",RowBox[{"Model","[",RowBox[{"Container",","," ","Vessel"}],"]"}]}],","," ","False"}],"]"}],"]"}],","," ",RowBox[
+{RowBox[{"vessel"," ","="," ","checkVessel"}],";"}]," ",","," ",RowBox[{RowBox[{"If","[",RowBox[
+{RowBox[{RowBox[{"checkVessel"," ","=!="," ","False"}]," ","&&"," ",RowBox[{"checkVessel"," ","=!="," ","True"}]}],","," ","\n","          ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{"\"Wrong argument passed to `checkVessel`. Shoulde be one of True|False|Model[Container,Vessel,...]\"",","," ","\"initVarGlobalShaker\""}],"]"}],";"}]}]," ","]"}],";"}]}]," ","]"}],";"," ","\n","       ",RowBox[
+{"If","["," ",RowBox[{RowBox[{"!",RowBox[{"vessel"," ","==="," ","False"}]}],","," ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{"\"Checking for shaker-vessel compatibility... This might take some time...\"",","," ","\"initVarGlobalShaker-incompatible\""}],"]"}],";"," ","\n","         ",RowBox[
+{"If","[",RowBox[{RowBox[{"AnyTrue","[",RowBox[{RowBox[{"MixDevices","[",RowBox[{"vessel",","," ",RowBox[
+{RowBox[{"vessel","[","MaxVolume","]"}],"/","2"}]}],"]"}],","," ",RowBox[{RowBox[
+{"#1"," ","==="," ",RowBox[{"globalShaker","[","Object","]"}]}]," ","&"}]}]," ","]"}],","," ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Success: shaker `\"",","," ","globalShaker",","," ","\"` is compatible with vessel `\"",","," ","vessel",","," ","\"`.\""}],"}"}],","," ","\n","            ","\"initVarGlobalShaker\""}],"]"}],";"}]," ",","," ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Warning: the shaker `\"",","," ","globalShaker",","," ","\"` is not compatible with your vessel `\"",","," ","vessel",","," ","\"`. Please match these choices properly.\""}],"}"}],","," ","\n","            ","\"initVarGlobalShaker\""}],"]"}],";"}]}]," ","]"}],";"}]," ",","," ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{"\"Shaker-vessel compatibility test NOT performed.\"",","," ","\"initVarGlobalShaker\""}],"]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"delCellWithStyle","[","\"initVarGlobalShaker-incompatible\"","]"}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalShakeTime","]"}]}]," ","||","  ",RowBox[
+{"!",RowBox[{"ValueQ","[","globalShakeTimeSolvent","]"}]}]," ","||","  ",RowBox[{"!",RowBox[
+{"ValueQ","[","globalShakeRate","]"}]}]," ","||"," ","reinit"}],","," ",RowBox[{RowBox[
+{"globalShakeTime"," ","="," ",RowBox[{"12","*","Hour"}]}],";"," ",RowBox[{"globalShakeTimeSolvent"," ","="," ",RowBox[
+{"2","*","Hour"}]}],";"," ",RowBox[{"globalShakeRate"," ","="," ",RowBox[{"15","*","RPM"}]}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalSitTime","]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{"globalSitTime"," ","="," ",RowBox[{"24","*","Hour"}]}],";"}]}]," ","]"}],";"}]}]," ","]"}]}],";"}]," "}]],
+"Code",CellChangeTimes -> {{3.9585121661031227`*^9,3.958512204163975`*^9},3.958513988724287`*^9,{3.958514821673624`*^9,3.958514823477383`*^9}},
+ExpressionUUID -> "4f9cdca4-ef21-ea47-a11f-54643d6c593d"]},Open],ExpressionUUID -> "f7dfe09e-a229-4b85-bac2-6130aee70ae4"],Cell[
+CellGroupData[
+{Cell[
+"\<`globalCamera`\>","Subsection",CellChangeTimes -> {3.958512213936685`*^9},
+ExpressionUUID -> "1141dabe-71e5-4921-988a-f106a4bba470"],Cell[
+BoxData[RowBox[{RowBox[
+{RowBox[{RowBox[{"initVarGlobalCamera","[",RowBox[{"reinit_",":","False"}],"]"}]," ",":="," ","\n","   ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{","}"}],","," ",RowBox[{RowBox[{"If","[",RowBox[{RowBox[
+{"reinit"," ","==="," ","True"}],","," ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{","\"Warning: You are force-reloading `initVarGlobalCamera`. This could cause unexpected behaviors. Make sure you know what you are doing.\"","}"}],","," ","Nothing",","," ","\n","        ",RowBox[
+{"{",RowBox[{"\"Message\"",","," ","\"MSG\"",","," ","\"reinit-warning\""}],"}"}]}],"]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalCamera","]"}]}]," ","||","  ",RowBox[
+{"!",RowBox[{"ValueQ","[","globalCameraShowVessel","]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{"globalCamera"," ","="," ",RowBox[{"Model","[",RowBox[{"Instrument",","," ","SampleImager",","," ","\"Emerald DSLR Camera Imaging Station\""}],"]"}]}],";"," ","\n","       ",RowBox[
+{"globalCameraShowVessel"," ","="," ","True"}]}]}],"]"}],";"}]}]," ","]"}]}],";"}]," "}]],
+"Code",CellChangeTimes -> {{3.9585122201387496`*^9,3.9585122454868383`*^9},3.958513995077692`*^9,{3.9585148056630287`*^9,3.958514821686629`*^9}},
+ExpressionUUID -> "8590eb28-83f6-0649-ba79-b1a5c6caf9e3"]},Open],ExpressionUUID -> "48ea5158-ef96-4f21-bcc8-3c200ec9f47f"],Cell[
+CellGroupData[
+{Cell[
+"\<`globalTaskMgr` and `globalLogMgr`\>","Subsection",CellChangeTimes -> {3.958512261466412`*^9},
+ExpressionUUID -> "0ffe7017-2ad0-4bc5-9cfa-2ba7481f4d34"],Cell[
+"\<`globalTaskMgr` will serve as a collection of all tasks (\[OpenCurlyDoubleQuote]prep\[CloseCurlyDoubleQuote], \[OpenCurlyDoubleQuote]image\[CloseCurlyDoubleQuote], \[OpenCurlyDoubleQuote]EOE\[CloseCurlyDoubleQuote]) claimed by different threads running. For example:
+globalTaskMgr = <|
+	\[OpenCurlyDoubleQuote]thread1\[CloseCurlyDoubleQuote] -> <|
+		\[OpenCurlyDoubleQuote]task\[CloseCurlyDoubleQuote] -> \[OpenCurlyDoubleQuote]prep\[CloseCurlyDoubleQuote], (* prepare samples *)
+		\[OpenCurlyDoubleQuote]taskId\[CloseCurlyDoubleQuote] -> \[OpenCurlyDoubleQuote]xxxxxx\[CloseCurlyDoubleQuote],
+		\[OpenCurlyDoubleQuote]samples\[CloseCurlyDoubleQuote] -> {
+			<|\[OpenCurlyDoubleQuote]resin\[CloseCurlyDoubleQuote] -> \[OpenCurlyDoubleQuote]R1\[CloseCurlyDoubleQuote], \[OpenCurlyDoubleQuote]solvent\[CloseCurlyDoubleQuote] -> {\[OpenCurlyDoubleQuote]S1\[CloseCurlyDoubleQuote]}, \[OpenCurlyDoubleQuote]ramount\[CloseCurlyDoubleQuote] -> 5, \[OpenCurlyDoubleQuote]samount\[CloseCurlyDoubleQuote] -> {5}, \[OpenCurlyDoubleQuote]label\[CloseCurlyDoubleQuote] -> \[OpenCurlyDoubleQuote]R1S1\[CloseCurlyDoubleQuote]|>,
+			<|\[OpenCurlyDoubleQuote]resin\[CloseCurlyDoubleQuote] -> \[OpenCurlyDoubleQuote]R1\[CloseCurlyDoubleQuote], \[OpenCurlyDoubleQuote]solvent\[CloseCurlyDoubleQuote] -> {\[OpenCurlyDoubleQuote]S7\[CloseCurlyDoubleQuote]}, \[OpenCurlyDoubleQuote]ramount\[CloseCurlyDoubleQuote] -> 5, \[OpenCurlyDoubleQuote]samount\[CloseCurlyDoubleQuote] -> {5}, \[OpenCurlyDoubleQuote]label\[CloseCurlyDoubleQuote] -> \[OpenCurlyDoubleQuote]R1S7\[CloseCurlyDoubleQuote]|>
+		}
+	|>,
+	\[OpenCurlyDoubleQuote]thread2\[CloseCurlyDoubleQuote] -> <|
+		\[OpenCurlyDoubleQuote]task\[CloseCurlyDoubleQuote] -> \[OpenCurlyDoubleQuote]image\[CloseCurlyDoubleQuote], (* image samples *)
+		\[OpenCurlyDoubleQuote]taskId\[CloseCurlyDoubleQuote] -> \[OpenCurlyDoubleQuote]xxxxxx\[CloseCurlyDoubleQuote],
+		\[OpenCurlyDoubleQuote]samples\[CloseCurlyDoubleQuote] -> {
+			\[OpenCurlyDoubleQuote]R8:S1-r5.00:s5.00\[CloseCurlyDoubleQuote], \[OpenCurlyDoubleQuote]R8:S7-r5.00:s5.00\[CloseCurlyDoubleQuote]
+		}
+	|>
+|>\>",
+"Text",CellChangeTimes -> {{3.9585122707900352`*^9,3.9585122810489445`*^9},{3.958513999078466`*^9,3.9585141420605836`*^9},{3.9585141762174554`*^9,3.9585142112481923`*^9}},
+ExpressionUUID -> "9c03e86d-0ef8-5142-8a9a-e5ebca923876"],Cell[
+BoxData[RowBox[{RowBox[
+{RowBox[{RowBox[{"initVarGlobalTaskMgr","[",RowBox[{RowBox[{"reinit_",":","False"}],","," ",RowBox[
+{"forsure_",":","False"}]}],"]"}]," ",":="," ","\n","   ",RowBox[{"Block","[",RowBox[
+{RowBox[{"{","}"}],","," ",RowBox[{RowBox[{"If","[",RowBox[{RowBox[{"reinit"," ","==="," ","True"}],","," ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{","\"Warning: You are force-reloading `initVarGlobalTaskMgr`. This could cause unexpected behaviors. Make sure you know what you are doing.\"","}"}],","," ","Nothing",","," ","\n","        ",RowBox[
+{"{",RowBox[{"\"Message\"",","," ","\"MSG\"",","," ","\"reinit-warning\""}],"}"}]}],"]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalTaskMgr","]"}]}]," ","||"," ",RowBox[
+{"(",RowBox[{"reinit"," ","&&"," ","forsure"}],")"}]}],","," ",RowBox[{RowBox[{"globalTaskMgr"," ","="," ",RowBox[
+{"Association","[","]"}]}],";"}]}]," ","]"}],";"," ",RowBox[{"If","["," ",RowBox[
+{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[",RowBox[{"getTaskForThread","[","]"}],"]"}]}]," ","||","  ",RowBox[
+{"!",RowBox[{"ValueQ","[",RowBox[{"delTaskForThread","[","]"}],"]"}]}]," ","||"," ","reinit"}],","," ","\n","      ",RowBox[
+{RowBox[{RowBox[{"getTaskForThread","[","thread_","]"}]," ",":="," ",RowBox[{"(",RowBox[
+{RowBox[{"If","["," ",RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalTaskMgr","]"}]}],","," ",RowBox[
+{RowBox[{"globalTaskMgr"," ","="," ",RowBox[{"Association","[","]"}]}],";"}]}]," ","]"}],";"," ",RowBox[
+{"Return","[",RowBox[{"Lookup","[",RowBox[{"globalTaskMgr",","," ","thread",","," ",RowBox[
+{"Association","[","]"}]}],"]"}],"]"}],";"}]," ",")"}]}],";"," ","\n","       ",RowBox[
+{RowBox[{"delTaskForThread","[","thread_","]"}]," ",":="," ",RowBox[{"(",RowBox[{RowBox[
+{"If","["," ",RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalTaskMgr","]"}]}],","," ",RowBox[
+{RowBox[{"globalTaskMgr"," ","="," ",RowBox[{"Association","[","]"}]}],";"}]}]," ","]"}],";"," ",RowBox[
+{"globalTaskMgr"," ","="," ",RowBox[{"KeyDrop","[",RowBox[{"globalTaskMgr",","," ","thread"}],"]"}]}],";"," ",RowBox[
+{"Return","[","globalTaskMgr","]"}],";"}]," ",")"}]}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[",RowBox[{"parseAssocList","[","]"}],"]"}]}]," ","||","  ",RowBox[
+{"!",RowBox[{"ValueQ","[",RowBox[{"getPosOfLength","[","]"}],"]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{RowBox[{"parseAssocList","[",RowBox[{"key_",","," ","assocList_",","," ",RowBox[
+{"fillMissWith_",":","Nothing"}]}],"]"}]," ",":="," ","\n","        ",RowBox[{"Cases","[",RowBox[
+{"assocList",","," ",RowBox[{RowBox[{"assoc_"," ","/;"," ",RowBox[{"AssociationQ","[","assoc","]"}]}]," ",":>"," ",RowBox[
+{"Lookup","[",RowBox[{"assoc",","," ","key",","," ","fillMissWith"}],"]"}]}]}],"]"}]}],";"," ",RowBox[
+{RowBox[{"getPosOfLength","[",RowBox[{"listOfLists_",","," ",RowBox[{"N_",":","1"}],","," ",RowBox[
+{"filterFunc_",":","GreaterEqual"}],","," ",RowBox[{"lengthFunc_",":","Length"}]}],"]"}]," ",":="," ","\n","        ",RowBox[
+{"Select","[",RowBox[{RowBox[{"Range","[",RowBox[{"Length","[","listOfLists","]"}],"]"}],","," ",RowBox[
+{RowBox[{"filterFunc","[",RowBox[{RowBox[{"lengthFunc","[",RowBox[{"listOfLists","[",RowBox[
+{"[","#1","]"}],"]"}],"]"}],","," ","N"}],"]"}]," ","&"}]}]," ","]"}]}]}]}],"]"}],";"}]}]," ","]"}]}],";"}]," "}]],
+"Code",CellChangeTimes -> {3.9585124465387993`*^9,{3.9585125255899544`*^9,3.958512526023077`*^9},3.958514217368168`*^9,{3.9585148065118165`*^9,3.958514807184056`*^9}},
+ExpressionUUID -> "694a1375-f7a6-8043-bbe6-d354be58ac8e"]},Open],ExpressionUUID -> "73238b57-2ea6-4824-a859-d6efa5fb3f28"],Cell[
+CellGroupData[
+{Cell[
+"\<`globalNextUrl`, `globalUploadUrl`, and `parseJsonResponse`\>","Subsection",
+CellChangeTimes -> {3.958512459376568`*^9},ExpressionUUID -> "0350d51a-b63f-4f36-9ac2-eeb460faef8b"],Cell[
+
+"\<Variables for server communication
+`parseJsonResponse`: Function to parse JSON response from HTTP request\>",
+"Text",CellChangeTimes -> {3.9585124694228783`*^9},ExpressionUUID -> "2eeea104-1c1e-c340-92de-460f7c9b79ef"],Cell[
+BoxData[
+RowBox[{RowBox[{RowBox[{RowBox[{"initVarGlobalUrl","[",RowBox[{"reinit_",":","False"}],"]"}]," ",":="," ","\n","   ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{","}"}],","," ",RowBox[{RowBox[{"If","[",RowBox[{RowBox[
+{"reinit"," ","==="," ","True"}],","," ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{","\"Warning: You are force-reloading `initVarGlobalUrl`. This could cause unexpected behaviors. Make sure you know what you are doing.\"","}"}],","," ","Nothing",","," ","\n","        ",RowBox[
+{"{",RowBox[{"\"Message\"",","," ","\"MSG\"",","," ","\"reinit-warning\""}],"}"}]}],"]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalDomainName","]"}]}]," ","||","  ",RowBox[
+{"!",RowBox[{"ValueQ","[","globalApiKey","]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{"globalDomainName"," ","="," ","\"https://XXXXX.XXXXX.cmu.edu/api/\""}],";"," ","\n","       ",RowBox[
+{"globalApiKey"," ","="," ","\"XXXXXXXXXXXXXXXXXXX\""}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalNextUrl","]"}]}]," ","||","  ",RowBox[
+{"!",RowBox[{"ValueQ","[","globalUploadUrl","]"}]}]," ","||","  ",RowBox[{"!",RowBox[
+{"ValueQ","[","globalNotifyUrl","]"}]}]," ","||"," ","reinit"}],","," ",RowBox[{RowBox[
+{"globalNextUrl"," ","="," ",RowBox[{"URLBuild","[",RowBox[{"{",RowBox[{"globalDomainName",","," ","globalApiKey",","," ","\"next\""}],"}"}],"]"}]}],";"," ","\n","       ",RowBox[
+{"globalUploadUrl"," ","="," ",RowBox[{"URLBuild","[",RowBox[{"{",RowBox[{"globalDomainName",","," ","globalApiKey",","," ","\"upload\""}],"}"}],"]"}]}],";"," ",RowBox[
+{"globalNotifyUrl"," ","="," ",RowBox[{"URLBuild","[",RowBox[{"{",RowBox[{"globalDomainName",","," ","globalApiKey",","," ","\"notify\""}],"}"}],"]"}]}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalMaxRuns","]"}]}]," ","||","  ",RowBox[
+{"!",RowBox[{"ValueQ","[","globalWaitInterval","]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{"globalMaxRuns"," ","="," ","10"}],";"," ",RowBox[{"globalWaitInterval"," ","="," ","60"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[",RowBox[{"parseJsonResponse","[","]"}],"]"}]}]," ","||"," ","reinit"}],","," ","\n","      ",RowBox[
+{RowBox[{RowBox[{"parseJsonResponse","[","response_","]"}]," ",":="," ",RowBox[{RowBox[
+{"ResourceFunction","[","\"ToAssociations\"","]"}],"[",RowBox[{"ImportString","[",RowBox[
+{RowBox[{"response","[","\"Body\"","]"}],","," ","\"JSON\""}],"]"}],"]"}]}],";"}]}]," ","]"}],";"}]}]," ","]"}]}],";"}]," "}]],
+"Code",CellChangeTimes -> {{3958512483.5464935`,3958512521.5427823`},3958514226.6058407`,{3958514808.0208573`,3958514808.817607`}},
+ExpressionUUID -> "bc65cab7-3e6c-a04b-ae2f-d79029be1850"]},Open],ExpressionUUID -> "e7cf6965-34d5-4ddd-9819-3f5dc5fe929b"],Cell[
+CellGroupData[
+{Cell[
+"\<Other global variables\>","Subsection",CellChangeTimes -> {{3.9585125311174264`*^9,3.9585125331136622`*^9}},
+ExpressionUUID -> "5197a1b7-8c6a-4e8e-89d7-d17c3c0421cd"],Cell[
+BoxData[RowBox[{RowBox[
+{RowBox[{RowBox[{"initVarGlobalOthers","[",RowBox[{"reinit_",":","False"}],"]"}]," ",":="," ","\n","   ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{","}"}],","," ",RowBox[{RowBox[{"If","[",RowBox[{RowBox[
+{"reinit"," ","==="," ","True"}],","," ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{","\"Warning: You are force-reloading `initVarGlobalOthers`. This could cause unexpected behaviors. Make sure you know what you are doing.\"","}"}],","," ","Nothing",","," ","\n","        ",RowBox[
+{"{",RowBox[{"\"Message\"",","," ","\"MSG\"",","," ","\"reinit-warning\""}],"}"}]}],"]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalExpSite","]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{"globalExpSite"," ","="," ",RowBox[{"Object","[",RowBox[{"Container",","," ","Site",","," ","\"ECL-CMU\""}],"]"}]}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[","globalSampleNamePrefix","]"}]}]," ","||"," ","reinit"}],","," ",RowBox[
+{RowBox[{"globalSampleNamePrefix"," ","="," ","\"Washburn_HSP_\""}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"ValueQ","[",RowBox[{"addSampleNamePrefix","[","]"}],"]"}]}]," ","||","  ",RowBox[
+{"!",RowBox[{"ValueQ","[",RowBox[{"delSampleNamePrefix","[","]"}],"]"}]}]," ","||"," ","reinit"}],","," ","\n","      ",RowBox[
+{RowBox[{RowBox[{"addSampleNamePrefix","[",RowBox[{"string_",","," ",RowBox[{"prefix_",":","True"}]}],"]"}]," ",":="," ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{","tmpPrefix","}"}],","," ",RowBox[{RowBox[{"tmpPrefix"," ","="," ",RowBox[
+{"If","[",RowBox[{RowBox[{"StringQ","[","prefix","]"}],","," ","prefix",","," ",RowBox[
+{"If","[",RowBox[{RowBox[{"ValueQ","[","globalSampleNamePrefix","]"}],","," ",RowBox[
+{"ToString","[","globalSampleNamePrefix","]"}],","," ",RowBox[{RowBox[{"Return","[","string","]"}],";"," ","\"\""}]}],"]"}]}],"]"}]}],";"," ","\n","          ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"StringLength","[","tmpPrefix","]"}]," ","=="," ","0"}],","," ",RowBox[
+{"Return","[","string","]"}]}],"]"}],";"," ",RowBox[{"Return","[",RowBox[{"If","["," ",RowBox[
+{RowBox[{"!",RowBox[{"StringStartsQ","[",RowBox[{"string",","," ",RowBox[{"tmpPrefix","*","\"id:\""}]}],"]"}]}],","," ",RowBox[
+{"StringJoin","[",RowBox[{"tmpPrefix",","," ","string"}],"]"}],","," ","string"}],"]"}],"]"}],";"}]}]," ","]"}]}],";"," ","\n","       ",RowBox[
+{RowBox[{"delSampleNamePrefix","[",RowBox[{"string_",","," ",RowBox[{"prefix_",":","True"}]}],"]"}]," ",":="," ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{","tmpPrefix","}"}],","," ",RowBox[{RowBox[{"tmpPrefix"," ","="," ",RowBox[
+{"If","[",RowBox[{RowBox[{"StringQ","[","prefix","]"}],","," ","prefix",","," ",RowBox[
+{"If","[",RowBox[{RowBox[{"ValueQ","[","globalSampleNamePrefix","]"}],","," ",RowBox[
+{"ToString","[","globalSampleNamePrefix","]"}],","," ",RowBox[{RowBox[{"Return","[","string","]"}],";"," ","\"\""}]}],"]"}]}],"]"}]}],";"," ","\n","          ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"StringLength","[","tmpPrefix","]"}]," ","=="," ","0"}],","," ",RowBox[
+{"Return","[","string","]"}]}],"]"}],";"," ",RowBox[{"Return","[",RowBox[{"If","[",RowBox[
+{RowBox[{"StringStartsQ","[",RowBox[{"string",","," ","tmpPrefix"}],"]"}],","," ",RowBox[
+{"StringReplace","[",RowBox[{"string",","," ",RowBox[{RowBox[{"StartOfString","~~","tmpPrefix"}]," ","->"," ","\"\""}]}],"]"}],","," ","string"}],"]"}],"]"}],";"}]}]," ","]"}]}],";"}]}]," ","]"}],";"}]}]," ","]"}]}],";"}]," "}]],
+"Code",CellChangeTimes -> {{3.958512541577143`*^9,3.9585125468745155`*^9},3.958514422920555`*^9,{3.958514809879915`*^9,3.9585148110883255`*^9}},
+ExpressionUUID -> "9df0c0fa-a89f-0c48-9bec-c5fa89f7b883"]},Open],ExpressionUUID -> "0d34b8b9-faae-44d7-9519-b679ea96c760"],Cell[
+CellGroupData[
+{Cell[
+"\<a wrapper to init all variables\>","Subsection",CellChangeTimes -> {3.958512561501749`*^9},
+ExpressionUUID -> "e524617d-a83a-4cbf-95c7-f64ed6cb505b"],Cell[
+BoxData[{RowBox[{RowBox[
+{RowBox[{RowBox[{"initAllVars","[",RowBox[{"reinit_",":","False"}],"]"}]," ",":="," ",RowBox[
+{"(",RowBox[{RowBox[{"initVarGlobalSolvents","[","reinit","]"}],";"," ",RowBox[{"initVarGlobalResins","[","reinit","]"}],";"," ",RowBox[
+{"initVarGlobalVessel","[",RowBox[{"reinit",","," ","False"}],"]"}],";"," ",RowBox[
+{"initVarGlobalShaker","[",RowBox[{"reinit",","," ","globalVessel"}],"]"}],";"," ",RowBox[
+{"initVarGlobalCamera","[","reinit","]"}],";"," ","\n","    ",RowBox[{"initVarGlobalTaskMgr","[",RowBox[
+{"reinit",","," ","False"}],"]"}],";"," ",RowBox[{"initVarGlobalUrl","[","reinit","]"}],";"," ",RowBox[
+{"initVarGlobalOthers","[","reinit","]"}],";"}]," ",")"}]}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"initAllVars","[","False","]"}],";"}]," "}]}],"Code",CellChangeTimes -> {3.958512590382843`*^9,3.9585143805594254`*^9,3.958514429849199`*^9},
+ExpressionUUID -> "ff57f236-5cdd-c146-a246-ee2824114f2d"]},Open],ExpressionUUID -> "6883b0f5-9a3f-4606-b9cf-f05c33527203"]},
+Open],ExpressionUUID -> "2ebc6d01-008f-427c-8a68-17c2edfab104"],Cell[
+CellGroupData[
+{Cell[
+"\<Functions for server communications\>","Section",CellChangeTimes -> {3.958512625384512`*^9},
+ExpressionUUID -> "381c41ac-fdb8-4dd7-8a99-bcc5003059c7"],Cell[
+CellGroupData[{Cell[
+
+"\<Function to pull the next experiments\>","Subsection",CellChangeTimes -> {3.958512633757585`*^9},
+ExpressionUUID -> "b4ffe9ef-64e5-48b1-aac2-f732418decc8"],Cell[
+"\<Get the next task for a thread with defined abilities for the thread.\>",
+"Text",CellChangeTimes -> {3.95851264375688`*^9},ExpressionUUID -> "0d8444bc-d1b7-9047-876c-92e2fa7079d9"],Cell[
+BoxData[
+RowBox[{RowBox[{RowBox[{RowBox[{"getNextTaskFromServer","[",RowBox[{"thread_",","," ",RowBox[
+{"ability_",":",RowBox[{"{",RowBox[{"\"prep\"",","," ","\"image\""}],"}"}]}],","," ",RowBox[
+{"extraOutputTag_",":","Nothing"}],","," ",RowBox[{"maxRuns_",":","True"}],","," ",RowBox[
+{"waitInterval_",":","True"}]}],"]"}]," ",":="," ",RowBox[{"Block","[",RowBox[{RowBox[
+{"{",RowBox[{"tmpUrl",","," ","tmpUrlResponse",","," ","tmpCounter",","," ","tmpMaxRuns",","," ","tmpWaitInterval",","," ","tmpPrintCellStyle"}],"}"}],","," ","\n","    ",RowBox[
+{RowBox[{"initVarGlobalUrl","[","False","]"}],";"," ",RowBox[{"tmpMaxRuns"," ","="," ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"IntegerQ","[","maxRuns","]"}]," ","&&"," ",RowBox[
+{"maxRuns"," ",">="," ","1"}]}],","," ","maxRuns",","," ","globalMaxRuns",","," ","10"}],"]"}]}],";"," ",RowBox[
+{"tmpWaitInterval"," ","="," ",RowBox[{"If","[",RowBox[{RowBox[{RowBox[{"RealValuedNumberQ","[","waitInterval","]"}]," ","&&"," ",RowBox[
+{"waitInterval"," ",">"," ","0"}]}],","," ","waitInterval",","," ","\n","       ","globalWaitInterval",","," ","60"}],"]"}]}],";"," ",RowBox[
+{"tmpPrintCellStyle"," ","="," ",RowBox[{"{",RowBox[{"\"getNextTaskFromServer\"",","," ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"StringQ","[","extraOutputTag","]"}]," ","&&"," ",RowBox[
+{RowBox[{"StringLength","[","extraOutputTag","]"}]," ",">="," ","1"}]}],","," ","extraOutputTag",","," ","Nothing",","," ","Nothing"}],"]"}]}],"}"}]}],";"," ","\n","     ",RowBox[
+{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Trying to get the next task for thread `\"",","," ","thread",","," ","\"` with abilities `\"",","," ","ability",","," ","\"`\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ","\n","     ",RowBox[
+{"tmpUrl"," ","="," ",RowBox[{"URLBuild","[",RowBox[{"globalNextUrl",","," ",RowBox[
+{"Association","[",RowBox[{RowBox[{"\"thread\""," ","->"," ","thread"}],","," ",RowBox[
+{"\"ability\""," ","->"," ","ability"}]}],"]"}]}],"]"}]}],";"," ","\n","     ",RowBox[
+{"Do","[",RowBox[{RowBox[{RowBox[{"tmpUrlResponse"," ","="," ",RowBox[{"URLRead","[","tmpUrl","]"}]}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"tmpUrlResponse","[","\"StatusCode\"","]"}]," ","=="," ","200"}],","," ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Try \"",","," ","tmpCounter",","," ","\"/\"",","," ","tmpMaxRuns",","," ","\": Trying to get the next task for thread `\"",","," ","thread",","," ","\"` with abilities `\"",","," ","\n","           ","ability",","," ","\"`\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{RowBox[{"globalTaskMgr","[","thread","]"}]," ","="," ",RowBox[{"parseJsonResponse","[","tmpUrlResponse","]"}]}],";"," ",RowBox[
+{"Break","[","]"}],";"}]," ",","," ","\n","        ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{",RowBox[{"\"Try \"",","," ","tmpCounter",","," ","\"/\"",","," ","maxRuns",","," ","\" failed with code \"",","," ",RowBox[
+{"tmpUrlResponse","[","\"StatusCode\"","]"}],","," ","\". Waiting \"",","," ","tmpWaitInterval",","," ","\" seconds before the next try.\""}],"}"}],","," ","\n","          ",RowBox[
+{"{",RowBox[{"\"getNextTaskFromServer\"",","," ","globalSmartCellPrintTag"}],"}"}]}],"]"}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{"tmpCounter"," ","<"," ","tmpMaxRuns"}],","," ",RowBox[
+{RowBox[{"Pause","[","tmpWaitInterval","]"}],";"}]}]," ","]"}],";"}]}]," ","]"}]}],","," ",RowBox[
+{"{",RowBox[{"tmpCounter",","," ",RowBox[{"Max","[",RowBox[{"1",","," ","tmpMaxRuns"}],"]"}]}],"}"}]}],"]"}],";"," ","\n","     ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"tmpUrlResponse","[","\"StatusCode\"","]"}]," ","!="," ","200"}],","," ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"tmpMaxRuns",","," ","\" URL GET request(s) failed with code \"",","," ",RowBox[
+{"tmpUrlResponse","[","\"StatusCode\"","]"}],","," ","\": \"",","," ","tmpUrl"}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"Return","[","False","]"}],";"}]," ",","," ","\n","      ",RowBox[{RowBox[{"delCellWithStyle","[","tmpPrintCellStyle","]"}],";"," ",RowBox[
+{"Return","[","True","]"}],";"}]}]," ","]"}]}]}],"]"}]}],";"}]," "}]],"Code",CellChangeTimes -> {{3.9585126537857966`*^9,3.9585126621590366`*^9},{3.9585144403457413`*^9,3.958514445260668`*^9}},
+ExpressionUUID -> "1a37287d-145e-7242-9016-cb637fe426de"]},Open],ExpressionUUID -> "0f06cfe1-2898-4113-8e86-7a1f21b915e1"],Cell[
+CellGroupData[
+{Cell[
+"\<Function to upload an image\>","Subsection",CellChangeTimes -> {3.9585126765760837`*^9},
+ExpressionUUID -> "cfde3bda-0a76-4100-871c-fee84d1ee824"],Cell[
+"\<For example, `uploadSampleImage[\[OpenCurlyDoubleQuote]February 2024 User Training HPLC Sample\[CloseCurlyDoubleQuote],\[OpenCurlyDoubleQuote]test\[CloseCurlyDoubleQuote],3,1,False]`\>",
+"Text",CellChangeTimes -> {3.9585126838949027`*^9,{3.9585144550365148`*^9,3.958514455266091`*^9}},
+ExpressionUUID -> "73806939-924f-c841-8a1a-349f1a41baf4"],Cell[
+BoxData[RowBox[{RowBox[
+{RowBox[{RowBox[{"uploadSampleImageToServer","[",RowBox[{"sampleName_",","," ","taskId_",","," ",RowBox[
+{"extraOutputTag_",":","Nothing"}],","," ",RowBox[{"validateTime_",":","True"}],","," ",RowBox[
+{"prefix_",":","True"}],","," ",RowBox[{"maxRuns_",":","True"}],","," ",RowBox[{"waitInterval_",":","True"}]}],"]"}]," ",":="," ","\n","   ",RowBox[
+{"Block","[",RowBox[{RowBox[{"{",RowBox[{"prefixedSampleName",","," ","rawSampleName",","," ","tmpObjectSample",","," ","tmpObjectVessel",","," ","imageFromVessel",","," ","tmpSampleImage",","," ","tmpSampleImageTime",","," ","tmpSampleMixedN",","," ","tmpSampleMixedNTarget",","," ","tmpSampleMixedTime",","," ","tmpUrl",","," ","tmpPostData",","," ","\n","     ","tmpUrlResponse",","," ","tmpUrlResponseAsso",","," ","tmpMaxRuns",","," ","tmpWaitInterval",","," ","tmpPrintCellStyle"}],"}"}],","," ",RowBox[
+{RowBox[{"initVarGlobalUrl","[","False","]"}],";"," ",RowBox[{"prefixedSampleName"," ","="," ",RowBox[
+{"addSampleNamePrefix","[",RowBox[{"sampleName",","," ","prefix"}],"]"}]}],";"," ","\n","     ",RowBox[
+{"rawSampleName"," ","="," ",RowBox[{"delSampleNamePrefix","[",RowBox[{"sampleName",","," ","prefix"}],"]"}]}],";"," ",RowBox[
+{"tmpMaxRuns"," ","="," ",RowBox[{"If","[",RowBox[{RowBox[{RowBox[{"IntegerQ","[","maxRuns","]"}]," ","&&"," ",RowBox[
+{"maxRuns"," ",">="," ","1"}]}],","," ","maxRuns",","," ","globalMaxRuns",","," ","10"}],"]"}]}],";"," ","\n","     ",RowBox[
+{"tmpWaitInterval"," ","="," ",RowBox[{"If","[",RowBox[{RowBox[{RowBox[{"RealValuedNumberQ","[","waitInterval","]"}]," ","&&"," ",RowBox[
+{"waitInterval"," ",">"," ","0"}]}],","," ","waitInterval",","," ","globalWaitInterval",","," ","60"}],"]"}]}],";"," ","\n","     ",RowBox[
+{"tmpPrintCellStyle"," ","="," ",RowBox[{"{",RowBox[{"\"uploadSampleImageToServer\"",","," ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"StringQ","[","extraOutputTag","]"}]," ","&&"," ",RowBox[
+{RowBox[{"StringLength","[","extraOutputTag","]"}]," ",">="," ","1"}]}],","," ","extraOutputTag",","," ","Nothing",","," ","Nothing"}],"]"}]}],"}"}]}],";"," ",RowBox[
+{"tmpObjectSample"," ","="," ",RowBox[{"Object","[",RowBox[{"Sample",","," ","prefixedSampleName"}],"]"}]}],";"," ","\n","     ",RowBox[
+{"tmpObjectVessel"," ","="," ",RowBox[{"Object","[",RowBox[{"Container",","," ","Vessel",","," ","prefixedSampleName"}],"]"}]}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{RowBox[{"Length","[",RowBox[{"tmpObjectVessel","[","AppearanceLog","]"}],"]"}]," ","=="," ","0"}]," ","&&"," ",RowBox[
+{RowBox[{"Length","[",RowBox[{"tmpObjectSample","[","AppearanceLog","]"}],"]"}]," ","=="," ","0"}]}],","," ","\n","      ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Sample `\"",","," ","prefixedSampleName",","," ","\"` from task `\"",","," ","taskId",","," ","\"` does NOT yet have image data.\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"Return","[","False","]"}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[{"If","[",RowBox[
+{RowBox[{RowBox[{RowBox[{"Length","[",RowBox[{"tmpObjectVessel","[","AppearanceLog","]"}],"]"}]," ",">"," ","0"}]," ","&&"," ",RowBox[
+{RowBox[{"Length","[",RowBox[{"tmpObjectSample","[","AppearanceLog","]"}],"]"}]," ",">"," ","0"}]}],","," ",RowBox[
+{RowBox[{"imageFromVessel"," ","="," ",RowBox[{"If","[",RowBox[{RowBox[{RowBox[{RowBox[
+{RowBox[{"tmpObjectVessel","[","AppearanceLog","]"}],"[",RowBox[{"[",RowBox[{"-","1"}],"]"}],"]"}],"[",RowBox[
+{"[","1","]"}],"]"}]," ",">="," ",RowBox[{RowBox[{RowBox[{"tmpObjectSample","[","AppearanceLog","]"}],"[",RowBox[
+{"[",RowBox[{"-","1"}],"]"}],"]"}],"[",RowBox[{"[","1","]"}],"]"}]}],","," ","True",","," ","\n","         ","False",","," ","False"}],"]"}]}],";"}]," ",","," ",RowBox[
+{RowBox[{"imageFromVessel"," ","="," ",RowBox[{"If","[",RowBox[{RowBox[{RowBox[{"Length","[",RowBox[
+{"tmpObjectSample","[","AppearanceLog","]"}],"]"}]," ","=="," ","0"}],","," ","True",","," ","False",","," ","True"}],"]"}]}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[
+{"tmpSampleImage"," ","="," ",RowBox[{"If","[",RowBox[{"imageFromVessel",","," ",RowBox[
+{RowBox[{RowBox[{RowBox[{"tmpObjectVessel","[","AppearanceLog","]"}],"[",RowBox[{"[",RowBox[
+{"-","1"}],"]"}],"]"}],"[",RowBox[{"[","2","]"}],"]"}],"[","Image","]"}],","," ",RowBox[
+{RowBox[{RowBox[{RowBox[{"tmpObjectSample","[","AppearanceLog","]"}],"[",RowBox[{"[",RowBox[
+{"-","1"}],"]"}],"]"}],"[",RowBox[{"[","2","]"}],"]"}],"[","Image","]"}]}],"]"}]}],";"," ","\n","     ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"Head","[","tmpSampleImage","]"}]," ","=="," ","Image"}],","," ",RowBox[
+{"tmpSampleImageTime"," ","="," ",RowBox[{"If","[",RowBox[{"imageFromVessel",","," ",RowBox[
+{RowBox[{RowBox[{"tmpObjectVessel","[","AppearanceLog","]"}],"[",RowBox[{"[",RowBox[
+{"-","1"}],"]"}],"]"}],"[",RowBox[{"[","1","]"}],"]"}],","," ",RowBox[{RowBox[{RowBox[
+{"tmpObjectSample","[","AppearanceLog","]"}],"[",RowBox[{"[",RowBox[{"-","1"}],"]"}],"]"}],"[",RowBox[
+{"[","1","]"}],"]"}]}],"]"}]}],","," ","\n","      ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{",RowBox[{"\"Sample `\"",","," ","prefixedSampleName",","," ","\"` from task `\"",","," ","taskId",","," ","\"` does NOT yet have image data.\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"Return","[","False","]"}],";"}]}]," ","]"}],";"," ",RowBox[{"tmpSampleMixedN"," ","="," ","0"}],";"," ","\n","     ",RowBox[
+{"tmpSampleMixedTime"," ","="," ",RowBox[{RowBox[{RowBox[{"tmpObjectSample","[","SampleHistory","]"}],"[",RowBox[
+{"[",RowBox[{"-","1"}],"]"}],"]"}],"[","Date","]"}]}],";"," ",RowBox[{"Do","[",RowBox[
+{RowBox[{"If","[",RowBox[{RowBox[{RowBox[{RowBox[{"Head","[","tmpOperation","]"}]," ","=="," ","Mixed"}]," ","||"," ",RowBox[
+{"Quiet","[",RowBox[{"Check","[",RowBox[{RowBox[{RowBox[{"tmpOperation","[","Type","]"}]," ","==="," ",RowBox[
+{"Object","[",RowBox[{"Protocol",","," ","Incubate"}],"]"}]}],","," ","False"}],"]"}],"]"}]}],","," ","\n","       ",RowBox[
+{RowBox[{"tmpSampleMixedN"," ","+="," ","1"}],";"," ",RowBox[{"tmpSampleMixedTime"," ","="," ",RowBox[
+{"tmpOperation","[","DateCompleted","]"}]}],";"}]}]," ","]"}],","," ",RowBox[{"{",RowBox[
+{"tmpOperation",","," ",RowBox[{"tmpObjectSample","[","Protocols","]"}]}],"}"}]}],"]"}],";"," ","\n","     ",RowBox[
+{"tmpSampleMixedNTarget"," ","="," ",RowBox[{"1"," ","+"," ",RowBox[{"Boole","[",RowBox[
+{RowBox[{"Length","[",RowBox[{"StringCases","[",RowBox[{"rawSampleName",","," ",RowBox[
+{"RegularExpression","[","\"S\\\\d+\"","]"}]}],"]"}],"]"}]," ",">"," ","1"}],"]"}]}]}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"tmpSampleMixedN"," ","<"," ","tmpSampleMixedNTarget"}]," ","&&"," ",RowBox[
+{"validateTime"," ","==="," ","True"}]}],","," ","\n","      ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{",RowBox[{"\"Sample `\"",","," ","prefixedSampleName",","," ","\"` from task `\"",","," ","taskId",","," ","\"` has not been mixed properly for \"",","," ","tmpSampleMixedNTarget",","," ","\" times.\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"Return","[","False","]"}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[{"If","[",RowBox[
+{RowBox[{RowBox[{RowBox[{"tmpSampleImageTime"," ","-"," ","tmpSampleMixedTime"}]," ","<"," ","globalSitTime"}]," ","&&"," ",RowBox[
+{"validateTime"," ","==="," ","True"}]}],","," ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{",RowBox[{"\"Sample `\"",","," ","prefixedSampleName",","," ","\"` from task `\"",","," ","taskId",","," ","\"` has not yet been imaged after a sit time of \"",","," ","\n","         ","globalSitTime",","," ","\" after mixing.\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"Return","[","False","]"}],";"}]}]," ","]"}],";"," ",RowBox[{"initVarGlobalUrl","[","False","]"}],";"," ","\n","     ",RowBox[
+{"tmpUrl"," ","="," ",RowBox[{"URLBuild","[",RowBox[{"globalUploadUrl",","," ",RowBox[
+{"Association","[",RowBox[{RowBox[{"\"sample\""," ","->"," ","rawSampleName"}],","," ",RowBox[
+{"\"sid\""," ","->"," ",RowBox[{"tmpObjectSample","[","ID","]"}]}],","," ",RowBox[
+{"\"tid\""," ","->"," ","taskId"}]}],"]"}]}],"]"}]}],";"," ","\n","     ",RowBox[
+{"tmpPostData"," ","="," ",RowBox[{"Association","[",RowBox[{RowBox[{"Method"," ","->"," ","\"POST\""}],","," ",RowBox[
+{"\"Body\""," ","->"," ",RowBox[{"{",RowBox[{"\"file\""," ","->"," ",RowBox[{"Association","[",RowBox[
+{RowBox[{"\"Content\""," ","->"," ",RowBox[{"ExportByteArray","[",RowBox[{"tmpSampleImage",","," ","\"JPG\""}],"]"}]}],","," ",RowBox[
+{"\"MIMEType\""," ","->"," ","\"image/jpg\""}],","," ","\n","           ",RowBox[
+{"\"Name\""," ","->"," ",RowBox[{"StringJoin","[",RowBox[{RowBox[{"ToString","[","rawSampleName","]"}],","," ","\".jpg\""}],"]"}]}]}],"]"}]}],"}"}]}]}],"]"}]}],";"," ",RowBox[
+{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Image successfully retrieved \"",","," ",RowBox[
+{"If","[",RowBox[{RowBox[{"validateTime"," ","==="," ","True"}],","," ","\"and \"",","," ","\"but NOT \""}],"]"}],","," ","\n","       ","\"checked if its timestamp is valid. Trying to upload sample image of `\"",","," ","prefixedSampleName",","," ","\"` under task id `\"",","," ","taskId",","," ","\"` to the server.\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ","\n","     ",RowBox[
+{"Do","[",RowBox[{RowBox[{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[
+{"\"Try \"",","," ","tmpCounter",","," ","\"/\"",","," ","tmpMaxRuns",","," ","\": Trying to upload sample image of `\"",","," ","prefixedSampleName",","," ","\"` under task id `\"",","," ","taskId",","," ","\"` to the server.\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ","\n","       ",RowBox[
+{"tmpUrlResponse"," ","="," ",RowBox[{"URLRead","[",RowBox[{"HTTPRequest","[",RowBox[
+{"tmpUrl",","," ","tmpPostData"}],"]"}],"]"}]}],";"," ",RowBox[{"If","[",RowBox[{RowBox[
+{RowBox[{"tmpUrlResponse","[","\"StatusCode\"","]"}]," ","=="," ","200"}],","," ",RowBox[
+{RowBox[{"tmpUrlResponseAsso"," ","="," ",RowBox[{"parseJsonResponse","[","tmpUrlResponse","]"}]}],";"," ","\n","         ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"AssociationQ","[","tmpUrlResponseAsso","]"}]," ","&&"," ",RowBox[
+{RowBox[{"Length","[","tmpUrlResponseAsso","]"}]," ",">="," ","1"}]," ","&&"," ",RowBox[
+{"StringEndsQ","[",RowBox[{RowBox[{RowBox[{"Keys","[","tmpUrlResponseAsso","]"}],"[",RowBox[
+{"[","1","]"}],"]"}],","," ","\".jpg\""}],"]"}]}],","," ",RowBox[{RowBox[{"Break","[","]"}],";"}]}]," ","]"}],";"}]}]," ","]"}],";"," ","\n","       ",RowBox[
+{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Try \"",","," ","tmpCounter",","," ","\"/\"",","," ","tmpMaxRuns",","," ","\" failed with code \"",","," ",RowBox[
+{"tmpUrlResponse","[","\"StatusCode\"","]"}],","," ","\". Waiting \"",","," ","tmpWaitInterval",","," ","\" seconds before the next try.\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ","\n","       ",RowBox[
+{"If","[",RowBox[{RowBox[{"tmpCounter"," ","<"," ","tmpMaxRuns"}],","," ",RowBox[
+{RowBox[{"Pause","[","tmpWaitInterval","]"}],";"}]}]," ","]"}],";"}]," ",","," ",RowBox[
+{"{",RowBox[{"tmpCounter",","," ","tmpMaxRuns"}],"}"}]}],"]"}],";"," ",RowBox[{"If","[",RowBox[
+{RowBox[{RowBox[{"tmpUrlResponse","[","\"StatusCode\"","]"}]," ","!="," ","200"}],","," ","\n","      ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"tmpMaxRuns",","," ","\" URL POST request(s) failed with code \"",","," ",RowBox[
+{"tmpUrlResponse","[","\"StatusCode\"","]"}],","," ","\": \"",","," ","tmpUrl"}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"Return","[","False","]"}],";"}]," ",","," ",RowBox[{RowBox[{"delCellWithStyle","[","tmpPrintCellStyle","]"}],";"," ",RowBox[
+{"Return","[","True","]"}],";"}]}]," ","]"}]}]}],"]"}]}],";"}]," "}]],"Code",CellChangeTimes -> {{3.958512691702339`*^9,3.9585127165209985`*^9},3.9585144506973653`*^9},
+ExpressionUUID -> "b7b4f752-9229-4e45-b657-1fa0ec020f68"]},Open],ExpressionUUID -> "5b7297bf-35cd-4828-8ada-d0280b24a84c"],Cell[
+CellGroupData[
+{Cell[
+"\<Function to notify the server about experimentation status\>","Subsection",
+CellChangeTimes -> {3.95851272450832`*^9},ExpressionUUID -> "dddd9596-8979-4f18-8059-23ca1a081ee2"],Cell[
+BoxData[
+RowBox[{RowBox[{RowBox[{RowBox[{"notifyServer","[",RowBox[{"params_",","," ",RowBox[
+{"extraOutputTag_",":","Nothing"}],","," ",RowBox[{"maxRuns_Integer",":","True"}],","," ",RowBox[
+{"waitInterval_",":","True"}]}],"]"}]," ",":="," ",RowBox[{"Block","[",RowBox[{RowBox[
+{"{",RowBox[{"tmpUrl",","," ","tmpUrlResponse",","," ","tmpMaxRuns",","," ","tmpWaitInterval",","," ","tmpPrintCellStyle"}],"}"}],","," ","\n","    ",RowBox[
+{RowBox[{"initVarGlobalUrl","[","False","]"}],";"," ",RowBox[{"tmpUrl"," ","="," ",RowBox[
+{"If","[",RowBox[{RowBox[{"AssociationQ","[","params","]"}],","," ",RowBox[{"URLBuild","[",RowBox[
+{"globalNotifyUrl",","," ","params"}],"]"}],","," ","params"}],"]"}]}],";"," ",RowBox[
+{"tmpMaxRuns"," ","="," ",RowBox[{"If","[",RowBox[{RowBox[{RowBox[{"IntegerQ","[","maxRuns","]"}]," ","&&"," ",RowBox[
+{"maxRuns"," ",">="," ","1"}]}],","," ","maxRuns",","," ","globalMaxRuns",","," ","10"}],"]"}]}],";"," ","\n","     ",RowBox[
+{"tmpWaitInterval"," ","="," ",RowBox[{"If","[",RowBox[{RowBox[{RowBox[{"RealValuedNumberQ","[","waitInterval","]"}]," ","&&"," ",RowBox[
+{"waitInterval"," ",">"," ","0"}]}],","," ","waitInterval",","," ","globalWaitInterval",","," ","60"}],"]"}]}],";"," ","\n","     ",RowBox[
+{"tmpPrintCellStyle"," ","="," ",RowBox[{"{",RowBox[{"\"notifyServer\"",","," ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"StringQ","[","extraOutputTag","]"}]," ","&&"," ",RowBox[
+{RowBox[{"StringLength","[","extraOutputTag","]"}]," ",">="," ","1"}]}],","," ","extraOutputTag",","," ","Nothing",","," ","Nothing"}],"]"}]}],"}"}]}],";"," ","\n","     ",RowBox[
+{"Do","[",RowBox[{RowBox[{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[
+{"\"Try \"",","," ","tmpCounter",","," ","\"/\"",","," ","tmpMaxRuns",","," ","\": Trying to reach the server at: \"",","," ","tmpUrl"}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"tmpUrlResponse"," ","="," ",RowBox[{"URLRead","[","tmpUrl","]"}]}],";"," ","\n","       ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"tmpUrlResponse","[","\"StatusCode\"","]"}]," ","=="," ","200"}],","," ",RowBox[
+{RowBox[{"Break","[","]"}],";"}]," ",","," ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{",RowBox[{"\"Try \"",","," ","tmpCounter",","," ","\"/\"",","," ","tmpMaxRuns",","," ","\" failed with code \"",","," ",RowBox[
+{"tmpUrlResponse","[","\"StatusCode\"","]"}],","," ","\". Waiting \"",","," ","tmpWaitInterval",","," ","\n","           ","\" seconds before the next try.\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{"tmpCounter"," ","<"," ","tmpMaxRuns"}],","," ",RowBox[
+{RowBox[{"Pause","[","tmpWaitInterval","]"}],";"}]}]," ","]"}],";"}]}]," ","]"}],";"}]," ",","," ",RowBox[
+{"{",RowBox[{"tmpCounter",","," ","tmpMaxRuns"}],"}"}]}],"]"}],";"," ",RowBox[{"delCellWithStyle","[","tmpPrintCellStyle","]"}],";"," ","\n","     ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"tmpUrlResponse","[","\"StatusCode\"","]"}]," ","!="," ","200"}],","," ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"tmpMaxRuns",","," ","\" runs to reach the server failed with code \"",","," ",RowBox[
+{"tmpUrlResponse","[","\"StatusCode\"","]"}],","," ","\": \"",","," ","tmpUrl"}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"Return","[","False","]"}],";"}]," ",","," ","\n","      ",RowBox[{RowBox[{"Return","[","True","]"}],";"}]}]," ","]"}],";"}]}]," ","]"}]}],";"}]," "}]],
+"Code",CellChangeTimes -> {{3.9585127325677013`*^9,3.9585127345749283`*^9},3.958514462888634`*^9},
+ExpressionUUID -> "85a3d4da-4d9a-264c-948b-dd60f291a42a"]},Open],ExpressionUUID -> "c6b31e76-3af2-4fde-bda8-e8fd056aeff3"]},
+Open],ExpressionUUID -> "ab488288-db5f-43fe-b055-c4b91a6fe6e5"],Cell[
+CellGroupData[
+{Cell[
+"\<Functions to run experiments\>","Section",CellChangeTimes -> {3.958512750910601`*^9},
+ExpressionUUID -> "4ad08a28-5335-41f1-a11b-06fcbb5bb3ba"],Cell[
+CellGroupData[{Cell[
+
+"\<Function to prepare sample solutions\>","Subsection",CellChangeTimes -> {3.958512758970317`*^9},
+ExpressionUUID -> "8779d38e-fd78-4b04-8dbb-03a3e6f7d652"],Cell[
+"\<The input to this function should be the Association coming from globalTaskMgr[\[OpenCurlyDoubleQuote]thread###\[CloseCurlyDoubleQuote]]\>",
+"Text",CellChangeTimes -> {3.9585127671562185`*^9,{3.958514478109579`*^9,3.958514481332836`*^9}},
+ExpressionUUID -> "4caffb4b-536e-bd44-aaba-1dced9ebbb7c"],Cell[
+BoxData[RowBox[{RowBox[
+{RowBox[{RowBox[{"prepSamples","[",RowBox[{"tasks_",","," ",RowBox[{"extraOutputTag_",":","Nothing"}],","," ",RowBox[
+{"prefix_",":","True"}]}],"]"}]," ",":="," ",RowBox[{"Block","[",RowBox[{RowBox[{"{",RowBox[
+{"falseReturnVal",","," ","intendedTask",","," ","resins",","," ","resinsAmounts",","," ","solvents",","," ","solventsAmounts",","," ","labels",","," ","taskList",","," ","prepProtocol",","," ","solventsIndices",","," ","validExpFlag",","," ","\n","     ","tmpPrintCellStyle"}],"}"}],","," ",RowBox[
+{RowBox[{"falseReturnVal"," ","="," ",RowBox[{"{",RowBox[{"False",","," ","False",","," ","False"}],"}"}]}],";"," ",RowBox[
+{"tmpPrintCellStyle"," ","="," ",RowBox[{"{",RowBox[{"\"prepSamples\"",","," ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"StringQ","[","extraOutputTag","]"}]," ","&&"," ",RowBox[
+{RowBox[{"StringLength","[","extraOutputTag","]"}]," ",">="," ","1"}]}],","," ","extraOutputTag",","," ","Nothing",","," ","Nothing"}],"]"}]}],"}"}]}],";"," ","\n","     ",RowBox[
+{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Initiating function to build a prep sample protocol for tasks:\"",","," ","tasks"}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"intendedTask"," ","="," ",RowBox[{"Lookup","[",RowBox[{"tasks",","," ","\"task\"",","," ","\"\""}],"]"}]}],";"," ","\n","     ",RowBox[
+{"If","["," ",RowBox[{RowBox[{"!",RowBox[{"StringMatchQ","[",RowBox[{"intendedTask",","," ","\"prep\"",","," ",RowBox[
+{"IgnoreCase"," ","->"," ","True"}]}],"]"}]}],","," ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{",RowBox[{"\"Wrong `prepSamples` function called to excute your intended task `\"",","," ","intendedTask",","," ","\"`.\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ","\n","       ",RowBox[
+{"Return","[","falseReturnVal","]"}],";"}]}]," ","]"}],";"," ",RowBox[{"resins"," ","="," ",RowBox[
+{"parseAssocList","[",RowBox[{"\"resin\"",","," ",RowBox[{"tasks","[","\"samples\"","]"}],","," ","False"}],"]"}]}],";"," ",RowBox[
+{"resinsAmounts"," ","="," ",RowBox[{"parseAssocList","[",RowBox[{"\"ramount\"",","," ",RowBox[
+{"tasks","[","\"samples\"","]"}],","," ","False"}],"]"}]}],";"," ","\n","     ",RowBox[
+{"solvents"," ","="," ",RowBox[{"parseAssocList","[",RowBox[{"\"solvent\"",","," ",RowBox[
+{"tasks","[","\"samples\"","]"}],","," ","False"}],"]"}]}],";"," ",RowBox[{"solventsAmounts"," ","="," ",RowBox[
+{"parseAssocList","[",RowBox[{"\"samount\"",","," ",RowBox[{"tasks","[","\"samples\"","]"}],","," ","False"}],"]"}]}],";"," ",RowBox[
+{"labels"," ","="," ",RowBox[{"parseAssocList","[",RowBox[{"\"label\"",","," ",RowBox[
+{"tasks","[","\"samples\"","]"}],","," ","False"}],"]"}]}],";"," ","\n","     ",RowBox[
+{"taskList"," ","="," ",RowBox[{"{",RowBox[{"resins",","," ","resinsAmounts",","," ","solvents",","," ","solventsAmounts",","," ","labels"}],"}"}]}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{"AnyTrue","[",RowBox[{"taskList",","," ",RowBox[{RowBox[
+{"MemberQ","[",RowBox[{"#1",","," ","False"}],"]"}]," ","&"}]}]," ","]"}],","," ","\n","      ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{","\"Error: Your input tasks have missing entries in its members.\"","}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"Return","[","falseReturnVal","]"}],";"}]}]," ","]"}],";"," ",RowBox[{"labels"," ","="," ",RowBox[
+{RowBox[{"(",RowBox[{RowBox[{"addSampleNamePrefix","[",RowBox[{"#1",","," ","prefix"}],"]"}]," ","&"}]," ",")"}]," ","/@"," ","labels"}]}],";"," ","\n","     ",RowBox[
+{"If","["," ",RowBox[{RowBox[{"!",RowBox[{"DuplicateFreeQ","[","labels","]"}]}],","," ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{","\"Error: Duplicated labels detected.\"","}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"Return","[","falseReturnVal","]"}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[
+{"If","["," ",RowBox[{RowBox[{RowBox[{"!",RowBox[{"AllTrue","[",RowBox[{RowBox[{"Flatten","[","resins","]"}],","," ",RowBox[
+{RowBox[{"KeyExistsQ","[",RowBox[{"globalResins",","," ","#1"}],"]"}]," ","&"}]}]," ","]"}]}]," ","||","  ",RowBox[
+{"!",RowBox[{"AllTrue","[",RowBox[{RowBox[{"Flatten","[","solvents","]"}],","," ",RowBox[
+{RowBox[{"KeyExistsQ","[",RowBox[{"globalSolvents",","," ","#1"}],"]"}]," ","&"}]}]," ","]"}]}]}],","," ","\n","      ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{","\"Error: Undefined resin(s) or solvent(s) found. Please check your inputs or update you `globalResins` and/or `globalSolvents`.\"","}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"Return","[","falseReturnVal","]"}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[
+{"smartCellPrint","[",RowBox[{RowBox[{"{","\"A valid set of tasks\"","}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"Quiet","[",RowBox[{"Check","[",RowBox[{RowBox[{RowBox[{"prepProtocol"," ","="," ",RowBox[
+{"ManualSamplePreparation","[",RowBox[{RowBox[{"LabelContainer","[",RowBox[{RowBox[
+{"Label"," ","->"," ","labels"}],","," ",RowBox[{"Container"," ","->"," ",RowBox[
+{"Table","[",RowBox[{"globalVessel",","," ",RowBox[{"Length","[","labels","]"}]}],"]"}]}]}],"]"}],","," ","\n","          ",RowBox[
+{"Sequence"," ","@@"," ",RowBox[{RowBox[{"Reap","[",RowBox[{"Do","[",RowBox[{RowBox[
+{RowBox[{"solventsIndices"," ","="," ",RowBox[{"getPosOfLength","[",RowBox[{"solvents",","," ","nSolvents",","," ","GreaterEqual",","," ","Length"}],"]"}]}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"Length","[","solventsIndices","]"}]," ","<"," ","1"}],","," ",RowBox[
+{RowBox[{"Sow","[","Nothing","]"}],";"," ",RowBox[{"Break","[","]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"Sow","[","\n","                ",RowBox[{"Transfer","[",RowBox[{RowBox[{"Source"," ","->"," ",RowBox[
+{"Lookup","[",RowBox[{"globalSolvents",","," ",RowBox[{RowBox[{"solvents","[",RowBox[
+{"[","solventsIndices","]"}],"]"}],"[",RowBox[{"[",RowBox[{"All",",","nSolvents"}],"]"}],"]"}]}],"]"}]}],","," ",RowBox[
+{"Destination"," ","->"," ",RowBox[{"labels","[",RowBox[{"[","solventsIndices","]"}],"]"}]}],","," ",RowBox[
+{"Amount"," ","->"," ",RowBox[{RowBox[{RowBox[{"solventsAmounts","[",RowBox[{"[","solventsIndices","]"}],"]"}],"[",RowBox[
+{"[",RowBox[{"All",",","nSolvents"}],"]"}],"]"}],"*","\n","                   ",RowBox[
+{"getSolventUnit","[",RowBox[{RowBox[{"solvents","[",RowBox[{"[","solventsIndices","]"}],"]"}],"[",RowBox[
+{"[",RowBox[{"All",",","nSolvents"}],"]"}],"]"}],"]"}]}]}]}],"]"}],"]"}]}],","," ",RowBox[
+{"{",RowBox[{"nSolvents",","," ","10"}],"}"}]}],"]"}],"]"}],"[",RowBox[{"[",RowBox[
+{"2",",","1"}],"]"}],"]"}]}],","," ",RowBox[{RowBox[{"solventsIndices"," ","="," ",RowBox[
+{"getPosOfLength","[",RowBox[{"solvents",","," ","2",","," ","GreaterEqual",","," ","Length"}],"]"}]}],";"," ","\n","           ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"Length","[","solventsIndices","]"}]," ",">"," ","0"}],","," ",RowBox[
+{"Mix","[",RowBox[{RowBox[{"Sample"," ","->"," ",RowBox[{"labels","[",RowBox[{"[","solventsIndices","]"}],"]"}]}],","," ",RowBox[
+{"Instrument"," ","->"," ","globalShaker"}],","," ",RowBox[{"MixUntilDissolved"," ","->"," ","False"}],","," ",RowBox[
+{"Time"," ","->"," ","globalShakeTimeSolvent"}],","," ",RowBox[{"MixRate"," ","->"," ","globalShakeRate"}],","," ","\n","             ",RowBox[
+{"ImageSample"," ","->"," ","True"}],","," ",RowBox[{"MeasureVolume"," ","->"," ","False"}],","," ",RowBox[
+{"MeasureWeight"," ","->"," ","False"}]}],"]"}],","," ","Nothing"}],"]"}]}],","," ",RowBox[
+{"Transfer","[",RowBox[{RowBox[{"Source"," ","->"," ",RowBox[{"Lookup","[",RowBox[
+{"globalResins",","," ","resins"}],"]"}]}],","," ",RowBox[{"Destination"," ","->"," ","labels"}],","," ",RowBox[
+{"Amount"," ","->"," ",RowBox[{"resinsAmounts","*",RowBox[{"getResinUnit","[","resins","]"}]}]}]}],"]"}],","," ","\n","          ",RowBox[
+{"Mix","[",RowBox[{RowBox[{"Sample"," ","->"," ","labels"}],","," ",RowBox[{"Instrument"," ","->"," ","globalShaker"}],","," ",RowBox[
+{"MixUntilDissolved"," ","->"," ","False"}],","," ",RowBox[{"Time"," ","->"," ","globalShakeTime"}],","," ",RowBox[
+{"MixRate"," ","->"," ","globalShakeRate"}]}],"]"}],","," ",RowBox[{"ImageSample"," ","->"," ","True"}],","," ",RowBox[
+{"MeasureVolume"," ","->"," ","False"}],","," ",RowBox[{"MeasureWeight"," ","->"," ","False"}]}],"]"}]}],";"}]," ",","," ","\n","       ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{","\"Some unexpected error occurred when building the prep sample protocol. Please check again.\"","}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"Return","[","falseReturnVal","]"}],";"}]}]," ","]"}],"]"}],";"," ",RowBox[{"delCellWithStyle","[","tmpPrintCellStyle","]"}],";"," ","\n","     ",RowBox[
+{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Starting to validate the generated prep sample protocol: \"",","," ","prepProtocol"}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ","\n","     ",RowBox[
+{"validExpFlag"," ","="," ",RowBox[{"Check","[",RowBox[{RowBox[{RowBox[{"prepProtocol"," ","="," ",RowBox[
+{"ExperimentSamplePreparation","[",RowBox[{"prepProtocol",","," ",RowBox[{"ImageSample"," ","->"," ","True"}],","," ",RowBox[
+{"MeasureVolume"," ","->"," ","False"}],","," ",RowBox[{"MeasureWeight"," ","->"," ","False"}],","," ",RowBox[
+{"OptimizeUnitOperations"," ","->"," ","True"}],","," ",RowBox[{"Site"," ","->"," ","globalExpSite"}]}],"]"}]}],";"," ","True"}],","," ","\n","       ","False"}],"]"}]}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{"validExpFlag"," ","=!="," ","True"}],","," ",RowBox[{RowBox[
+{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Failed to generate a valid prep sample protocol for tasks: \"",","," ","tasks"}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"}]," ",","," ",RowBox[
+{RowBox[{"delCellWithStyle","[",RowBox[{"tmpPrintCellStyle",","," ","Nothing",","," ",RowBox[
+{"-","1"}]}],"]"}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[{"Return","[",RowBox[
+{"{",RowBox[{"validExpFlag",","," ","prepProtocol",","," ","labels"}],"}"}],"]"}],";"}]}]," ","]"}]}],";"}]," "}]],
+"Code",CellChangeTimes -> {{3.9585127764766774`*^9,3.958512811929802`*^9},3.958514470341221`*^9,{3.9585148128495984`*^9,3.9585148163338323`*^9}},
+ExpressionUUID -> "49633387-3eda-514d-a365-273df7ca5e5c"]},Open],ExpressionUUID -> "7c796277-0a31-4c98-9b36-d9303f919fd8"],Cell[
+CellGroupData[
+{Cell[
+"\<Function to upload sample names to the constellation from a prep sample protocol\>",
+"Subsection",CellChangeTimes -> {3.958512823169166`*^9},ExpressionUUID -> "1426d9c1-badb-4c74-b426-3fb8b8ae5046"],Cell[
+BoxData[
+RowBox[{RowBox[{RowBox[{RowBox[{"rememberSamples","[",RowBox[{"protocol_",","," ","samples_",","," ",RowBox[
+{"taskId_",":","\"\""}],","," ",RowBox[{"extraOutputTag_",":","Nothing"}],","," ",RowBox[
+{"prefix_",":","True"}]}],"]"}]," ",":="," ",RowBox[{"Block","[",RowBox[{RowBox[{"{",RowBox[
+{"whichProtocol",","," ","returnVal",","," ","names",","," ","samplesObjects",","," ","i",","," ","tmpPrintCellStyle"}],"}"}],","," ","\n","    ",RowBox[
+{RowBox[{"tmpPrintCellStyle"," ","="," ",RowBox[{"{",RowBox[{"\"rememberSamples\"",","," ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"StringQ","[","extraOutputTag","]"}]," ","&&"," ",RowBox[
+{RowBox[{"StringLength","[","extraOutputTag","]"}]," ",">="," ","1"}]}],","," ","extraOutputTag",","," ","Nothing",","," ","Nothing"}],"]"}]}],"}"}]}],";"," ","\n","     ",RowBox[
+{"whichProtocol"," ","="," ",RowBox[{"If","[",RowBox[{RowBox[{"StringQ","[","protocol","]"}],","," ",RowBox[
+{"Object","[",RowBox[{"Protocol",","," ","ManualSamplePreparation",","," ","protocol"}],"]"}],","," ","protocol"}],"]"}]}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{RowBox[{"Head","[","taskId","]"}]," ","==="," ","String"}]," ","&&"," ",RowBox[
+{RowBox[{"StringLength","[","taskId","]"}]," ",">"," ","0"}]}],","," ","\n","      ",RowBox[
+{RowBox[{"Quiet","[",RowBox[{"UploadName","[",RowBox[{"whichProtocol",","," ",RowBox[
+{"addSampleNamePrefix","[","taskId","]"}]}],"]"}],"]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"names"," ","="," ",RowBox[{"If","[",RowBox[{RowBox[{"ListQ","[","samples","]"}],","," ","samples",","," ",RowBox[
+{"{","samples","}"}]}],"]"}]}],";"," ",RowBox[{"names"," ","="," ",RowBox[{RowBox[
+{"(",RowBox[{RowBox[{"addSampleNamePrefix","[",RowBox[{"#1",","," ","prefix"}],"]"}]," ","&"}]," ",")"}]," ","/@"," ","names"}]}],";"," ","\n","     ",RowBox[
+{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Got inputs protocol `\"",","," ","protocol",","," ","\"` and samples `\"",","," ","names",","," ","\"`. Now trying to upload the sample names...\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ","\n","     ",RowBox[
+{"samplesObjects"," ","="," ",RowBox[{"Quiet","[",RowBox[{"LookupLabeledObject","[",RowBox[
+{"whichProtocol",","," ","names"}],"]"}],"]"}]}],";"," ",RowBox[{"returnVal"," ","="," ",RowBox[
+{RowBox[{"(",RowBox[{RowBox[{"#1"," ","==="," ","Null"}]," ","&"}]," ",")"}]," ","/@"," ","samplesObjects"}]}],";"," ",RowBox[
+{"For","[",RowBox[{RowBox[{"i"," ","="," ","1"}],","," ",RowBox[{"i"," ","<="," ",RowBox[
+{"Length","[","names","]"}]}],","," ",RowBox[{"i","++"}],","," ","\n","      ",RowBox[
+{RowBox[{RowBox[{"returnVal","[",RowBox[{"[","i","]"}],"]"}]," ","="," ",RowBox[{"Check","[",RowBox[
+{RowBox[{"ListQ","[",RowBox[{"UploadName","[",RowBox[{RowBox[{"samplesObjects","[",RowBox[
+{"[","i","]"}],"]"}],","," ",RowBox[{"names","[",RowBox[{"[","i","]"}],"]"}]}],"]"}],"]"}],","," ","False"}],"]"}]}],";"}]}]," ","]"}],";"," ",RowBox[
+{"For","[",RowBox[{RowBox[{"i"," ","="," ","1"}],","," ",RowBox[{"i"," ","<="," ",RowBox[
+{"Length","[","names","]"}]}],","," ",RowBox[{"i","++"}],","," ","\n","      ",RowBox[
+{RowBox[{"If","[",RowBox[{RowBox[{RowBox[{"returnVal","[",RowBox[{"[","i","]"}],"]"}]," ","=="," ","False"}],","," ",RowBox[
+{RowBox[{"If","[",RowBox[{RowBox[{RowBox[{"samplesObjects","[",RowBox[{"[","i","]"}],"]"}]," ","==="," ","Null"}],","," ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Error: Could not find name `\"",","," ",RowBox[
+{"names","[",RowBox[{"[","i","]"}],"]"}],","," ","\"` in protocol `\"",","," ","protocol",","," ","\"`.\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ","\n","           ",RowBox[
+{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Error: Could not upload name `\"",","," ",RowBox[
+{"names","[",RowBox[{"[","i","]"}],"]"}],","," ","\"` for the found sample object `\"",","," ",RowBox[
+{"samplesObjects","[",RowBox[{"[","i","]"}],"]"}],","," ","\"` in protocol `\"",","," ","protocol",","," ","\"`.\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"}]}]," ","]"}],";"}]," ",","," ","\n","        ",RowBox[
+{RowBox[{"If","[",RowBox[{RowBox[{RowBox[{RowBox[{"samplesObjects","[",RowBox[{"[","i","]"}],"]"}],"[","Type","]"}]," ","==="," ",RowBox[
+{"Object","[","Sample","]"}]}],","," ",RowBox[{RowBox[{"UploadName","[",RowBox[{RowBox[
+{RowBox[{"samplesObjects","[",RowBox[{"[","i","]"}],"]"}],"[","Container","]"}],","," ",RowBox[
+{"names","[",RowBox[{"[","i","]"}],"]"}]}],"]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{RowBox[{"samplesObjects","[",RowBox[{"[","i","]"}],"]"}],"[","Type","]"}]," ","==="," ",RowBox[
+{"Object","[",RowBox[{"Container",","," ","Vessel"}],"]"}]}],","," ","\n","          ",RowBox[
+{RowBox[{"UploadName","[",RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{"samplesObjects","[",RowBox[
+{"[","i","]"}],"]"}],"[","ContentsLog","]"}],"[",RowBox[{"[",RowBox[{"-","1"}],"]"}],"]"}],"[",RowBox[
+{"[","3","]"}],"]"}],","," ",RowBox[{"names","[",RowBox[{"[","i","]"}],"]"}]}],"]"}],";"}]}]," ","]"}],";"}]}]," ","]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{"AllTrue","[",RowBox[{"returnVal",","," ","TrueQ"}],"]"}],","," ",RowBox[
+{RowBox[{"delCellWithStyle","[","tmpPrintCellStyle","]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"Return","[","returnVal","]"}],";"}]}]," ","]"}]}],";"}]," "}]],"Code",CellChangeTimes -> {{3.958512831963974`*^9,3.958512841831837`*^9},3.9585144885856957`*^9},
+ExpressionUUID -> "7efd51d9-0bee-8542-a141-3e2a2789df78"]},Open],ExpressionUUID -> "8f35122c-9560-489a-9168-98b8dbdfa630"],Cell[
+CellGroupData[
+{Cell[
+"\<Function to image samples\>","Subsection",CellChangeTimes -> {3.958512851049114`*^9},
+ExpressionUUID -> "911b4923-8dc0-4104-aeaf-974c044c86b9"],Cell[
+BoxData[RowBox[{RowBox[
+{RowBox[{RowBox[{"imageSamples","[",RowBox[{"tasks_",","," ",RowBox[{"extraOutputTag_",":","Nothing"}],","," ",RowBox[
+{"prefix_",":","True"}]}],"]"}]," ",":="," ",RowBox[{"Block","[",RowBox[{RowBox[{"{",RowBox[
+{"falseReturnVal",","," ","intendedTask",","," ","samples",","," ","imageProtocol",","," ","validExpFlag",","," ","tmpPrintCellStyle"}],"}"}],","," ","\n","    ",RowBox[
+{RowBox[{"falseReturnVal"," ","="," ",RowBox[{"{",RowBox[{"False",","," ","False",","," ","False"}],"}"}]}],";"," ",RowBox[
+{"tmpPrintCellStyle"," ","="," ",RowBox[{"{",RowBox[{"\"imageSamples\"",","," ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"StringQ","[","extraOutputTag","]"}]," ","&&"," ",RowBox[
+{RowBox[{"StringLength","[","extraOutputTag","]"}]," ",">="," ","1"}]}],","," ","extraOutputTag",","," ","Nothing",","," ","Nothing"}],"]"}]}],"}"}]}],";"," ","\n","     ",RowBox[
+{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Initiating function to build a image sample protocol for tasks:\"",","," ","tasks"}],"}"}],","," ","\"imageSamples\""}],"]"}],";"," ",RowBox[
+{"intendedTask"," ","="," ",RowBox[{"Lookup","[",RowBox[{"tasks",","," ","\"task\"",","," ","\"\""}],"]"}]}],";"," ","\n","     ",RowBox[
+{"If","["," ",RowBox[{RowBox[{"!",RowBox[{"StringMatchQ","[",RowBox[{"intendedTask",","," ","\"image\"",","," ",RowBox[
+{"IgnoreCase"," ","->"," ","True"}]}],"]"}]}],","," ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{",RowBox[{"\"Wrong `imageSamples` function called to excute your intended task `\"",","," ","intendedTask",","," ","\"`.\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ","\n","       ",RowBox[
+{"Return","[","falseReturnVal","]"}],";"}]}]," ","]"}],";"," ",RowBox[{"samples"," ","="," ",RowBox[
+{"Lookup","[",RowBox[{"tasks",","," ","\"samples\"",","," ",RowBox[{"{","}"}]}],"]"}]}],";"," ",RowBox[
+{"samples"," ","="," ",RowBox[{"If","["," ",RowBox[{RowBox[{"!",RowBox[{"ListQ","[","samples","]"}]}],","," ",RowBox[
+{"{","samples","}"}],","," ","samples"}],"]"}]}],";"," ",RowBox[{"samples"," ","="," ",RowBox[
+{RowBox[{"(",RowBox[{RowBox[{"addSampleNamePrefix","[",RowBox[{"#1",","," ","prefix"}],"]"}]," ","&"}]," ",")"}]," ","/@"," ","samples"}]}],";"," ","\n","     ",RowBox[
+{"If","["," ",RowBox[{RowBox[{"!",RowBox[{"DuplicateFreeQ","[","samples","]"}]}],","," ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Found dupicates in your parsed sample names: `\"",","," ","samples",","," ","\"`. Please check again.\""}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"Return","[","falseReturnVal","]"}],";"}]}]," ","]"}],";"," ","\n","     ",RowBox[
+{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Starting to validate the generated image sample protocol: \"",","," ","imageProtocol"}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ","\n","     ",RowBox[
+{"validExpFlag"," ","="," ",RowBox[{"Check","[",RowBox[{RowBox[{RowBox[{"ValidExperimentImageSampleQ","[",RowBox[
+{RowBox[{RowBox[{"(",RowBox[{RowBox[{"Object","[",RowBox[{"Sample",","," ","#1"}],"]"}]," ","&"}]," ",")"}]," ","/@"," ","samples"}],","," ",RowBox[
+{"Instrument"," ","->"," ","globalCamera"}],","," ",RowBox[{"ImageContainer"," ","->"," ","globalCameraShowVessel"}],","," ",RowBox[
+{"Site"," ","->"," ","globalExpSite"}]}],"]"}]," ","==="," ","True"}],","," ","\n","       ",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Some unexpected error occurred when building the image sample protocol. Probabaly because one or more of the sample names are not correctly recognized. Please check again.\"",","," ","samples"}],"}"}],","," ","\n","         ","tmpPrintCellStyle"}],"]"}],";"," ",RowBox[
+{"Return","[","falseReturnVal","]"}],";"," ","False"}]}],"]"}]}],";"," ",RowBox[{"If","[",RowBox[
+{RowBox[{"validExpFlag"," ","=!="," ","True"}],","," ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{",RowBox[{"\"Failed to generate a valid image sample protocol for tasks: \"",","," ","tasks"}],"}"}],","," ","tmpPrintCellStyle"}],"]"}],";"," ","\n","       ",RowBox[
+{"Return","[","falseReturnVal","]"}],";"}]}]," ","]"}],";"," ",RowBox[{"delCellWithStyle","[","tmpPrintCellStyle","]"}],";"," ",RowBox[
+{"imageProtocol"," ","="," ",RowBox[{"ExperimentImageSample","[",RowBox[{RowBox[{RowBox[
+{"(",RowBox[{RowBox[{"Object","[",RowBox[{"Container",","," ","Vessel",","," ","#1"}],"]"}]," ","&"}]," ",")"}]," ","/@"," ","samples"}],","," ",RowBox[
+{"Instrument"," ","->"," ","globalCamera"}],","," ","\n","       ",RowBox[{"ImageContainer"," ","->"," ","globalCameraShowVessel"}],","," ",RowBox[
+{"Site"," ","->"," ","globalExpSite"}]}],"]"}]}],";"," ",RowBox[{"Return","[",RowBox[
+{"{",RowBox[{"validExpFlag",","," ","imageProtocol",","," ","samples"}],"}"}],"]"}],";"}]}]," ","]"}]}],";"}]," "}]],
+"Code",CellChangeTimes -> {{3.958512860725931`*^9,3.9585128779782805`*^9},3.958514496662119`*^9,{3.958514815454531`*^9,3.958514815464531`*^9}},
+ExpressionUUID -> "c63d00cc-728b-dc4c-a552-d1058fa55766"]},Open],ExpressionUUID -> "f6591aad-618c-4dde-86ba-7d1668d9f329"]},
+Open],ExpressionUUID -> "b9d24a3e-5419-45db-864f-e365c8b62570"],Cell[
+CellGroupData[
+{Cell[
+TextData[StyleBox["autoHSP - The Main Loop (putting things together)",FontColor -> RGBColor[
+1.`,0.`,0.`]]],"Section",CellChangeTimes -> {3.958512895985149`*^9,{3.958588666859625`*^9,3.9585886727054386`*^9}},
+ExpressionUUID -> "6b32aa24-a7a1-4051-81e6-7612dd49f121"],Cell[
+CellGroupData[{Cell[
+
+"\<Some preparatory work\>","Subsection",CellChangeTimes -> {3.9585129256046157`*^9},
+ExpressionUUID -> "ec48294b-012b-444c-8982-66e6b95b1651"],Cell[
+BoxData[{RowBox[{RowBox[
+{RowBox[{"thread"," ","="," ","\"thread1\""}],";"}]," "}],"\n",RowBox[{RowBox[{RowBox[
+{"ability"," ","="," ",RowBox[{"{",RowBox[{"\"prep\"",","," ","\"image\""}],"}"}]}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"validateImageTime"," ","="," ","True"}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"extraOutputTag"," ","="," ",RowBox[{"StringJoin","[",RowBox[{"\"HSPMain:\"",","," ","thread"}],"]"}]}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"prefix"," ","="," ","globalSampleNamePrefix"}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"maxRuns"," ","="," ","globalMaxRuns"}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"waitInterval"," ","="," ","globalWaitInterval"}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"whichCycle"," ","="," ","0"}],";"}]," "}],"\n",RowBox[{RowBox[{RowBox[
+{"useLastTask"," ","="," ","False"}],";"}]," "}],"\n",RowBox[{RowBox[{RowBox[{"thisCycleWentFine"," ","="," ","True"}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"EOE"," ","="," ","False"}],";"}]," "}],"\n",RowBox[{RowBox[{RowBox[
+{RowBox[{"pauseExecution","[",RowBox[{RowBox[{"params_",":",RowBox[{"Association","[",RowBox[
+{RowBox[{"\"status\""," ","->"," ","\"exception\""}],","," ",RowBox[{"\"message\""," ","->"," ","\"You attention is required ASAP.\""}]}],"]"}]}],","," ",RowBox[
+{"extraOutputTag_",":","Nothing"}],","," ",RowBox[{"maxRuns_",":","True"}],","," ",RowBox[
+{"waitInterval_",":","True"}]}],"]"}]," ",":="," ","\n","   ",RowBox[{"(",RowBox[
+{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{","\"Pausing script execution due to error or exception.\\nYou are advised to review the error information carefully and make adjustments on the server before resuming execution.\"","}"}],","," ","\n","     ",RowBox[
+{"{",RowBox[{"\"pauseExecution\"",","," ","extraOutputTag"}],"}"}]}],"]"}],";"," ",RowBox[
+{"thisCycleWentFine"," ","="," ","False"}],";"," ",RowBox[{"notifyServer","[",RowBox[
+{"params",","," ","extraOutputTag",","," ","maxRuns",","," ","waitInterval"}],"]"}],";"," ",RowBox[
+{"PauseScript","[","]"}],";"}]," ",")"}]}],";"}]," "}],"\n",RowBox[{RowBox[{RowBox[
+{RowBox[{"printLineBreak","[",RowBox[{RowBox[{"cycle_",":","Nothing"}],","," ",RowBox[
+{"extraOutputTag_",":","Nothing"}]}],"]"}]," ",":="," ",RowBox[{"(",RowBox[{RowBox[
+{"Return","[",RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{RowBox[{"StringRepeat","[",RowBox[
+{"\"-\"",","," ","12"}],"]"}],","," ","\" \"",","," ","cycle",","," ","\" \"",","," ",RowBox[
+{"StringRepeat","[",RowBox[{"\"-\"",","," ","12"}],"]"}]}],"}"}],","," ",RowBox[{"Flatten","[",RowBox[
+{"{",RowBox[{"\"perm\"",","," ","\"line\"",","," ","extraOutputTag"}],"}"}],"]"}]}],"]"}],"]"}],";"}]," ",")"}]}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"printLineBreak","[",RowBox[{"\"START\"",","," ","extraOutputTag"}],"]"}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Start HSPMain (script) execution on thread `\"",","," ","thread",","," ","\"`.\""}],"}"}],","," ",RowBox[
+{"{",RowBox[{"\"perm\"",","," ","extraOutputTag"}],"}"}]}],"]"}],";"}]," "}]}],"Code",
+CellChangeTimes -> {{3.9585129367791433`*^9,3.9585129420845795`*^9},{3.958513855162569`*^9,3.9585138554616594`*^9},3.9585139352647443`*^9,{3.958514505512037`*^9,3.9585145409078655`*^9},{3.958514815468531`*^9,3.958514815473051`*^9},3.958514855119583`*^9,3.9585151492992225`*^9},
+ExpressionUUID -> "dc0954b0-9bda-4844-9530-acc5e117873e"]},Open],ExpressionUUID -> "f39882f1-4510-4cbe-8d49-aab529ae11ee"],Cell[
+CellGroupData[
+{Cell[
+"\<Start cycle from here\>","Subsection",CellChangeTimes -> {3.9585129511775017`*^9},
+ExpressionUUID -> "c2898a1b-a8b4-499a-afbb-c166991e3178"],Cell[
+BoxData[RowBox[{RowBox[
+{RowBox[{"Label","[","\"start:HSP\"","]"}],";"}]," "}]],"Code",CellChangeTimes -> {3.9585129648682704`*^9,3.9585145466715684`*^9},
+ExpressionUUID -> "73a9c308-ee42-9042-8062-800939823649"],Cell[
+BoxData[{RowBox[{RowBox[
+{RowBox[{"whichCycle"," ","+="," ","1"}],";"}]," "}],"\n",RowBox[{RowBox[{RowBox[
+{"tasks"," ","="," ",RowBox[{"Association","[","]"}]}],";"}]," "}],"\n",RowBox[{RowBox[
+{RowBox[{"taskType"," ","="," ","\"\""}],";"}]," "}],"\n",RowBox[{RowBox[{RowBox[
+{"extraOutputTag"," ","="," ",RowBox[{"StringJoin","[",RowBox[{"\"HSPMain:\"",","," ","thread",","," ","\"@\"",","," ",RowBox[
+{"ToString","[","whichCycle","]"}]}],"]"}]}],";"}]," "}],"\n",RowBox[{RowBox[{RowBox[
+{"thisCycleWentFine"," ","="," ","True"}],";"}]," "}],"\n",RowBox[{RowBox[{RowBox[
+{"thisTaskGotMatched"," ","="," ","False"}],";"}]," "}],"\n",RowBox[{RowBox[{RowBox[
+{"failMessage"," ","="," ",RowBox[{"Association","[",RowBox[{RowBox[{"\"status\""," ","->"," ","\"exception\""}],","," ",RowBox[
+{"\"message\""," ","->"," ","\"An exception happened. You attention is required ASAP.\""}]}],"]"}]}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"printLineBreak","[",RowBox[{"whichCycle",","," ","extraOutputTag"}],"]"}],";"}]," "}]}],
+"Code",CellChangeTimes -> {3.95851297543328`*^9,{3.9585145567329693`*^9,3.9585145603458433`*^9}},
+ExpressionUUID -> "fc0c5e16-ef47-db4d-8466-2178c9eec0cd"]},Open],ExpressionUUID -> "339eb875-17e8-415d-a328-f8a5f5689b02"],Cell[
+CellGroupData[
+{Cell[
+"\<1 - Check if there is already thread-claimed tasks in `globalTaskMgr`\>",
+"Subsection",CellChangeTimes -> {3.9585129869143753`*^9},ExpressionUUID -> "756cf987-96f1-43eb-84b5-c2b1ae7a4f1f"],Cell[
+
+"\<this should rarely happen since before each `Goto`, the tasks are removed\>","Text",
+CellChangeTimes -> {{3.958512998654882`*^9,3.958513007721619`*^9}},ExpressionUUID -> "da75d7d7-e213-b949-91da-60514157b143"],Cell[
+BoxData[
+RowBox[{RowBox[{RowBox[{"If","[",RowBox[{RowBox[{"thisCycleWentFine"," ","&&"," ",RowBox[
+{"(",RowBox[{RowBox[{"KeyExistsQ","[",RowBox[{"globalTaskMgr",","," ","thread"}],"]"}]," ","&&","  ",RowBox[
+{"!","useLastTask"}]}],")"}]}],","," ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{",RowBox[{"\"You are trying to run thread `\"",","," ","thread",","," ","\"` but it is already registered under `globalTaskMgr` with tasks: \"",","," ","\n","      ",RowBox[
+{"getTaskForThread","[","thread","]"}],","," ","\".\\nDid you forget to `delTaskForThread`? You should also check if the task is already successfully performed in the lab.\\nWARNING: make sure to update the server \\\nconfiguration before you skip the pause.\""}],"}"}],","," ",RowBox[
+{"{",RowBox[{"\"threadExistsException\"",","," ","extraOutputTag"}],"}"}]}],"]"}],";"," ",RowBox[
+{"thisCycleWentFine"," ","="," ","False"}],";"," ",RowBox[{"failMessage"," ","="," ",RowBox[
+{"Association","[",RowBox[{RowBox[{"\"status\""," ","->"," ","\"exception\""}],","," ",RowBox[
+{"\"message\""," ","->"," ","\"threadExistsException\""}]}],"]"}]}],";"}]}]," ","]"}],";"}]," "}]],
+"Code",CellChangeTimes -> {3.958513023123583`*^9,{3.9585139297925186`*^9,3.9585139298065186`*^9},{3.958514563510769`*^9,3.958514566889845`*^9},{3.9585148154780483`*^9,3.9585148154810514`*^9},{3.958514852223493`*^9,3.95851485312883`*^9},{3.958515103127331`*^9,3.958515104881378`*^9},{3.9585151506752243`*^9,3.9585151522988567`*^9},{3.960042260563768`*^9,3.96004226138804`*^9}},
+ExpressionUUID -> "31c51a30-1d93-fe4d-85d2-d8d685ca4da9"]},Open],ExpressionUUID -> "16cf2319-35e5-4906-8672-f9fe36f50fc3"],Cell[
+CellGroupData[
+{Cell[
+"\<2 - Get next set of tasks from the server\>","Subsection",CellChangeTimes -> {3.9585130337291827`*^9},
+ExpressionUUID -> "832d0903-1844-4b37-aba2-e659337b6df4"],Cell[
+BoxData[RowBox[{"If","[",RowBox[
+{"thisCycleWentFine",","," ",RowBox[{RowBox[{"If","[",RowBox[{RowBox[{"useLastTask"," ","&&"," ",RowBox[
+{"KeyExistsQ","[",RowBox[{"globalTaskMgr",","," ","thread"}],"]"}]}],","," ",RowBox[
+{"taskStatus"," ","="," ","True"}],","," ",RowBox[{"taskStatus"," ","="," ",RowBox[
+{RowBox[{"getNextTaskFromServer","[",RowBox[{"thread",","," ","ability",","," ","extraOutputTag",","," ","maxRuns",","," ","waitInterval"}],"]"}]," ","==="," ","True"}]}]}],"]"}],";"," ","\n","   ",RowBox[
+{"If","["," ",RowBox[{RowBox[{"!","taskStatus"}],","," ",RowBox[{RowBox[{"thisCycleWentFine"," ","="," ","False"}],";"," ",RowBox[
+{"failMessage"," ","="," ",RowBox[{"Association","[",RowBox[{RowBox[{"\"status\""," ","->"," ","\"exception\""}],","," ",RowBox[
+{"\"message\""," ","->"," ","\"getNextTaskFromServerException\""}]}],"]"}]}],";"," ","\n","     ",RowBox[
+{"Return","[",RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Cycle \"",","," ","whichCycle",","," ","\": failed to get the next set of tasks from the server.\""}],"}"}],","," ",RowBox[
+{"{",RowBox[{"\"getNextTaskFromServer\"",","," ","extraOutputTag"}],"}"}]}],"]"}],"]"}]}],","," ","\n","    ",RowBox[
+{RowBox[{"tasks"," ","="," ",RowBox[{"getTaskForThread","[","thread","]"}]}],";"," ",RowBox[
+{"taskType"," ","="," ",RowBox[{"Lookup","[",RowBox[{"tasks",","," ","\"task\"",","," ","\"\""}],"]"}]}],";"," ",RowBox[
+{"If","["," ",RowBox[{RowBox[{"!",RowBox[{"StringMatchQ","[",RowBox[{"taskType",","," ","\"pause\"",","," ",RowBox[
+{"IgnoreCase"," ","->"," ","True"}]}],"]"}]}],","," ","\n","      ",RowBox[{"Return","[",RowBox[
+{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Cycle \"",","," ","whichCycle",","," ","\": got the next set of tasks from the server: \"",","," ","tasks"}],"}"}],","," ",RowBox[
+{"{",RowBox[{"\"getNextTaskFromServer\"",","," ","extraOutputTag"}],"}"}]}],"]"}],"]"}]}],"]"}]}]}],"]"}]}]}],"]"}]],
+"Code",CellChangeTimes -> {3.9585130468825483`*^9,3.958514577668797`*^9},ExpressionUUID -> "8e03811d-df2d-964b-ba56-360ab5667aee"]},
+Open],ExpressionUUID -> "c096a9d5-dbd8-4b8f-9163-a8cc0711cfcf"],Cell[
+CellGroupData[
+{Cell[
+"\<3.1 - prepSamples (?)\>","Subsection",CellChangeTimes -> {3.958513061366467`*^9},
+ExpressionUUID -> "9020bf60-41a9-4ad9-94c3-3bc86ec24f60"],Cell[
+BoxData[RowBox[{"If","[",RowBox[
+{RowBox[{"thisCycleWentFine"," ","&&"," ",RowBox[{"StringMatchQ","[",RowBox[{"taskType",","," ","\"prep\"",","," ",RowBox[
+{"IgnoreCase"," ","->"," ","True"}]}],"]"}]}],","," ",RowBox[{RowBox[{"thisTaskGotMatched"," ","="," ","True"}],";"," ",RowBox[
+{"urlParams"," ","="," ",RowBox[{"Association","[",RowBox[{RowBox[{"\"status\""," ","->"," ","\"exception\""}],","," ",RowBox[
+{"\"message\""," ","->"," ","\"unknownException\""}]}],"]"}]}],";"," ","\n","   ",RowBox[
+{RowBox[{"{",RowBox[{"status",","," ","protocol",","," ","samples"}],"}"}]," ","="," ",RowBox[
+{"prepSamples","[",RowBox[{"tasks",","," ","extraOutputTag"}],"]"}]}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{"status"," ","=!="," ","True"}],","," ",RowBox[{RowBox[
+{"thisCycleWentFine"," ","="," ","False"}],";"," ",RowBox[{"failMessage"," ","="," ",RowBox[
+{"Association","[",RowBox[{RowBox[{"\"status\""," ","->"," ","\"exception\""}],","," ",RowBox[
+{"\"message\""," ","->"," ","\"prepSamplesException\""}]}],"]"}]}],";"}]}]," ","]"}]}]}],"]"}]],
+"Code",CellChangeTimes -> {3.9585130789977245`*^9,3.958514581994572`*^9},ExpressionUUID -> "7e348d7a-6b0d-1e49-8572-eb345b9b3849"],Cell[
+TextData[
+{"Supposedly, if the previous cell returns a valid protocol, it should automatically run. And the next cell will only start executing when that protocol has a status of completed.\n",StyleBox[
+"NOTE",FontColor -> RGBColor[1.`,0.`,0.`]],": If the above cell (prepSamples) runs successfully, but the following cell (rememberSamples) failed. You should go to a notebook page and fix `rememberSamples` from there. DO NOT try to fix it in the script environment."}],
+"Text",CellFrame -> {{0,0},{0,0}},CellChangeTimes -> {3.9585130880485086`*^9,{3.9585145860799127`*^9,3.9585145933918247`*^9}},
+ExpressionUUID -> "b84f0e1d-14ab-6041-800c-b1ffa37d4f27"],Cell[
+BoxData[RowBox[{RowBox[
+{RowBox[{"If","[",RowBox[{RowBox[{"thisCycleWentFine"," ","&&"," ","status"," ","&&"," ",RowBox[
+{"StringMatchQ","[",RowBox[{"taskType",","," ","\"prep\"",","," ",RowBox[{"IgnoreCase"," ","->"," ","True"}]}],"]"}]," ","&&"," ",RowBox[
+{RowBox[{"protocol","[","Status","]"}]," ","==="," ","Completed"}]}],","," ",RowBox[
+{RowBox[{"status"," ","="," ",RowBox[{"rememberSamples","[",RowBox[{"protocol",","," ","samples",","," ",RowBox[
+{"Lookup","[",RowBox[{"tasks",","," ","\"taskId\"",","," ","\"\""}],"]"}],","," ","extraOutputTag"}],"]"}]}],";"," ","\n","    ",RowBox[
+{"If","[",RowBox[{RowBox[{"AllTrue","[",RowBox[{"status",","," ","TrueQ"}],"]"}],","," ",RowBox[
+{RowBox[{"protocolProgress"," ","="," ",RowBox[{"protocol","[","CheckpointProgress","]"}]}],";"," ",RowBox[
+{"samplePrepEndTime"," ","="," ","\"\""}],";"," ",RowBox[{"If","[",RowBox[{RowBox[
+{"Quiet","[",RowBox[{"ListQ","[","protocolProgress","]"}],"]"}],","," ","\n","       ",RowBox[
+{RowBox[{"Do","[",RowBox[{RowBox[{RowBox[{"If","[",RowBox[{RowBox[{RowBox[{"progress","[",RowBox[
+{"[","1","]"}],"]"}]," ","==="," ","\"Sample Preparation\""}],","," ",RowBox[{RowBox[
+{"samplePrepEndTime"," ","="," ",RowBox[{"StringJoin","[",RowBox[{RowBox[{"DateString","[",RowBox[
+{RowBox[{"progress","[",RowBox[{"[","3","]"}],"]"}],","," ","\"ISODateTime\""}],"]"}],","," ",RowBox[
+{"DateString","[",RowBox[{RowBox[{"progress","[",RowBox[{"[","3","]"}],"]"}],","," ","\"ISOTimeZone\""}],"]"}]}],"]"}]}],";"," ",RowBox[
+{"Break","[","]"}],";"}]}]," ","]"}],";"}]," ",","," ","\n","         ",RowBox[{"{",RowBox[
+{"progress",","," ",RowBox[{"Reverse","[","protocolProgress","]"}]}],"}"}]}],"]"}],";"}]}]," ","]"}],";"," ",RowBox[
+{"urlParams"," ","="," ",RowBox[{"Association","[",RowBox[{RowBox[{"\"status\""," ","->"," ","\"success\""}],","," ",RowBox[
+{"\"task\""," ","->"," ","\"prep\""}],","," ",RowBox[{"\"taskId\""," ","->"," ",RowBox[
+{"Lookup","[",RowBox[{"tasks",","," ","\"taskId\"",","," ","\"\""}],"]"}]}],","," ",RowBox[
+{"\"protocolId\""," ","->"," ",RowBox[{"protocol","[","ID","]"}]}],","," ","\n","        ",RowBox[
+{"\"samples\""," ","->"," ",RowBox[{RowBox[{"(",RowBox[{RowBox[{"delSampleNamePrefix","[",RowBox[
+{"#1",","," ","prefix"}],"]"}]," ","&"}]," ",")"}]," ","/@"," ","samples"}]}],","," ",RowBox[
+{"\"sampleIds\""," ","->"," ",RowBox[{RowBox[{"(",RowBox[{RowBox[{RowBox[{"Object","[",RowBox[
+{"Container",","," ","Vessel",","," ","#1"}],"]"}],"[","ID","]"}]," ","&"}]," ",")"}]," ","/@"," ","samples"}]}],","," ",RowBox[
+{"\"time\""," ","->"," ","samplePrepEndTime"}]}],"]"}]}],";"," ","\n","      ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"notifyServer","[",RowBox[{"urlParams",","," ","extraOutputTag",","," ","maxRuns",","," ","waitInterval"}],"]"}]," ","=!="," ","True"}],","," ",RowBox[
+{RowBox[{"thisCycleWentFine"," ","="," ","False"}],";"," ",RowBox[{"failMessage"," ","="," ",RowBox[
+{"Association","[",RowBox[{RowBox[{"\"status\""," ","->"," ","\"exception\""}],","," ","\n","          ",RowBox[
+{"\"message\""," ","->"," ","\"rememberSamplesNotifyServerException\""}]}],"]"}]}],";"}]}]," ","]"}],";"}]," ",","," ",RowBox[
+{RowBox[{"thisCycleWentFine"," ","="," ","False"}],";"," ",RowBox[{"failMessage"," ","="," ",RowBox[
+{"Association","[",RowBox[{RowBox[{"\"status\""," ","->"," ","\"exception\""}],","," ",RowBox[
+{"\"message\""," ","->"," ","\"rememberSamplesException\""}]}],"]"}]}],";"}]}]," ","]"}],";"}]}]," ","]"}],";"}]," "}]],
+"Code",CellChangeTimes -> {{3.9585131947398567`*^9,3.9585131979235573`*^9},3.958514598232173`*^9},
+ExpressionUUID -> "10b0a747-953a-e643-a04f-3eb65fcc7eec"]},Open],ExpressionUUID -> "6868f527-03e4-4858-b71a-156c01a6a5b9"],Cell[
+CellGroupData[
+{Cell[
+"\<3.2 - imageSamples (?)\>","Subsection",CellChangeTimes -> {3.95851320681696`*^9},
+ExpressionUUID -> "4c3daa20-7c91-47d2-9696-c9b82153c4fc"],Cell[
+BoxData[RowBox[{"If","[",RowBox[
+{RowBox[{"thisCycleWentFine"," ","&&"," ",RowBox[{"StringMatchQ","[",RowBox[{"taskType",","," ","\"image\"",","," ",RowBox[
+{"IgnoreCase"," ","->"," ","True"}]}],"]"}]}],","," ",RowBox[{RowBox[{"thisTaskGotMatched"," ","="," ","True"}],";"," ",RowBox[
+{"urlParams"," ","="," ",RowBox[{"Association","[",RowBox[{RowBox[{"\"status\""," ","->"," ","\"exception\""}],","," ",RowBox[
+{"\"message\""," ","->"," ","\"unknownException\""}]}],"]"}]}],";"," ","\n","   ",RowBox[
+{RowBox[{"{",RowBox[{"status",","," ","protocol",","," ","samples"}],"}"}]," ","="," ",RowBox[
+{"imageSamples","[",RowBox[{"tasks",","," ","extraOutputTag"}],"]"}]}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{"status"," ","=!="," ","True"}],","," ",RowBox[{RowBox[
+{"thisCycleWentFine"," ","="," ","False"}],";"," ",RowBox[{"failMessage"," ","="," ",RowBox[
+{"Association","[",RowBox[{RowBox[{"\"status\""," ","->"," ","\"exception\""}],","," ",RowBox[
+{"\"message\""," ","->"," ","\"imageSamplesException\""}]}],"]"}]}],";"}]}]," ","]"}]}]}],"]"}]],
+"Code",CellChangeTimes -> {3.9585132156986465`*^9,3.9585146026224236`*^9},ExpressionUUID -> "7e4fd4a8-613b-e14c-9871-9fb9dc6a91ab"],Cell[
+TextData[
+{"Supposedly, if  the  previous  cell  returns  a  valid  protocol, it  should  automatically  run . And  the  next  cell  will only  start  executing  when  that  protocol  has  a  status  of  completed .\n",StyleBox[
+"NOTE",FontColor -> RGBColor[1.`,0.`,0.`]]," : If  the  above  cell  (imageSamples)  runs  successfully, but  the  following  cell  (uploadSampleImageToServer)  failed . You  should  go  to  a  notebook  page  and  fix  uploadSampleImageToServer  from  there . DO  NOT  try  to  fix  it  in  the  script  environment ."}],
+"Text",CellChangeTimes -> {{3.958513240923167`*^9,3.9585132436821012`*^9},{3.9585146056970544`*^9,3.9585146269236426`*^9}},
+ExpressionUUID -> "0f749804-a174-2042-8787-d032fa41ad80"],Cell[
+BoxData[RowBox[{RowBox[
+{RowBox[{"If","[",RowBox[{RowBox[{"thisCycleWentFine"," ","&&"," ","status"," ","&&"," ",RowBox[
+{"StringMatchQ","[",RowBox[{"taskType",","," ","\"image\"",","," ",RowBox[{"IgnoreCase"," ","->"," ","True"}]}],"]"}]," ","&&"," ",RowBox[
+{RowBox[{"protocol","[","Status","]"}]," ","==="," ","Completed"}]}],","," ","\n","   ",RowBox[
+{RowBox[{"status"," ","="," ",RowBox[{RowBox[{"(",RowBox[{RowBox[{"uploadSampleImageToServer","[",RowBox[
+{"#1",","," ",RowBox[{"Lookup","[",RowBox[{"tasks",","," ","\"taskId\"",","," ","\"\""}],"]"}],","," ","extraOutputTag",","," ","validateImageTime",","," ","prefix",","," ","maxRuns",","," ","waitInterval"}],"]"}]," ","&"}]," ",")"}]," ","/@"," ","samples"}]}],";"," ","\n","    ",RowBox[
+{"If","[",RowBox[{RowBox[{"AllTrue","[",RowBox[{"status",","," ","TrueQ"}],"]"}],","," ",RowBox[
+{RowBox[{"urlParams"," ","="," ",RowBox[{"Association","[",RowBox[{RowBox[{"\"status\""," ","->"," ","\"success\""}],","," ",RowBox[
+{"\"task\""," ","->"," ","\"image\""}],","," ",RowBox[{"\"taskId\""," ","->"," ",RowBox[
+{"Lookup","[",RowBox[{"tasks",","," ","\"taskId\"",","," ","\"\""}],"]"}]}],","," ",RowBox[
+{"\"protocolId\""," ","->"," ",RowBox[{"protocol","[","ID","]"}]}],","," ","\n","        ",RowBox[
+{"\"samples\""," ","->"," ",RowBox[{RowBox[{"(",RowBox[{RowBox[{"delSampleNamePrefix","[",RowBox[
+{"#1",","," ","prefix"}],"]"}]," ","&"}]," ",")"}]," ","/@"," ","samples"}]}],","," ",RowBox[
+{"\"sampleIds\""," ","->"," ",RowBox[{RowBox[{"(",RowBox[{RowBox[{RowBox[{"Object","[",RowBox[
+{"Container",","," ","Vessel",","," ","#1"}],"]"}],"[","ID","]"}]," ","&"}]," ",")"}]," ","/@"," ","samples"}]}]}],"]"}]}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"notifyServer","[",RowBox[{"urlParams",","," ","extraOutputTag",","," ","maxRuns",","," ","waitInterval"}],"]"}]," ","=!="," ","True"}],","," ","\n","       ",RowBox[
+{RowBox[{"thisCycleWentFine"," ","="," ","False"}],";"," ",RowBox[{"failMessage"," ","="," ",RowBox[
+{"Association","[",RowBox[{RowBox[{"\"status\""," ","->"," ","\"exception\""}],","," ",RowBox[
+{"\"message\""," ","->"," ","\"uploadSampleImageToServerNotifyServerException\""}]}],"]"}]}],";"}]}]," ","]"}],";"}]," ",","," ","\n","     ",RowBox[
+{RowBox[{"thisCycleWentFine"," ","="," ","False"}],";"," ",RowBox[{"failMessage"," ","="," ",RowBox[
+{"Association","[",RowBox[{RowBox[{"\"status\""," ","->"," ","\"exception\""}],","," ",RowBox[
+{"\"message\""," ","->"," ","\"uploadSampleImageToServerException\""}]}],"]"}]}],";"}]}]," ","]"}],";"}]}]," ","]"}],";"}]," "}]],
+"Code",CellChangeTimes -> {{3.958513263926834`*^9,3.958513269697687`*^9},3.9585146344873548`*^9},
+ExpressionUUID -> "fdda167e-d3c4-774c-bae1-78383d95a3fd"]},Open],ExpressionUUID -> "43e1ad49-430f-43c8-9aec-3d6c1c20f681"],Cell[
+CellGroupData[
+{Cell[
+"\<3.3 - EOE (?)\>","Subsection",CellChangeTimes -> {3.958513279557427`*^9},
+ExpressionUUID -> "50a6e030-25df-4416-b37c-849d4f28f43f"],Cell[
+BoxData[RowBox[{"If","[",RowBox[
+{RowBox[{"thisCycleWentFine"," ","&&"," ",RowBox[{"StringMatchQ","[",RowBox[{"taskType",","," ","\"EOE\"",","," ",RowBox[
+{"IgnoreCase"," ","->"," ","True"}]}],"]"}]}],","," ",RowBox[{RowBox[{"EOE"," ","="," ","True"}],";"," ",RowBox[
+{"thisTaskGotMatched"," ","="," ","True"}],";"," ","\n","   ",RowBox[{"Return","[",RowBox[
+{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"EOE string received at cycle \"",","," ","whichCycle",","," ","\".\""}],"}"}],","," ",RowBox[
+{"{",RowBox[{"\"perm\"",","," ","\"EOE\"",","," ","extraOutputTag"}],"}"}]}],"]"}],"]"}]}]}],"]"}]],
+"Code",CellChangeTimes -> {3.95851328717708`*^9,3.9585146385302753`*^9},ExpressionUUID -> "85563a0c-7339-6c4b-b883-196b73393a16"]},
+Open],ExpressionUUID -> "9ef6015c-2bf6-4cde-99fe-1197c27fef8f"],Cell[
+CellGroupData[
+{Cell[
+"\<3.4 - pause (?)\>","Subsection",CellChangeTimes -> {{3.95851329657707`*^9,3.9585133006009965`*^9}},
+ExpressionUUID -> "6df96fac-f266-403f-865e-b115bebd97d3"],Cell[
+BoxData[RowBox[{RowBox[
+{RowBox[{"If","[",RowBox[{RowBox[{"thisCycleWentFine"," ","&&"," ",RowBox[{"StringMatchQ","[",RowBox[
+{"taskType",","," ","\"pause\"",","," ",RowBox[{"IgnoreCase"," ","->"," ","True"}]}],"]"}]}],","," ",RowBox[
+{RowBox[{"thisTaskGotMatched"," ","="," ","True"}],";"," ",RowBox[{"whichCycle"," ","-="," ","1"}],";"," ",RowBox[
+{"donotuseme"," ","="," ","1"}],";"," ","\n","    ",RowBox[{"For","[",RowBox[{RowBox[
+{"i"," ","="," ","1"}],","," ",RowBox[{"i"," ","<="," ",RowBox[{"3","*","60"}]}],","," ",RowBox[
+{"i","++"}],","," ",RowBox[{RowBox[{"donotuseme"," ","="," ",RowBox[{"parseJsonResponse","[",RowBox[
+{"URLRead","[",RowBox[{"URLBuild","[",RowBox[{"{",RowBox[{"globalDomainName",","," ","\"pause\""}],"}"}],"]"}],"]"}],"]"}]}],";"}]}]," ","]"}],";"," ",RowBox[
+{"If","[",RowBox[{RowBox[{"MemberQ","[",RowBox[{RowBox[{"globalLogMgr","[",RowBox[
+{"[",RowBox[{RowBox[{"-","1"}],",","1"}],"]"}],"]"}],","," ","\"line\""}],"]"}],","," ",RowBox[
+{RowBox[{"delCellWithStyle","[",RowBox[{RowBox[{"{",RowBox[{"\"perm\"",","," ","\"line\""}],"}"}],","," ","Nothing",","," ",RowBox[
+{"-","1"}]}],"]"}],";"}]}]," ","]"}],";"," ","\n","    ",RowBox[{"If","["," ",RowBox[
+{RowBox[{"!",RowBox[{"MemberQ","[",RowBox[{RowBox[{"globalLogMgr","[",RowBox[{"[",RowBox[
+{RowBox[{"-","1"}],",","1"}],"]"}],"]"}],","," ","\"pause\""}],"]"}]}],","," ",RowBox[
+{RowBox[{"printLineBreak","[",RowBox[{"\"SCRIPT PAUSED\"",","," ",RowBox[{"{",RowBox[
+{"\"pause\"",","," ","extraOutputTag"}],"}"}]}],"]"}],";"}]}]," ","]"}],";"}]}]," ","]"}],";"}]," "}]],
+"Code",CellChangeTimes -> {{3.9585147603067346`*^9,3.958514764447905`*^9}},ExpressionUUID -> "68df4312-4a06-3a4b-9d08-3cc112364726"]},
+Open],ExpressionUUID -> "019e1896-bef4-484f-8aae-5a023bbcef2b"],Cell[
+CellGroupData[
+{Cell[
+"\<3.5 - All other cases: thisTaskDidNotGotMatched?\>","Subsection",CellChangeTimes -> {3.958513352010187`*^9},
+ExpressionUUID -> "dae632a4-e999-4655-81c3-a14eb1ceefbb"],Cell[
+"\<what is going on on the server side??? This should technically not happen.\>",
+"Text",CellChangeTimes -> {{3.958513361876831`*^9,3.9585133729180145`*^9}},ExpressionUUID -> "62412910-5096-3948-8ee2-d52c81421d6d"],Cell[
+BoxData[
+RowBox[{RowBox[{RowBox[{"If","[",RowBox[{RowBox[{"thisCycleWentFine"," ","&&"," ",RowBox[
+{"thisTaskGotMatched"," ","=!="," ","True"}]}],","," ",RowBox[{RowBox[{"thisCycleWentFine"," ","="," ","False"}],";"," ",RowBox[
+{"failMessage"," ","="," ",RowBox[{"Association","[",RowBox[{RowBox[{"\"status\""," ","->"," ","\"exception\""}],","," ",RowBox[
+{"\"message\""," ","->"," ","\"unknownTaskException\""}]}],"]"}]}],";"}]}]," ","]"}],";"}]," "}]],
+"Code",CellChangeTimes -> {3.9585133882683744`*^9,3.958514646000269`*^9},ExpressionUUID -> "a46a47fb-15bb-1841-8a85-2345b7269d48"]},
+Open],ExpressionUUID -> "2ed8ad0d-3e62-49a4-a27b-0f949135b2c3"],Cell[
+CellGroupData[
+{Cell[
+TextData[{StyleBox["Exceptions",FontColor -> RGBColor[1.`,0.`,0.`]],"? Errors? End of experiment?"}],
+"Subsection",CellChangeTimes -> {{3.9585133986614804`*^9,3.958513402453569`*^9}},
+ExpressionUUID -> "e8a53c14-6e4c-43b7-a819-37dc29988979"],Cell[
+BoxData[RowBox[{"If","[",RowBox[
+{RowBox[{"thisCycleWentFine"," ","=!="," ","True"}],","," ",RowBox[{RowBox[{"pauseExecution","[",RowBox[
+{"failMessage",","," ","extraOutputTag",","," ","maxRuns",","," ","waitInterval"}],"]"}],";"," ",RowBox[
+{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"Cycle \"",","," ","whichCycle",","," ","\" exited with an exception/error. Good luck fixing it!\""}],"}"}],","," ","\n","    ",RowBox[
+{"{",RowBox[{"\"perm\"",","," ","extraOutputTag"}],"}"}]}],"]"}],";"," ",RowBox[{"Return","[",RowBox[
+{"printLogWithStyle","[","extraOutputTag","]"}],"]"}],";"}]," ",","," ",RowBox[{"If","["," ",RowBox[
+{RowBox[{"!",RowBox[{"StringMatchQ","[",RowBox[{"taskType",","," ","\"pause\"",","," ",RowBox[
+{"IgnoreCase"," ","->"," ","True"}]}],"]"}]}],","," ","\n","   ",RowBox[{RowBox[{"smartCellPrint","[",RowBox[
+{RowBox[{"{",RowBox[{"\"Cycle \"",","," ","whichCycle",","," ","\" exited with success. Congrats!\""}],"}"}],","," ",RowBox[
+{"{",RowBox[{"\"perm\"",","," ","extraOutputTag"}],"}"}]}],"]"}],";"," ",RowBox[{"Return","[",RowBox[
+{"printLogWithStyle","[","extraOutputTag","]"}],"]"}],";"}]}]," ","]"}]}],"]"}]],
+"Code",CellChangeTimes -> {3.9585134187616615`*^9,3.9585146498249383`*^9},ExpressionUUID -> "a8402228-91f7-6348-8006-ec10b113e531"],Cell[
+
+"\<If you need to perform some task before going back to next loop, edit the following cell before it is too late!\>",
+"Text",CellChangeTimes -> {3.9585134315612717`*^9,{3.9585146535125775`*^9,3.9585146539442286`*^9}},
+ExpressionUUID -> "c881b31c-8e28-e44b-b162-c85887a554ef"],Cell[
+BoxData[{RowBox[{RowBox[
+{RowBox[{"useLastTask"," ","="," ","False"}],";"}]," "}],"\n",RowBox[{RowBox[{RowBox[
+{"If","[",RowBox[{RowBox[{"thisCycleWentFine"," ","=!="," ","True"}],","," ",RowBox[
+{RowBox[{"delCellWithStyle","[",RowBox[{"{",RowBox[{"\"threadExistsException\"",","," ","extraOutputTag"}],"}"}],"]"}],";"," ",RowBox[
+{"delCellWithStyle","[",RowBox[{"{",RowBox[{"\"pauseExecution\"",","," ","extraOutputTag"}],"}"}],"]"}],";"," ",RowBox[
+{"delCellWithStyle","[",RowBox[{"{",RowBox[{"\"getNextTaskFromServer\"",","," ","extraOutputTag"}],"}"}],"]"}],";"," ","\n","    ",RowBox[
+{"delCellWithStyle","[",RowBox[{"{",RowBox[{"\"uploadSampleImageToServer\"",","," ","extraOutputTag"}],"}"}],"]"}],";"," ",RowBox[
+{"delCellWithStyle","[",RowBox[{"{",RowBox[{"\"notifyServer\"",","," ","extraOutputTag"}],"}"}],"]"}],";"," ",RowBox[
+{"delCellWithStyle","[",RowBox[{"{",RowBox[{"\"prepSamples\"",","," ","extraOutputTag"}],"}"}],"]"}],";"," ","\n","    ",RowBox[
+{"delCellWithStyle","[",RowBox[{"{",RowBox[{"\"rememberSamples\"",","," ","extraOutputTag"}],"}"}],"]"}],";"," ",RowBox[
+{"delCellWithStyle","[",RowBox[{"{",RowBox[{"\"imageSamples\"",","," ","extraOutputTag"}],"}"}],"]"}],";"}]}]," ","]"}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"If","["," ",RowBox[{RowBox[{"!","useLastTask"}],","," ",RowBox[
+{RowBox[{"globalTaskMgr"," ","="," ",RowBox[{"delTaskForThread","[","thread","]"}]}],";"}]}]," ","]"}],";"}]," "}]}],
+"Code",CellChangeTimes -> {3.9585134423015084`*^9,3.958514656701128`*^9},ExpressionUUID -> "d8874772-6c4c-5941-871f-50fb8b2fabf6"]},
+Open],ExpressionUUID -> "e7dc4df0-4302-4263-8c0f-c2dbc6999b82"],Cell[
+CellGroupData[
+{Cell[
+TextData[{"Not end of experiment (",StyleBox["EOE",FontColor -> RGBColor[1.`,
+0.`,0.`]],")? Go back to the start!"}],"Subsection",CellChangeTimes -> {{3.958513454305063`*^9,3.958513457181906`*^9}},
+ExpressionUUID -> "77cd458c-c645-42af-b83a-b082046d5895"],Cell[
+BoxData[RowBox[{RowBox[
+{"If","[",RowBox[{RowBox[{"EOE","=!=","True"}],",",RowBox[{RowBox[{"Goto","[","\"start:HSP\"","]"}],";"}]}],"]"}],";"}]],
+"Code",CellChangeTimes -> {3.9585134721338415`*^9,3.9585146597282596`*^9,{3.9585152551434956`*^9,3.9585152755638027`*^9}},
+ExpressionUUID -> "a87c9923-7216-1240-8aaa-22397ccbfbb6"]},Open],ExpressionUUID -> "cc162c15-52f1-4d55-8ddb-8ad604d18147"],Cell[
+CellGroupData[
+{Cell[
+TextData[{StyleBox["EOE",FontColor -> RGBColor[1.`,0.`,0.`]]," at last! Let\[CloseCurlyQuote]s print out the whole log."}],
+"Subsection",CellChangeTimes -> {3.9585134822735686`*^9},ExpressionUUID -> "ae4898d6-cf16-4bc2-8e77-c9f935cbfa64"],Cell[
+BoxData[
+{RowBox[{RowBox[{RowBox[{"extraOutputTag"," ","="," ",RowBox[{"StringJoin","[",RowBox[
+{"\"HSPMain:\"",","," ","thread"}],"]"}]}],";"}]," "}],"\n",RowBox[{RowBox[{RowBox[
+{"printLineBreak","[",RowBox[{"\"END\"",","," ","extraOutputTag"}],"]"}],";"}]," "}],"\n",RowBox[
+{RowBox[{RowBox[{"smartCellPrint","[",RowBox[{RowBox[{"{",RowBox[{"\"End HSPMain (script) execution on thread `\"",","," ","thread",","," ","\"`.\\nPlease restart execution if needed be.\\nThank you for using our automated HSP measurment script!\""}],"}"}],","," ",RowBox[
+{"{",RowBox[{"\"perm\"",","," ","extraOutputTag"}],"}"}]}],"]"}],";"}]," "}]}],"Code",
+CellChangeTimes -> {3.958513502362003`*^9,{3.9585139210077553`*^9,3.9585139210112705`*^9},3.958514664275543`*^9,3.9585148154870515`*^9,{3.9585148459840493`*^9,3.9585148459870477`*^9},{3.95851510205192`*^9,3.9585151048893757`*^9},{3.958515145420454`*^9,3.958515145422959`*^9}},
+ExpressionUUID -> "e9f20a0d-18b2-cd4e-8896-5e73f7bb1615"]},Open],ExpressionUUID -> "cff8cacd-76eb-4de7-b1e7-50eb38831935"]},
+Open],ExpressionUUID -> "005adccb-6716-401f-8b97-1dd86fc6a327"]},Open],ExpressionUUID -> "db03e7c6-cbce-4526-b3d4-c11606276cfa"]},
+StyleDefinitions -> "Default.nb",WindowSize -> {1525.2`,820.8`},WindowMargins -> {{Automatic,-5.399999999999864`},{-5.399999999999977`,Automatic}},
+FrontEndVersion -> "14.2 for Wolfram Cloud 1.72 (April 27, 2025)",ExpressionUUID -> "e0309a8f-1f5c-2049-967d-59d6f2aba192"]

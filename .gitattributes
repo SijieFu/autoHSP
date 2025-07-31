@@ -1,0 +1,5 @@
+# ignore files/folders for language stats
+.streamlit/* linguist-vendored
+data/* linguist-generated
+images/* linguist-generated
+resources/* linguist-documentation

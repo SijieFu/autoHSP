@@ -1,0 +1,84 @@
+{
+    "thread1": {
+        "task": "EOE",
+        "taskId": "taskid:EOE"
+    },
+    "thread2": {
+        "task": "prep",
+        "taskId": "prep:345cb16ccd736c4f97984c84787275e5",
+        "thread": "thread2",
+        "time": "2024-06-03T23:57:28.231798-04:00",
+        "samples": [
+            {
+                "label": "R12:S17-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S17"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S22-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S22"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S19-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S19"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S14-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S14"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S13-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S13"
+                ],
+                "samount": [
+                    5.0
+                ]
+            },
+            {
+                "label": "R12:S11-r5.00:s5.00",
+                "resin": "R12",
+                "ramount": 5.0,
+                "solvent": [
+                    "S11"
+                ],
+                "samount": [
+                    5.0
+                ]
+            }
+        ]
+    },
+    "thread3": {
+        "task": "EOE",
+        "taskId": "taskid:EOE"
+    }
+}

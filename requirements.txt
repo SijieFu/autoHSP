@@ -1,0 +1,16 @@
+# python==3.12.9
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.15.2
+streamlit==1.44.1
+flask==3.1.0
+openpyxl==3.1.5
+plotly==6.0.1
+pillow==11.2.1
+bokeh==2.4.3
+scikit-learn==1.6.1
+rdkit==2024.9.6
+streamlit-authenticator==0.4.2
+extra_streamlit_components==0.1.80
+opencv-contrib-python==4.11.0.86
+miniball==1.2.0

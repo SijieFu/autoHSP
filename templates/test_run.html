@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSP Workflow Test</title>
+</head>
+<body>
+    <h3 style="color: red; font-style: italic;">WARNING: this GET response is a demo UI and might be deprecated without notice.</h3>
+    <h1>Test the Automated HSP Workflow</h1>
+    <form method="post"  enctype="multipart/form-data">
+        <input type="submit" value="Test now">
+        <br><br>
+        <input type="checkbox" id="restart" name="restart" value="y" {% if restart %}checked{% endif %}>
+        <label for="restart">Check to restart the workflow</label>
+        <br><br>
+        <label for="results">Fake some results for the following unknown samples (comma-separated y/n):</label>
+        <br>
+        <input type="text" id="results" name="results" value="{{ results }}" placeholder="enter some fake results" readonly>
+        <br>
+        {% set results = results | default('') | lower %}
+        {% if results is string %}
+            {% set results = results.split(',') %}
+        {% else %}
+            {% set results = [] %}
+        {% endif %}
+        <!-- the unknown samples will take input of a list of string from "unknown_samples" and render it here -->
+        <table>
+            {% if unknown_samples %}
+            <tr style="background-color: darkgray;">
+                <th>Unknown Sample</th>
+                <th>Result</th>
+            </tr>
+            {% for sample in unknown_samples %}
+            <tr style="background-color: {% if loop.index0 % 2 == 0 %}white{% else %}lightgray{% endif %};">
+                <td>{{ sample }}</td>
+                <td>
+                    <input type="radio" id="results_{{ loop.index0 }}" name="results_{{ loop.index0 }}" value="y" {% if results[loop.index0] == 'y' %}checked{% endif %}>Y
+                    <input type="radio" id="results_{{ loop.index0 }}" name="results_{{ loop.index0 }}" value="n" {% if results[loop.index0] == 'n' %}checked{% endif %}>N
+                    <input type="radio" id="results_{{ loop.index0 }}" name="results_{{ loop.index0 }}" value="" {% if results[loop.index0] not in ['y', 'n'] %}checked{% endif %}>Dice Roll
+                </td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </table>
+        <br>
+        <input type="checkbox" id="next" name="next" value="y" {% if next %}checked{% endif %}>
+        <label for="next">Check to get the next experiments</label>
+        <br>
+        <label for="next_results" id="next_results_label">Fake some results for the next experiments (comma-separated y/n):</label>
+        <input type="text" id="next_results" name="next_results" value="{{ next_results }}" placeholder="enter some fake results">
+        <br>
+    </form>
+    <script>
+        // get the results of the unknown samples and store them in the `results` input
+        const get_results = function() {
+            const results = [];
+            const inputs = document.querySelectorAll('input[name^="results_"]');
+            for (let i = 0; i < inputs.length; i++) {
+                if (inputs[i].checked) {
+                    results.push(inputs[i].value);
+                }
+            }
+            const new_results = results.join(',');
+            document.getElementById('results').value = new_results;
+            // if url args has `results`, update it
+            const url = new URL(window.location.href);
+            if (url.searchParams.has('results')) {
+                url.searchParams.set('results', new_results);
+                window.history.replaceState({}, '', url);
+            }
+        };
+        const inputs = document.querySelectorAll('input[name^="results_"]');
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener('change', get_results);
+        }
+        get_results();
+
+        // if `next` is checked, show `next_results` input; otherwise, hide it
+        const check_display = function() {
+            if (document.getElementById('next').checked) {
+                document.getElementById('next_results').style.display = 'block';
+                document.getElementById('next_results_label').style.display = 'block';
+            } else {
+                document.getElementById('next_results').style.display = 'none';
+                document.getElementById('next_results_label').style.display = 'none';
+            }
+        };
+        document.getElementById('next').addEventListener('change', check_display);
+        check_display();
+    </script>
+    <style>
+        @media screen and (min-width: 600px) {
+            body {
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
+        @media screen and (min-width: 900px) {
+            body {
+                width: 70%;
+            }
+        }
+        @media screen and (min-width: 1200px) {
+            body {
+                width: 60%;
+            }
+        }
+        @media screen and (min-width: 1500px) {
+            body {
+                width: 50%;
+            }
+        }
+    </style>
+</body>
+</html>

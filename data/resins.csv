@@ -1,0 +1,13 @@
+Code,Resin,Type,Viscosity,LabId,ExpSampleHandling
+R1,Desmodur N 3300,Polyisocyanates,3000,,Viscous
+R2,Desmodur N 3500,Polyisocyanates,35000,,Viscous
+R3,Desmodur N 31100,Polyisocyanates,500,,Liquid
+R4,Desmodur N 3400,Polyisocyanates,175,,Liquid
+R5,Desmodur N 100,Polyisocyanates,7500,,Viscous
+R6,Desmodur N 3900,Polyisocyanates,730,,Liquid
+R7,Desmodur Z 2589,Polyisocyanates,-1,,Powder
+R8,Desmophen NH 1220,Aspartate,100,,Liquid
+R9,Desmophen NH 1420,Aspartate,1325,,Liquid
+R10,Desmophen NH 1520,Aspartate,1400,,Liquid
+R11,Desmophen 1100,Polyesters,30500,,Viscous
+R12,Desmophen 1200,Polyesters,23500,,Viscous

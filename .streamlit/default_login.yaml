@@ -1,0 +1,59 @@
+api_key: "invalid_key-replace_with_null_to_disable_email_verification" # get your api key from https://stauthenticator.com/
+cookie:
+  expiry_days: 30
+  key: fill_with_any_random_secure_key_to_sign_your_cookie
+  name: fill_with_any_string_for_cookie_name
+credentials:
+  usernames:
+    admin:
+      email: admin@localhost
+      failed_login_attempts: 0
+      first_name: Not4production
+      last_name: Admin
+      logged_in: false
+      password: not4production # will automatically be hashed
+      password_hint: not4production
+      roles: null
+    test:
+      email: test@localhost
+      failed_login_attempts: 0
+      first_name: Not4production
+      last_name: Test
+      logged_in: false
+      password: not4production # will automatically be hashed
+      password_hint: not4production
+      roles: null
+guest-credentials:
+  alien:
+    expire_on: 20251231T23:59:59.999999-05:00
+    oauth2: False # must explicitly set to False to turn off oauth2
+  alien-but-google:
+    expire_on: 20251231T23:59:59.999999-05:00
+    oauth2:
+    - google # remember to set the google oauth2 info
+max_concurrent_users: 20
+oauth2:
+  google:
+    client_id: null
+    client_secret: null
+    redirect_uri: null
+  microsoft:
+    client_id: null
+    client_secret: null
+    redirect_uri: null
+    tenant_id: null
+permissions:
+  admin:
+  - admin
+  guest: []
+  inviter:
+  - admin
+  user:
+  - admin
+  - test
+  - invited-guest@localhost
+pre-authorized:
+  emails:
+  - invited-guest@localhost
+require-password-reset:
+- test

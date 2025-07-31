@@ -1,0 +1,101 @@
+error_log /var/log/nginx/error.log;
+access_log /var/log/nginx/access.log;
+
+server {
+
+	root /var/www/*****HOSTNAME*****/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name *****HOSTNAME*****;
+
+	error_page 404 /404.html;
+
+	location / {
+		try_files $uri $uri.html $uri.htm $uri/ =404;
+	}
+
+	# for access to the Streamlit app
+	location /HSP/ {
+		proxy_pass http://localhost:8503;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto $scheme;
+
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "Upgrade";
+		proxy_read_timeout 2h;
+	}
+
+    # Fake location for testing
+    # Only return JSON response after 60 seconds
+    location ~ ^/api/pause(\/*)$ {
+        default_type application/json;
+        echo_sleep 45;
+        echo '{"message": "You have been delayed for 45 seconds."}';
+    }
+
+	# Hidden API for communications with the remote lab script
+	location /api/*****API_KEY_A*****/ {
+		proxy_pass http://localhost:5000/;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto $scheme;
+
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "Upgrade";
+		proxy_read_timeout 2h;
+	}
+
+	# For testing the autoHSP solvent selection algorithm
+	# and demonstrating the HSP selection and experiment scheduling algorithm
+	location /HSP-demo/ {
+		proxy_pass http://localhost:5000/test/;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto $scheme;
+
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "Upgrade";
+		proxy_read_timeout 2h;
+	}
+
+	# Hidden path for the interface detection module
+	location /api/*****API_KEY_B*****/ {
+		proxy_pass http://localhost:5001/;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto $scheme;
+
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "Upgrade";
+		proxy_read_timeout 2h;
+	}
+
+    listen [::]:443 ssl; # ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/*****HOSTNAME*****/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/*****HOSTNAME*****/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+server {
+    if ($host = *****HOSTNAME*****) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+	listen 80;
+	listen [::]:80;
+
+	server_name *****HOSTNAME*****;
+    return 404; # managed by Certbot
+}

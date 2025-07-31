@@ -1,0 +1,133 @@
+# default configuration to run experiments in the lab
+
+# the maximum number of solvents to test for determining the HSP parameters
+# ideally, this should be a multiple of `n_per_thread`, the number of solvents to test per experiment thread
+# if not, this number will be rounded down to the nearest multiple of `n_per_thread`
+# type: positive integer, restricted to be greater than or equal to `N_min`
+N_max = 36
+
+# the minimum number of solvents to test for determining the HSP parameters
+# ideally, this should be a multiple of `n_per_thread`, the number of solvents to test per experiment thread
+# if not, this number will be rounded up to the nearest multiple of `n_per_thread`
+# type: positive integer, restricted to be <= `N_max` and >= 1
+N_min = 12
+
+# the default number of solvents to test per experiment thread
+# type: positive integer, restricted to be >= 1
+n_per_thread = 6
+
+# strategy to use when proposing solvents to test
+# the default is 'smart', which uses a smart stop creteria to decide when to stop the experiment
+# the other option is 'greedy', which uses a greedy strategy: stop at `N_max` only
+strategy = "smart"
+
+# strictness for the end of experiment (EOE) criteria under the 'smart' strategy
+# the default is 0.8. Strictness is a value between 0 and 1, where:
+# the higher the value, the more strict the criteria is (meaning it will take
+# more solvents and better results to reach the EOE criteria)
+# Check `HSP.hsp_solver_reached_EOE_or_not` for more details.
+strictness = 0.8
+
+# when proposing solvents to test, for each solvent, the maximum number of pure solvents is allowed
+# for example, when `n_per_solvent` is 1, every solvent tested will be a pure solvent
+# when `n_per_solvent` is 2, every solvent tested will be either a pure solvent or a binary mixture
+# type: positive integer, restricted to be >= 1. For now, only 1 and 2 are supported.
+n_per_solvent = 2
+
+# if mixing solvents, what should the mix step size be?
+# type: float, restricted to be 0.02 <= mix_step_size <= 0.5
+# the default is 0.1, for example, 1.0A, 0.9A0.1B, 0.8A0.2B, ..., 0.1A0.9B, 1.0B
+mix_step_size = 0.1
+
+# the precision of the experiments: if two solvents are within `precision` of each other, they are considered the same
+# or in other words, for solvents that are tested already, any other untested solvents within `precision` range will not be tested
+# Do NOT set this value too large, as it will compromise the accuracy of the final HSP estimation
+# Do NOT set this value too small, otherwise, it would be hard to rule out tested solvents from candidates (due to possible float point inaccuracy)
+# type: float, restricted to be >= 0.001
+precision = 0.1
+
+# when proposing new solvents to test, which random seed to use
+# the default is `None`, which means no random seed is set and each run could be different
+# uncomment the line below to set the random seed for reproducibility
+#random_seed = 42
+
+# priority of for the current resin
+# the higher the number, the higher the priority of the resin to be picked for the next experiment thread
+# the default is 1 - all resins with the same priority will be picked by the number of already tested solvents (descending)
+# if the priority is set to 0, the resin is paused and will not be picked for the next experiment thread (the lab thread will be on hold)
+# if the priority is set to -1 (or less than 0), this represents EOE (end of experiment)
+# and the resin will not be picked for any future experiment thread (the lab thread will be terminated immediately)
+# NOTE: if you set a wrong configuration value for other parameters, the priority might be reset to -1 to end the experiment for the current resin
+# type: integer, float will also do but there might be unexpected behavior
+priority = -1
+
+# exploration temperature for the HSP solver (solvent selection algorithm)
+# the default is 0.5. Should be a value between 0 and 1.
+# This parameter is designed for the explore+ strategy.
+# In the `explore+` strategy, unlabeled solvents are tentatively guessed to be compatible or incompatible.
+# The `explore_temp` parameter controls how many of the *compatible* should be selected. The higher the value,
+# the fewer compatible solvents are selected, i.e., the more exploration on the incompatible space is done.
+# Check `HSP.hsp_solver.propose_new_solvents` for more details.
+explore_temp = 0.5
+
+# the distance percentile (cutoff) for the conditioned clustering and solvent selection
+# the default is 0.34. Should be a value between 0 and 1.
+# Briefly, when querying the unlabled HSP space with tested solvents, the algorithm will
+# rank the unlabeled solvents by their respective closest distance to the tested solvents.
+# the `distance_percentile` parameter controls the cutoff to filter out the solvents that are close to the tested solvents.
+# The closest `distance_percentile * 100` percent of the unlabeled solvents will be discarded from further clustering and selection.
+# The higher the value (e.g., 0.66), meaning the selection strategy is more aggressive, i.e., it will select more solvents that are further away from the tested solvents.
+# Lower values provide more conservative and granular search in the HSP space, but might take more time to converge (meet the EOE criteria).
+# Check `HSP.hsp_solver.propose_new_solvents` and `HSP.hsp_solver.get_conditioned_n_centroids` for more details.
+distance_percentile = 0.34
+
+# which thread(s) to listen to when a request from the lab is received
+# the default is to listen to all threads, with a corresponding regex of '.*'
+# the regex can be a single string or a list of strings
+# if a list of regex strings is provided, the listened threads are the union of all regex strings
+listen_to = ['^thread3$']
+
+# sample sit time in minutes
+# the default is 24 hours, which is 1440 minutes
+# type: positive integer, restricted to be >= 1
+sample_sit_time = 1440
+
+# resin amount to use in the resin-solvent compatibility test
+# default resin column name is 'Code' ( as resin identifier )
+[resin]
+amount  = 5
+colname = 'Code'
+
+# total amount of pure solvent amounts to use in the resin-solvent compatibility test
+# default solvent column name is 'Code' ( as solvent identifier )
+[solvent]
+amount  = 5
+colname = 'Code'
+
+# allowed solvents to include in the experiments in the above `solvents.csv` file
+# the `colname` is the column name in the `solvents.csv` file
+# the `regex` is a regular expression to match the solvent names
+# the included solvents are the union of all `solvents.include` sections minus the excluded solvents
+# the default is to include all solvents
+[[solvent.include]]
+colname = 'Code'
+regex   = '.*'   # can be a single string or a list of strings
+
+# excluded solvents to exclude from the experiments in the above `solvents.csv` file
+# the `colname` is the column name in the `solvents.csv` file
+# the `regex` is a regular expression to match the solvent names
+# the excluded solvents are the union of all `solvents.exclude` sections
+# the default is to exclude solvents that are not in `InStock`
+[[solvent.exclude]]
+colname = 'InStock'
+regex   = '^[nN0]*$' # can be a single string or a list of strings
+
+# required solvents (must use them!) to include in the experiments in the above `solvents.csv` file
+# the `colname` is the column name in the `solvents.csv` file
+# the `regex` is a regular expression to match the solvent names
+# the required solvents are the union of all `solvents.required` sections
+# the final list of required solvents is the intersection of the included solvents and the required solvents
+# the default is to include no required solvents
+[[solvent.required]]
+colname = 'Code'
+regex   = '^S2[35]$' # include S23 and S25

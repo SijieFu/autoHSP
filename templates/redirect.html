@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+</head>
+<body>
+    <!-- Redicting to a `link` in 3 seconds -->
+    <h1>Redirecting...</h1>
+    <script>
+        setTimeout(() => {
+            window.location.href = "{{ link }}";
+        }, {{ time }} * 1000);
+    </script>
+    You will be redirected to <a href="{{ link }}">{{ link }}</a> in {{ time }} seconds. You can also click the link to go there immediately.
+</body>
+</html>
