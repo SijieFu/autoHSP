@@ -22,17 +22,14 @@
   - [Acknowledgements](#acknowledgements)
 
 ## Citation
-This project is a part of the *autoHSP* publication:
+This project is a part of the *autoHSP* preprint/publication:
 ```
-@article{fu2025autoHSP,
+@misc{fu_autonomous_2025,
   title={Autonomous Determination of Hansen Solubility Parameters via Active Learning},
   authors={Fu, Sijie and Wang, Daniel and Henderiks, Harmanna and Nogueira Assis, Andre and Charron, James and Washburn, Newell},
-  journal={NA},
-  year={2025},
-  volume={NA},
-  number={NA},
-  pages={NA},
-  doi={NA},
+  date={2025-08-06},
+  doi={10.26434/chemrxiv-2025-c7g4r},
+  url = {https://chemrxiv.org/engage/chemrxiv/article-details/685b02eb3ba0887c335cf804},
 }
 ```
 
